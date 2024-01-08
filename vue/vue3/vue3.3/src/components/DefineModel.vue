@@ -1,9 +1,19 @@
 <script setup lang="ts">
-  const name = defineModel('张三');
+  // const props = withDefaults(
+  //   defineProps<{
+  //     value: string;
+  //   }>(),
+  //   {
+  //     value: '我系渣渣辉',
+  //   }
+  // );
+
+  const modelValue = defineModel();
 </script>
 
 <template>
-  <input v-model="name" />
+  <h1>DefineModel</h1>
+  <input v-model="modelValue" />
 </template>
 
 <style scoped></style>
