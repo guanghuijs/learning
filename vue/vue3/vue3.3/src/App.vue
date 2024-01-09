@@ -5,6 +5,7 @@
   import DefineEmits from './components/DefineEmits.vue';
   import DefineModel from './components/DefineModel.vue';
   import DefineModel2 from './components/DefineModel2.vue';
+  import Computed from './components/Computed.vue';
   const name = ref('哈哈哈');
   const change = (res: string) => {
     console.log(res);
@@ -26,4 +27,5 @@
   <div>{{ defineModelValue }}</div>
   <input type="text" v-model="defineModelValue" />
   <DefineModel2 v-model:value="defineModelValue"></DefineModel2>
+  <Computed></Computed>
 </template>
