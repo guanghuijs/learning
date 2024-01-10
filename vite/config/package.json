@@ -1,0 +1,19 @@
+{
+  "name": "config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "i": "pnpm i",
+    "dev": "vite serve",
+    "build": "vite build",
+    "build lib": "vite build --mode lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.11"
+  }
+}

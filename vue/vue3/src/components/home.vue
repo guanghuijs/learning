@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import type { RouteRecordRaw } from 'vue-router';
   import { useRouter, useRoute } from 'vue-router';
+  import { resolve } from 'path';
+  console.log(resolve());
   const [_route, _router] = [useRoute(), useRouter()];
   defineProps<{
     routes: RouteRecordRaw;
