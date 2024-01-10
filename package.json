@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/mockjs": "^1.0.10",
     "prettier": "^2.8.4"
   },
   "dependencies": {

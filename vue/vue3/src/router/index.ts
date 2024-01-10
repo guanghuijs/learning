@@ -14,7 +14,7 @@ const router = createRouter({
     },
     {
       path: '/vue',
-      redirect: '/vue/1.模板语法',
+      redirect: '/vue/1.template',
       component: defineComponent(() => {
         return () =>
           h(Home, {

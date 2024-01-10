@@ -1,11 +1,7 @@
 <script setup lang="ts">
   import type { RouteRecordRaw } from 'vue-router';
-  import fs from 'node:fs';
-  import path from 'node:path';
   import { useRouter, useRoute } from 'vue-router';
   const [_route, _router] = [useRoute(), useRouter()];
-  console.log(path.resolve(), '---------');
-  const files = fs.readFileSync(path.resolve());
   defineProps<{
     routes: RouteRecordRaw;
   }>();
