@@ -76,43 +76,45 @@
 //   },
 // });
 
-import { defineConfig, loadEnv } from "vite";
-import { fileURLToPath, URL } from "node:url";
-import type { UserConfig } from "vite";
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig, loadEnv } from 'vite';
+import type { UserConfig } from 'vite';
 
-import vue from "@vitejs/plugin-vue";
-import { resolve } from "path";
+// import vue from "@vitejs/plugin-vue";
+import { resolve } from 'path';
 
-import { viteBaseConfig } from "./vite.config.base";
+import { viteConfigBase } from './vite.config.base';
 
 const envResolver = {
   build: (): UserConfig => {
-    console.log("生产环境");
+    console.log('生产环境');
     return {
-      plugins: [vue()],
+      plugins: [
+        /**vue()**/
+      ],
       resolve: {
         alias: {
-          "@": fileURLToPath(new URL("./src", import.meta.url)),
+          '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
       },
     };
   },
-  serve: (): UserConfig => ({ ...viteBaseConfig }),
+  serve: (): UserConfig => ({ ...viteConfigBase }),
 };
 
 export default defineConfig(({ command, mode }) => {
-  console.log("command", command);
+  console.log('command', command);
   console.log(import.meta.url);
   console.log(
-    "\x1b[31m%s\x1b[0m",
-    "\n当前处于开发测试阶段，还会有大量更新，仅供参考，请勿用于实际项目！\n"
+    '\x1b[31m%s\x1b[0m',
+    '\n当前处于开发测试阶段，还会有大量更新，仅供参考，请勿用于实际项目！\n'
   );
   // 配置文件路径
-  const envDir = resolve(process.cwd(), "env"); //绝对路径
+  const envDir = resolve(process.cwd(), 'env'); //绝对路径
   // ./env 相对路径
   // process.cwd()项目根路径 D:\work\ghstudy
   console.log(mode);
-  const env = loadEnv(mode, envDir, "");
+  const env = loadEnv(mode, envDir, '');
   console.log(env);
   return envResolver[command]();
 });

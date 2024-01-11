@@ -1,5 +1,5 @@
 import { loadEnv, UserConfig } from 'vite';
-import { viteBaseConfig } from './vite.base.config';
+import { viteConfigBase } from './vite.config.base';
 
 export function build(mode: string): UserConfig {
   console.log('生产环境');
@@ -10,16 +10,9 @@ export function build(mode: string): UserConfig {
     console.log('打包');
   }
   return {
-    ...viteBaseConfig,
-    build:
-      mode === 'lib'
-        ? {
-            outDir: 'lib',
-            emptyOutDir: true,
-          }
-        : {
-            outDir: 'dist',
-            emptyOutDir: true,
-          },
+    ...viteConfigBase,
+    build: {
+      outDir: mode ?? 'lib',
+    },
   };
 }

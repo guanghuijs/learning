@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "types": ["vite/client", "node"],
+    "moduleResolution": "node"
+  },
+  "include": ["vite.config.**", "**.ts", "env.d.ts"],
+  "exclude": ["node_modules", "dist", "**-lock.**"]
+}
