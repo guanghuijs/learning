@@ -18,10 +18,21 @@ const router = createRouter({
       component: defineComponent(() => {
         return () =>
           h(Home, {
-            routes: filterRoutes(routes, 'vue'),
+            routes: filterRoutes(routes, 'vue') as any as RouteRecordRaw,
           });
       }),
       children: filterRoutes(routes, 'vue'),
+    },
+    {
+      path: '/demo',
+      redirect: '/demo/grape',
+      component: defineComponent(() => {
+        return () =>
+          h(Home, {
+            routes: filterRoutes(routes, 'demo') as any as RouteRecordRaw,
+          });
+      }),
+      children: filterRoutes(routes, 'demo'),
     },
   ],
 });
