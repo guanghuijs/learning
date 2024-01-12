@@ -1,0 +1,10 @@
+<van-popup custom-class="van-popup" show="{{show}}" position="bottom" custom-style="height: {{height}};" bind:click-overlay="toggle" round>
+	<view class="popup-title">
+		<view class="title">{{title}}</view>
+		<view class="left" bind:tap="toggle">取消</view>
+		<view class="right" bind:tap="toggle">确认</view>
+	</view>
+	<view class="content">
+		<slot></slot>
+	</view>
+</van-popup>

@@ -1,0 +1,34 @@
+@import './mix-in.less';
+
+/**app.wxss**/
+page {
+  // 主题色
+  --theme: #27aa3c;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  background: #f2f2f2;
+}
+
+.container.form {
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+    overflow-y: scroll;
+  }
+
+  .action {
+    padding: 20rpx 20rpx calc(env(safe-area-inset-bottom) + 20rpx);
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+  }
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

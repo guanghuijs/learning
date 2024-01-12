@@ -28,3 +28,5 @@ node_modules
 # 打包目录
 dist
 lib
+
+miniprogram_npm

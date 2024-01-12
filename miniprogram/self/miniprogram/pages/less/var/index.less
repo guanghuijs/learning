@@ -1,0 +1,26 @@
+/* pages/less/var/index.wxss */
+
+// less
+@color: pink;
+@my-selector: test;
+
+page {
+	// css
+	--bgColor: blue;
+}
+
+.test {
+	color: @color;
+	background: var(--bgColor);
+}
+
+// .test
+.@{my-selector} {
+	font-size: 80rpx;
+}
+
+// 属性作为变量
+.test2 {
+	color: var(--bgColor);
+	background: $color;
+}

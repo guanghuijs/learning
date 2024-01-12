@@ -1,0 +1,19 @@
+<xr-scene>
+  <!-- 环境数据 -->
+  <xr-asset-load type="video-texture" asset-id="office" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/videos/office-skybox.mp4" options="autoPlay:true,loop:true" />
+  <xr-env env-data="xr-frame-team-workspace-day" sky-map="video-office" />
+  <!-- 环境光 -->
+  <xr-light type="ambient" color="1 1 1" intensity="1" /> 
+  <!-- 方向光 -->
+  <xr-light type="directional" rotation="40 70 0" color="1 1 1" intensity="3" cast-shadow />
+  <!-- 纹理 -->
+  <xr-assets bind:progress="handleAssetsProgress" bind:loaded="handleAssetsLoaded">
+    <xr-asset-load type="texture" asset-id="waifu" src="https://img0.baidu.com/it/u=1622066870,278007259&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" />
+  </xr-assets>
+  <xr-mesh node-id="cube" geometry="cube" cast-shadow uniforms="u_baseColorMap: waifu,u_metallicRoughnessValues:1 0.1" />
+  <xr-mesh
+    position="0 -1 0" scale="4 2 4" receive-shadow
+    geometry="plane" uniforms="u_baseColorMap: waifu,u_metallicRoughnessValues:1 0.1"
+  />
+  <xr-camera clear-color="0.4 0.8 0.6 1" position="0 1 4" background="skybox" target="cube" camera-orbit-control />
+</xr-scene>

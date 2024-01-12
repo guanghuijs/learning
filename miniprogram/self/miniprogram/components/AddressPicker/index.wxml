@@ -1,0 +1,21 @@
+<van-field
+  value="{{ showValue }}"
+  is-link
+  input-align="right"
+  bind:tap="toggle"
+  label="{{label}}"
+  readonly
+  placeholder="请选择地址"
+  use-input-slot
+>
+</van-field>
+<van-popup show="{{ show }}" bind:click-overlay="toggle" position="bottom">
+  <van-area
+    value="{{value}}"
+    bind:confirm="confirm"
+    bind:cancel="toggle"
+    bind:change="change"
+    title="{{title}}"
+    area-list="{{ areaList }}"
+  />
+</van-popup>

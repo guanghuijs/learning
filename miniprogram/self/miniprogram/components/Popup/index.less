@@ -1,0 +1,43 @@
+@import '../../app.less';
+
+.van-popup {
+	display: flex;
+	flex-direction: column;
+
+	.popup-title {
+		display: flex;
+		align-items: center;
+		padding: 0 24rpx;
+		justify-content: space-between;
+		height: 80rpx;
+		background: white;
+		border-bottom: 1px solid #f2f2f2;
+		position: relative;
+
+		.title {
+			position: absolute;
+			left: 0;
+			top: 0;
+			line-height: 80rpx;
+			width: 100%;
+			text-align: center;
+		}
+
+		.right,
+		.left {
+			position: relative;
+			font-size: 28rpx;
+			color: #999;
+		}
+
+		.right {
+			color: var(--theme);
+		}
+	}
+
+	.content {
+		flex: 1;
+		overflow-y: scroll;
+		background: #f2f2f2;
+	}
+}

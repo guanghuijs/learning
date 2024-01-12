@@ -1,0 +1,8 @@
+<view class="container form">
+	<view class="content">
+		<view style="width: 50px; background: red; height: 150vh"></view>
+	</view>
+	<view class="action">
+		<van-button block>提交</van-button>
+	</view>
+</view>

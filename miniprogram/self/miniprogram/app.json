@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/form-page/index",
+    "pages/xr-frame/xr-basic/index",
+    "pages/xr-frame/xr-like/index",
+    "pages/xr-frame/xr-face/index",
+    "pages/xr-frame/xr-osdm/index",
+    "pages/xr-frame/xr-2dmarker/index",
+    "pages/component/scroll_view/index",
+    "pages/component/edit/index",
+    "pages/component/video_/index",
+    "pages/less/var/index",
+    "pages/less/&/index",
+    "pages/less/extend/index",
+    "pages/less/mix-in/index",
+    "pages/vant/popup/index",
+    "pages/vant/address_picker/index",
+    "pages/api/chooseLoaction/index",
+    "components/AddressPicker/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "resolveAlias": {
+    "@app/*": "/*",
+    "@utils/*": "/utils/*",
+    "@api/*": "/api/*",
+    "@type/*": "/typings/*"
+  },
+  "lazyCodeLoading": "requiredComponents"
+}

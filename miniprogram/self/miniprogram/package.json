@@ -1,0 +1,22 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@vant/area-data": "^1.5.1",
+    "@vant/weapp": "^1.11.0",
+    "dayjs": "^1.11.8",
+    "decimal.js": "^10.4.3",
+    "tdesign-miniprogram": "^1.1.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.8"
+  }
+}

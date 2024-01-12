@@ -1,0 +1,3 @@
+<view class="container">
+  <van-button bind:tap="tap">按钮</van-button>
+</view>

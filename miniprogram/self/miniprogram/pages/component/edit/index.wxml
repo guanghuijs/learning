@@ -1,0 +1,3 @@
+<view class="container">
+  <s-editor id="selfEditor" bindeditorblur="onEditorblur" bindeditorready="onEditorReady"></s-editor>
+</view>

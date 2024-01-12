@@ -1,0 +1,12 @@
+<view class="container">
+  <view
+    class="list-item"
+    wx:for="{{links}}"
+    wx:key="index"
+    data-link="{{item.link}}"
+    bindtap="linkTo"
+  >
+    <view>{{item.title}}</view>
+    <text>›</text>
+  </view>
+</view>

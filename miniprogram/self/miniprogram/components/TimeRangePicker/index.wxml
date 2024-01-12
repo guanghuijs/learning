@@ -1,0 +1,24 @@
+<view class="timer-picker" bind:tap="onPicker">
+  <van-icon custom-class="icon" name="calendar-o" />
+  <view>选择时间</view>
+</view>
+<van-popup show="{{show}}" round position="bottom" bind:close="onClose" data-id="timePickerShow">
+  <van-datetime-picker
+    title="{{title}}"
+    bind:confirm="onConfirm"
+    bind:cancel="onClose"
+    value="{{start}}"
+    min-date="{{startMin}}"
+    visible-item-count="{{3}}"
+    item-height="{{32}}"
+    bind:input="onChange"
+  ></van-datetime-picker>
+  <view class="line">至</view>
+  <van-datetime-picker
+    value="{{end}}"
+    min-date="{{endMin}}"
+    show-toolbar="{{false}}"
+    visible-item-count="{{3}}"
+    item-height="{{32}}"
+  ></van-datetime-picker>
+</van-popup>

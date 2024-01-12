@@ -1,0 +1,33 @@
+<xr-scene ar-system="modes:Marker" bind:ready="handleReady">
+  <xr-assets bind:loaded="handleAssetsLoaded">
+		<!-- 视频 -->
+    <!-- <xr-asset-load
+      type="video-texture" asset-id="hikari" options="loop:true"
+      src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/xr-frame-team/2dmarker/hikari-v.mp4"
+    /> -->
+    <!-- <xr-asset-material asset-id="mat" effect="simple" uniforms="u_baseColorMap: gltf-damageHelmet" /> -->
+		<!-- 头盔 -->
+		<!-- <xr-asset-load type="gltf" asset-id="gltf-damageHelmet" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/damage-helmet/index.gltf" /> -->
+		<!-- 山 -->
+		<!-- <xr-asset-load asset-id="anim" type="keyframe" src="/assets/animation/miku-kawaii-animation.json"/>
+		<xr-asset-load type="gltf" asset-id="cloud-station" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/cloud-station/index.glb" /> -->
+    <xr-asset-load type="gltf" asset-id="miku" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/miku.glb" />
+	</xr-assets>
+  <xr-node wx:if="{{loaded}}">
+    <xr-ar-tracker
+      mode="Marker"
+      src="/assets/img/img6.png"
+    >
+      <!-- <xr-mesh node-id="mesh-plane" geometry="plane" material="mat" /> -->
+			<!-- anim-autoplay 山 -->
+			<!-- <xr-gltf position="0 0 0" rotation="-90 0 0" scale="0.1 0.1 0.1" model="cloud-station" anim-autoplay></xr-gltf> -->
+			<!-- 人 -->
+			<xr-gltf position="0 0 0.6" scale="0.06 0.06 0.06" rotation="90 0 180" model="miku" anim-autoplay></xr-gltf>
+    </xr-ar-tracker>
+  </xr-node>
+  <xr-camera clear-color="0.4 0.8 0.6 1" background="ar" is-ar-camera camera-orbit-control />
+	<xr-node node-id="lights">
+    <xr-light type="ambient" color="1 1 1" intensity="0.3" />
+    <xr-light type="directional" rotation="40 180 0" color="1 1 1" intensity="2" />
+  </xr-node>
+</xr-scene>

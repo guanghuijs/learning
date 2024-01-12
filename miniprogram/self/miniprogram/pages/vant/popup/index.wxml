@@ -1,0 +1,4 @@
+<view class="container">
+  <van-button bind:tap="open">按钮</van-button>
+  <custom-popup show="{{show}}"></custom-popup>
+</view>

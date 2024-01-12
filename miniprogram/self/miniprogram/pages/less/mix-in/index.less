@@ -1,0 +1,44 @@
+@import '../public.less';
+
+.a {
+  color: red;
+}
+
+#b {
+  background: blanchedalmond;
+}
+
+.c {
+  &:active {
+    border: 1px solid black;
+  }
+}
+
+.prop(@color: pink, @bg: #a7a7ea) {
+  color: @color;
+  background: @bg;
+}
+
+// .border(@bc: red, @bw: 1px, @bt: solid, ) {
+// 	border: @bc @bw @bt;
+// }
+
+.test {
+  // 加不加()镀锌
+  .a;
+  #b();
+  .c();
+}
+
+.test2 {
+  .prop();
+}
+
+.test3 {
+  .prop(@bg: #331400) !important;
+  .border(red, 5rpx);
+}
+
+.test4 {
+  .flex-between();
+}

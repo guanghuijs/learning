@@ -1,0 +1,11 @@
+<view class="container">
+  <view>地址:{{addressName}} code:{{address}}</view>
+  <address-picker
+    model:showValue="{{addressName}}"
+    model:value="{{address}}"
+    label="收货地址"
+    title="收货地址选择"
+    bind:change="onChange"
+    bind:confirm="onConfirm"
+  />
+</view>

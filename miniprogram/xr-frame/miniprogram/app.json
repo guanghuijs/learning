@@ -1,0 +1,20 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/xr-geometry/index",
+		"pages/xr-2dmarker/index",
+		"pages/xr-osdm/index",
+		"pages/xr-like/index",
+		"pages/xr-face/index",
+		"pages/xr-basic/index"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "Weixin",
+		"navigationBarTextStyle": "black"
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents"
+}

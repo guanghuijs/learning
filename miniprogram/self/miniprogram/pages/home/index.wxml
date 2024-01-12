@@ -1,0 +1,10 @@
+<view class="container">
+	<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+		<van-collapse-item wx:for="{{routes}}" wx:key="title" title="{{item.title}}" name="{{item.title}}">
+			<view class="route_item flex-between" wx:for="{{item.routes}}" wx:key="title" wx:for-item="route" data-path="{{route.path}}" bindtap="routeTo">
+				<view>{{route.title}}</view>
+				<van-icon name="arrow" />
+			</view>
+		</van-collapse-item>
+	</van-collapse>
+</view>

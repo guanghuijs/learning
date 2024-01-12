@@ -1,0 +1,12 @@
+<view class="container">
+  <scroll-view
+    scroll-y="true"
+    refresher-enabled="true"
+    style="height: 100vh"
+    bindrefresherrefresh="handleRefresher"
+    bindscrolltolower="handlescrolltolower"
+    refresher-triggered="{{isTriggered}}"
+  >
+    <view class="item" wx:for="{{50}}" wx:key="*this"> 我是数据 </view>
+  </scroll-view>
+</view>

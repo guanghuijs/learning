@@ -3,5 +3,13 @@
   "singleQuote": true,
   "printWidth": 100,
   "vueIndentScriptAndStyle": true,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.wxml",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
 }
