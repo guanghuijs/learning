@@ -3,10 +3,41 @@
   import { javascript } from '@codemirror/lang-javascript';
   import { html } from '@codemirror/lang-html';
   import { oneDark } from '@codemirror/theme-one-dark';
+
+  withDefaults(
+    defineProps<{
+      modelValue: string;
+      show?: boolean;
+    }>(),
+    {
+      modelValue: '',
+      show: true,
+    }
+  );
 </script>
 
 <template>
-  <Codemirror :extensions="[javascript(), html(), oneDark]"></Codemirror>
+  <transition v-show="show">
+    <div class="codemirror-content">
+      <Codemirror
+        :model-value="modelValue"
+        :extensions="[javascript(), html(), oneDark]"
+      ></Codemirror>
+    </div>
+  </transition>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+  .codemirror-content {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background-size: 600% 600%;
+    animation: gradientBG 5s ease infinite;
+    :deep(.cm-editor) {
+      height: 100%;
+    }
+  }
+</style>

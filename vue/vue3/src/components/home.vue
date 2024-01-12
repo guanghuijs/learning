@@ -1,7 +1,18 @@
 <script setup lang="ts">
   import type { RouteRecordRaw } from 'vue-router';
   import { useRouter, useRoute } from 'vue-router';
+  import { ref, watch } from 'vue';
+  const allCode = import.meta.glob('../views/**/**.vue', { as: 'raw', eager: true });
   const [_route, _router] = [useRoute(), useRouter()];
+  import CodeMirror from '@/components/CodeMirror.vue';
+  const code = ref(allCode[`../views${_route.path}.vue`]);
+  watch(
+    () => _route.path,
+    (path) => {
+      code.value = allCode[`../views${path}.vue`];
+    }
+  );
+
   defineProps<{
     routes: RouteRecordRaw;
   }>();
@@ -23,6 +34,7 @@
     <div class="right">
       <router-view />
     </div>
+    <CodeMirror :modelValue="code"></CodeMirror>
   </div>
 </template>
 <style lang="less" scoped>
