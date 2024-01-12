@@ -2,7 +2,7 @@
   import { Codemirror } from 'vue-codemirror';
   import { javascript } from '@codemirror/lang-javascript';
   import { html } from '@codemirror/lang-html';
-  import { oneDark } from '@codemirror/theme-one-dark';
+  // import { oneDark } from '@codemirror/theme-one-dark';
 
   withDefaults(
     defineProps<{
@@ -17,27 +17,21 @@
 </script>
 
 <template>
-  <transition v-show="show">
-    <div class="codemirror-content">
-      <Codemirror
-        :model-value="modelValue"
-        :extensions="[javascript(), html(), oneDark]"
-      ></Codemirror>
-    </div>
-  </transition>
+  <div class="codemirror-content">
+    <Codemirror :model-value="modelValue" :extensions="[javascript(), html()]"></Codemirror>
+  </div>
 </template>
 
 <style scoped lang="less">
   .codemirror-content {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 40%;
     height: 100%;
     background-size: 600% 600%;
     animation: gradientBG 5s ease infinite;
     :deep(.cm-editor) {
       height: 100%;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 </style>
