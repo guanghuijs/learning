@@ -59,6 +59,18 @@ const router = createRouter({
       }),
       children: filterRoutes(routes, 'css'),
     },
+    {
+      path: '/es6',
+      redirect: '/es6/1.let',
+      name: 'es6',
+      component: defineComponent(() => {
+        return () =>
+          h(Home, {
+            routes: filterRoutes(routes, 'es6') as any,
+          });
+      }),
+      children: filterRoutes(routes, 'es6'),
+    },
   ],
 });
 
