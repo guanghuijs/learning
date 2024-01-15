@@ -47,6 +47,18 @@ const router = createRouter({
       }),
       children: filterRoutes(routes, 'three-js'),
     },
+    {
+      path: '/css',
+      redirect: '/css/1.属性选择器',
+      name: 'css',
+      component: defineComponent(() => {
+        return () =>
+          h(Home, {
+            routes: filterRoutes(routes, 'css') as any,
+          });
+      }),
+      children: filterRoutes(routes, 'css'),
+    },
   ],
 });
 
