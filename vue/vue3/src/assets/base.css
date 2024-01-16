@@ -1,5 +1,5 @@
 :root{
-  --n-color: red;
+  --theme: pink;
 }
 
 *{
@@ -36,6 +36,13 @@ body{
   font-size: 14px;
   color: #666;
 }
+
+body.dark{
+  color: red;
+}
+
+
+
 *{
   margin: 0;
   padding: 0;

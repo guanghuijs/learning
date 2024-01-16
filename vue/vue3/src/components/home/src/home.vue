@@ -75,9 +75,6 @@
   </n-layout>
 </template>
 <style lang="less" scoped>
-  .header {
-    height: 50px;
-  }
   .left {
     height: calc(100vh - 100px);
   }

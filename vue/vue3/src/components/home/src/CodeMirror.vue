@@ -2,7 +2,8 @@
   import { Codemirror } from 'vue-codemirror';
   import { javascript } from '@codemirror/lang-javascript';
   import { html } from '@codemirror/lang-html';
-  // import { oneDark } from '@codemirror/theme-one-dark';
+  import { vue } from '@codemirror/lang-vue';
+  import { oneDark } from '@codemirror/theme-one-dark';
 
   withDefaults(
     defineProps<{
@@ -18,7 +19,10 @@
 
 <template>
   <div class="codemirror-content">
-    <Codemirror :model-value="modelValue" :extensions="[javascript(), html()]"></Codemirror>
+    <Codemirror
+      :model-value="modelValue"
+      :extensions="[javascript(), html(), vue(), oneDark]"
+    ></Codemirror>
   </div>
 </template>
 
