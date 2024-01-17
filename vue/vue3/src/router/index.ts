@@ -9,10 +9,11 @@ const router = createRouter({
       redirect: '/vue',
     },
     getModuleRouter('vue', '1.template'),
+    getModuleRouter('es6', '1.let'),
+    getModuleRouter('css', '1.属性选择器'),
     getModuleRouter('demo', 'grape'),
     getModuleRouter('three-js', 'amf'),
-    getModuleRouter('css', '1.属性选择器'),
-    getModuleRouter('es6', '1.let'),
+    getModuleRouter('bmap', '1.init'),
   ],
 });
 
