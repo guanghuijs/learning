@@ -22,7 +22,11 @@
   };
 
   const proxy = new Proxy(person, {
-    get(target: { name: string; age: number }, prop: string | symbol, receiver: any): any {
+    get(
+      target: { name: string; age: number },
+      prop: string | symbol,
+      receiver: any
+    ): any {
       console.log('获取', receiver);
       return Reflect.get(target, prop);
     },
@@ -34,7 +38,10 @@
       console.log('修改');
       return Reflect.set(target, prop, value);
     },
-    deleteProperty(target: { name: string; age: number }, prop: string | symbol): boolean {
+    deleteProperty(
+      target: { name: string; age: number },
+      prop: string | symbol
+    ): boolean {
       return Reflect.deleteProperty(target, prop);
     },
     has(target: { name: string; age: number }, prop: string | symbol): boolean {

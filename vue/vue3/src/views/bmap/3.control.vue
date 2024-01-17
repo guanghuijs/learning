@@ -51,7 +51,10 @@
     );
 
     /** 自定义放大地图层级控件 **/
-    function ZoomControl({ anchor = BMAP_ANCHOR_TOP_LEFT, offset = new BMapGL.Size(20, 60) } = {}) {
+    function ZoomControl({
+      anchor = BMAP_ANCHOR_TOP_LEFT,
+      offset = new BMapGL.Size(20, 60),
+    } = {}) {
       this.defaultAnchor = anchor;
       this.defaultOffset = offset;
     }

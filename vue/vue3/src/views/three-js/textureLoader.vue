@@ -18,7 +18,10 @@
     const container = document.querySelector('.box');
 
     // 相机
-    camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight);
+    camera = new THREE.PerspectiveCamera(
+      75,
+      container.clientWidth / container.clientHeight
+    );
     camera.position.set(0, 0, 5);
 
     // 渲染器
@@ -46,7 +49,10 @@
     textureLoader.load('/hdrls/png/earth.png', function (texture) {
       texture.wrapS = THREE.RepeatWrapping; //质地.包裹
       texture.wrapT = THREE.RepeatWrapping;
-      const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+      const material = new THREE.MeshBasicMaterial({
+        map: texture,
+        transparent: true,
+      });
       const mesh = new THREE.Mesh(sphere, material);
       mesh.position.set(-1, 0, 0);
       const mesh1 = new THREE.Mesh(box, material);

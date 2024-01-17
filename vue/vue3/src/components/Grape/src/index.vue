@@ -35,25 +35,36 @@
   /**
    * 计算style属性
    */
-  const calStyle = computed(() => (index: number, color: string | undefined) => {
-    const days = calcDays(props.date);
-    return Object.assign(calcPosition(days, index), {
-      backgroundColor: props.data
-        ? color
-        : ['#4F268A', '#933792', '#BA4FB1', '#E7E4E7', '#7CAC21'][Random.integer(0, 4)],
-    });
-  });
+  const calStyle = computed(
+    () => (index: number, color: string | undefined) => {
+      const days = calcDays(props.date);
+      return Object.assign(calcPosition(days, index), {
+        backgroundColor: props.data
+          ? color
+          : ['#4F268A', '#933792', '#BA4FB1', '#E7E4E7', '#7CAC21'][
+              Random.integer(0, 4)
+            ],
+      });
+    }
+  );
 
   // 数据处理
   const list = computed(() => {
-    const baseList = Array.from({ length: calcDays(props.date) }, (_, index) => ({
-      assessDate: `${props.date}-${index + 1 < 10 ? '0' + (index + 1) : index + 1}`,
-      color: '#E7E4E7',
-    }));
+    const baseList = Array.from(
+      { length: calcDays(props.date) },
+      (_, index) => ({
+        assessDate: `${props.date}-${
+          index + 1 < 10 ? '0' + (index + 1) : index + 1
+        }`,
+        color: '#E7E4E7',
+      })
+    );
 
     if (!props.data) return baseList;
     props.data.forEach((dataItem) => {
-      const i = baseList.findIndex((item) => item.assessDate === dataItem.assessDate);
+      const i = baseList.findIndex(
+        (item) => item.assessDate === dataItem.assessDate
+      );
       baseList[i] = dataItem;
     });
     return baseList;

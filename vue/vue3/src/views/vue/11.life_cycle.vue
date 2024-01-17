@@ -1,8 +1,16 @@
 <template>
-  <button @click="flag = !flag">按钮{{flag}}</button>
+  <button @click="flag = !flag">按钮{{ flag }}</button>
 </template>
-<script lang='ts' setup>
-import {onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted, ref} from 'vue';
+<script lang="ts" setup>
+  import {
+    onBeforeMount,
+    onMounted,
+    onBeforeUpdate,
+    onUpdated,
+    onBeforeUnmount,
+    onUnmounted,
+    ref,
+  } from 'vue';
   // 重要
   console.log('setup');
   // 一般在这里初始化变量
@@ -32,5 +40,4 @@ import {onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, on
     // 一般在这里清除定时器,取消消息订阅,解除绑定事件
   });
 </script>
-<style lang='less' scoped>
-</style>
+<style lang="less" scoped></style>

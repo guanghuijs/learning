@@ -22,7 +22,10 @@
   const { mode, primaryColor } = useSysStoreRefs();
 
   const [_route, _router] = [useRoute(), useRouter()];
-  const allCode = import.meta.glob('../../../views/**/**.vue', { as: 'raw', eager: true });
+  const allCode = import.meta.glob('../../../views/**/**.vue', {
+    as: 'raw',
+    eager: true,
+  });
 
   defineProps<{
     routes: RouteRecordRaw[];
@@ -55,7 +58,10 @@
   });
 </script>
 <template>
-  <n-config-provider :theme="mode === 'dark' ? darkTheme : null" :theme-overrides="themeOverrides">
+  <n-config-provider
+    :theme="mode === 'dark' ? darkTheme : null"
+    :theme-overrides="themeOverrides"
+  >
     <div class="layout-container" style="height: 100%">
       <n-layout>
         <n-layout-header bordered>
@@ -91,7 +97,7 @@
               show-trigger
               collapse-mode="width"
               :collapsed-width="0"
-              width="50%"
+              width="40%"
               :native-scrollbar="false"
             >
               <div class="left">

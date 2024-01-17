@@ -63,7 +63,10 @@
           type: 'category',
           data: Array.from(
             { length: 15 },
-            () => ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][mock.Random.integer(0, 5)]
+            () =>
+              ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][
+                mock.Random.integer(0, 5)
+              ]
           ),
           name: '标签相关设置',
           nameLocation: 'center',

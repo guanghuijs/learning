@@ -15,7 +15,9 @@ export function useECharts(el: HTMLElement, options: echarts.EChartsOption) {
     }, 50)
   );
 
-  const setData = (dataset: echarts.DatasetOption | echarts.DatasetOption[]) => {
+  const setData = (
+    dataset: echarts.DatasetOption | echarts.DatasetOption[]
+  ) => {
     chart.setOption(Object.assign(options, { dataset }));
   };
 

@@ -12,10 +12,12 @@
     v-model:value="overlay"
     style="margin-top: 20px"
     :options="
-      ['Marker', 'Polyline', 'Circle', 'Polygon', 'Label', 'Marker3D'].map((value) => ({
-        value,
-        label: value,
-      }))
+      ['Marker', 'Polyline', 'Circle', 'Polygon', 'Label', 'Marker3D'].map(
+        (value) => ({
+          value,
+          label: value,
+        })
+      )
     "
   >
   </n-select>
@@ -49,7 +51,10 @@
     const BMapGL: any = await loadBMapGL();
     // 创建地图实例
     const _map: any = new BMapGL.Map(dom);
-    _map.centerAndZoom(new BMapGL.Point(102.66176448738847, 25.095927154191205), 18);
+    _map.centerAndZoom(
+      new BMapGL.Point(102.66176448738847, 25.095927154191205),
+      18
+    );
     _map.enableScrollWheelZoom(true);
     _map.addEventListener('click', (e) => {
       source.value = `${e.latlng.lng},${e.latlng.lat}`;
@@ -58,9 +63,12 @@
     if (unref(overlay) === 'Marker') {
       _map.clearOverlays();
 
-      const marker = new BMapGL.Marker(new BMapGL.Point(102.66190821626998, 25.095869901942454), {
-        enableDragging: true,
-      });
+      const marker = new BMapGL.Marker(
+        new BMapGL.Point(102.66190821626998, 25.095869901942454),
+        {
+          enableDragging: true,
+        }
+      );
 
       marker.addEventListener('click', () => {
         _map.openInfoWindow(
@@ -75,13 +83,16 @@
       _map.addOverlay(marker);
 
       _map.addOverlay(
-        new BMapGL.Marker(new BMapGL.Point(102.66232143680443, 25.094904597341667), {
-          enableDragging: true,
-          icon: new BMapGL.Icon(
-            'https://img1.baidu.com/it/u=2399966577,1808536528&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=492',
-            new BMapGL.Size(50, 50)
-          ),
-        })
+        new BMapGL.Marker(
+          new BMapGL.Point(102.66232143680443, 25.094904597341667),
+          {
+            enableDragging: true,
+            icon: new BMapGL.Icon(
+              'https://img1.baidu.com/it/u=2399966577,1808536528&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=492',
+              new BMapGL.Size(50, 50)
+            ),
+          }
+        )
       );
     } else if (unref(overlay) === 'Polyline') {
       _map.clearOverlays();
@@ -102,11 +113,15 @@
     } else if (unref(overlay) === 'Circle') {
       _map.clearOverlays();
       _map.addOverlay(
-        new BMapGL.Circle(new BMapGL.Point(102.66190821626998, 25.095869901942454), 100, {
-          strokeColor: 'blue',
-          strokeWeight: 2,
-          strokeOpacity: 0.5,
-        })
+        new BMapGL.Circle(
+          new BMapGL.Point(102.66190821626998, 25.095869901942454),
+          100,
+          {
+            strokeColor: 'blue',
+            strokeWeight: 2,
+            strokeOpacity: 0.5,
+          }
+        )
       );
     } else if (unref(overlay) === 'Polygon') {
       _map.clearOverlays();

@@ -3,7 +3,10 @@ import { defineComponent, h } from 'vue';
 import { Home } from '@/components/home';
 import routes from '~pages';
 
-export function filterRoutes(routes: RouteRecordRaw[], routeType: string): RouteRecordRaw[] {
+export function filterRoutes(
+  routes: RouteRecordRaw[],
+  routeType: string
+): RouteRecordRaw[] {
   return routes
     ?.filter((route) => (route.name as string).startsWith(routeType))
     .map((item) => {

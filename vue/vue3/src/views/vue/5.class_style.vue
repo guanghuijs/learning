@@ -3,7 +3,9 @@
   <div :class="isActive ? 'active' : ''">啦啦啦</div>
   <div :class="{ active: isActive }">啦啦啦</div>
   <div :class="[{ act: isActive }, { red: isActive }]">啦啦啦</div>
-  <div class="static" :class="{ active: isActive, 'text-danger': hasError() }">哈哈哈</div>
+  <div class="static" :class="{ active: isActive, 'text-danger': hasError() }">
+    哈哈哈
+  </div>
 
   <h3>style</h3>
   <div style="background: red">呵呵哈哈哈</div>

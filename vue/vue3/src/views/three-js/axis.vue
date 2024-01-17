@@ -18,7 +18,10 @@
     container = document.querySelector('.box');
 
     // 相机
-    camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight);
+    camera = new THREE.PerspectiveCamera(
+      75,
+      container.clientWidth / container.clientHeight
+    );
     camera.position.set(0, 0, 5);
 
     // 渲染器

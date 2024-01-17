@@ -179,7 +179,10 @@ export const calcPosition = (days: number, index: number) => {
  */
 export const calcDays = (date: string) => {
   const [year, month] = date.split('-');
-  if ((Number(year) % 4 === 0 && Number(year) % 100 !== 0) || Number(year) % 400 === 0) {
+  if (
+    (Number(year) % 4 === 0 && Number(year) % 100 !== 0) ||
+    Number(year) % 400 === 0
+  ) {
     return [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][Number(month) - 1];
   }
   return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][Number(month) - 1];

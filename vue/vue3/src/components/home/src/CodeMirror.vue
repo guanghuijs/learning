@@ -22,7 +22,9 @@
   );
 
   const extensions = computed(() =>
-    unref(mode) === 'dark' ? [javascript(), html(), vue(), oneDark] : [javascript(), html(), vue()]
+    unref(mode) === 'dark'
+      ? [javascript(), html(), vue(), oneDark]
+      : [javascript(), html(), vue()]
   );
 </script>
 

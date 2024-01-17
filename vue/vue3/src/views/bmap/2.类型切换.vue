@@ -1,5 +1,9 @@
 <template>
-  <n-select v-model:value="selectType" :options="mapType" @change="mapTypeChange" />
+  <n-select
+    v-model:value="selectType"
+    :options="mapType"
+    @change="mapTypeChange"
+  />
   <div id="container" class="container" ref="container"></div>
 </template>
 

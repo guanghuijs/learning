@@ -34,7 +34,10 @@
     const BMapGL: any = await loadBMapGL();
     // 创建地图实例
     const _map: any = new BMapGL.Map(dom);
-    _map.centerAndZoom(new BMapGL.Point(102.85076697175514, 24.89248383034783), 18);
+    _map.centerAndZoom(
+      new BMapGL.Point(102.85076697175514, 24.89248383034783),
+      18
+    );
     _map.enableScrollWheelZoom(true);
     _map.addControl(
       new BMapGL.CityListControl({
@@ -46,7 +49,9 @@
     _map.addEventListener('click', (e) => {
       source.value = `${e.latlng.lng},${e.latlng.lat}`;
       _map.clearOverlays();
-      _map.addOverlay(new BMapGL.Marker(new BMapGL.Point(e.latlng.lng, e.latlng.lat)));
+      _map.addOverlay(
+        new BMapGL.Marker(new BMapGL.Point(e.latlng.lng, e.latlng.lat))
+      );
       geoc.getLocation(e.latlng, (res) => {
         const addressArr = res.addressComponents;
         address.value = [

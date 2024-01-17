@@ -1,6 +1,6 @@
 <template>
   <h3>stop:阻止冒泡(以点击事件为例)</h3>
-  <div style="height: 100px;background: red" @click="parentClick">
+  <div style="height: 100px; background: red" @click="parentClick">
     <p @click="fn">没使用stop修饰符</p>
     <p @click.stop="fn">使用stop修饰符</p>
   </div>
@@ -19,29 +19,33 @@
   </div>
 
   <h3>self修饰符</h3>
-  <div style="height: 100px;background: red" @click="parentClick">
+  <div style="height: 100px; background: red" @click="parentClick">
     <p>测试:点击我</p>
   </div>
-  <div style="height: 100px;background: red" @click.self="parentClick">
+  <div style="height: 100px; background: red" @click.self="parentClick">
     <p>测试</p>
   </div>
 
   <h3>v-model修饰符</h3>
   <div>
-    <p>默认情况下，v-model同步输入框的值和数据。可以通过number这个修饰符，转变为在change事件再同步。</p>
+    <p>
+      默认情况下，v-model同步输入框的值和数据。可以通过number这个修饰符，转变为在change事件再同步。
+    </p>
     <input v-model.lazy="msg" />
     <p>number自动将用户的输入值转化为数值类型</p>
     <input v-model.number="msg" />
     <p>trim自动过滤用户输入的首尾空格</p>
     <input v-model.trim="msg" />
-    <div>{{msg}}{{typeof msg}}</div>
+    <div>{{ msg }}{{ typeof msg }}</div>
   </div>
 
   <h3>键盘事件的修饰符</h3>
-  <p>在我们的项目经常需要监听一些键盘事件来触发程序的执行，而Vue中允许在监听的时候添加关键修饰符：</p>
+  <p>
+    在我们的项目经常需要监听一些键盘事件来触发程序的执行，而Vue中允许在监听的时候添加关键修饰符：
+  </p>
   <div>
     <input @keyup.enter.ctrl="keyFn" />
-    <input  />
+    <input />
     <pre>
       全部的按键别名：
       .enter
@@ -69,31 +73,30 @@
     <div @click="keyFn">1</div>
   </div>
 </template>
-<script lang='ts' setup>
-import { ref } from "vue";
+<script lang="ts" setup>
+  import { ref } from 'vue';
 
-const parentClick = () => {
-  console.log('父元素点击事件');
-}
+  const parentClick = () => {
+    console.log('父元素点击事件');
+  };
 
-const fn = () => {
-  console.log('子元素');
-}
+  const fn = () => {
+    console.log('子元素');
+  };
 
-const formSubmit = () => {
-  console.log('表单提交')
-}
+  const formSubmit = () => {
+    console.log('表单提交');
+  };
 
-const msg = ref();
+  const msg = ref();
 
-const keyFn = () => {
-  console.log('键盘修饰符')
-}
-
+  const keyFn = () => {
+    console.log('键盘修饰符');
+  };
 </script>
-<style lang='less' scoped>
-p{
-  height: 40px;
-  background: pink;
-}
+<style lang="less" scoped>
+  p {
+    height: 40px;
+    background: pink;
+  }
 </style>

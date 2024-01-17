@@ -7,19 +7,26 @@
       </div>
       <div class="flex-between">
         <span>模型颜色:</span>
-        <input @input="setMeshBasicMaterialColor($event)" value="#ff0000" type="color" />
+        <input
+          @input="setMeshBasicMaterialColor($event)"
+          value="#ff0000"
+          type="color"
+        />
       </div>
       <div class="position_opt flex-between">
         <span>相机位置:</span>
         <div class="position_opt_right">
           <div>
-            <span>X:</span><input @input="setCameraP($event, 'x')" value="1" type="number" />
+            <span>X:</span
+            ><input @input="setCameraP($event, 'x')" value="1" type="number" />
           </div>
           <div>
-            <span>Y:</span><input @input="setCameraP($event, 'y')" value="1" type="number" />
+            <span>Y:</span
+            ><input @input="setCameraP($event, 'y')" value="1" type="number" />
           </div>
           <div>
-            <span>Z:</span><input @input="setCameraP($event, 'z')" value="5" type="number" />
+            <span>Z:</span
+            ><input @input="setCameraP($event, 'z')" value="5" type="number" />
           </div>
         </div>
       </div>
@@ -47,7 +54,15 @@
 
   const meshBasicMaterialColor = ref('#ff000');
 
-  let scene, camera, renderer, stats, geometry, material, cube, controls, container;
+  let scene,
+    camera,
+    renderer,
+    stats,
+    geometry,
+    material,
+    cube,
+    controls,
+    container;
 
   const init = () => {
     /**
@@ -134,7 +149,10 @@
       render();
     });
 
-    const planeGeometryCube = new THREE.Mesh(planeGeometry, MeshLambertMaterial);
+    const planeGeometryCube = new THREE.Mesh(
+      planeGeometry,
+      MeshLambertMaterial
+    );
     scene.add(planeGeometryCube, new THREE.AmbientLight(0x333333));
 
     // 创建盒子

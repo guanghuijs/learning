@@ -157,7 +157,10 @@
           },
           data: Array.from(
             { length: 15 },
-            () => ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][mock.Random.integer(0, 5)]
+            () =>
+              ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][
+                mock.Random.integer(0, 5)
+              ]
           ),
         },
         {
@@ -196,7 +199,10 @@
           },
           data: Array.from(
             { length: 15 },
-            () => ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][mock.Random.integer(0, 5)]
+            () =>
+              ['小雨', '阴', '多云', '小雨', '晴', '雨夹雪'][
+                mock.Random.integer(0, 5)
+              ]
           ),
         },
       ],
@@ -221,7 +227,10 @@
           itemStyle: {
             color: '#FF8A15',
           },
-          data: Array.from({ length: 24 }, () => `${mock.Random.integer(18, 29)}`),
+          data: Array.from(
+            { length: 24 },
+            () => `${mock.Random.integer(18, 29)}`
+          ),
         },
         {
           name: '最低气温',
