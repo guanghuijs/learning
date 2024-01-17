@@ -39,6 +39,7 @@
     "codemirror": "^6.0.1",
     "echarts": "^5.4.3",
     "jsdom": "^23.0.1",
+    "less": "^4.2.0",
     "mockjs": "^1.1.0",
     "naive-ui": "^2.37.0",
     "npm-run-all2": "^6.1.1",
