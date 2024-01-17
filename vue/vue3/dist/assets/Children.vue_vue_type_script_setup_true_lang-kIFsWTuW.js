@@ -1,0 +1,1 @@
+import{d as e,y as o,o as n,c as s,a as t}from"./index-VScr8L-_.js";const a=t("div",null,"子组件",-1),c=[a],i=e({__name:"Children",setup(_){return o(()=>{console.log("子组件挂载完成")}),(r,l)=>(n(),s("div",null,c))}});export{i as _};

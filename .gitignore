@@ -26,7 +26,6 @@ node_modules
 /back/
 
 # 打包目录
-dist
 lib
 
 miniprogram_npm

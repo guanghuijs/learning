@@ -1,0 +1,1 @@
+import{_,o as c,c as e}from"./index-VScr8L-_.js";const s={},o={class:"font"};function t(n,a){return c(),e("div",o," 我系追追追 ")}const d=_(s,[["render",t],["__scopeId","data-v-4224b271"]]);export{d as default};
