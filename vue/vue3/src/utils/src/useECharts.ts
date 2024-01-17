@@ -1,13 +1,13 @@
+// @ts-nocheck
 import * as echarts from 'echarts';
 import { useResizeObserver, useDebounceFn } from '@vueuse/core';
-import { merge } from 'lodash-es';
+import china from './china.json';
+echarts.registerMap('china', china);
 
 export function useECharts(el: HTMLElement, options: echarts.EChartsOption) {
   let chart: any;
-  if (!chart) {
-    chart = echarts.init(el);
-    chart.setOption(options);
-  }
+  chart = echarts.init(el);
+  chart.setOption(options);
   useResizeObserver(
     el,
     useDebounceFn(() => {
@@ -15,9 +15,9 @@ export function useECharts(el: HTMLElement, options: echarts.EChartsOption) {
     }, 50)
   );
 
-  function setData(dataset: any) {
-    chart.setOption(merge(options, { dataset }));
-  }
+  const setData = (dataset: echarts.DatasetOption | echarts.DatasetOption[]) => {
+    chart.setOption(Object.assign(options, { dataset }));
+  };
 
-  return [chart, { setData, resize: chart.resize() }];
+  return [chart, { setData }];
 }
