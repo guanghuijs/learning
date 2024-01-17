@@ -5,6 +5,11 @@
   import { vue } from '@codemirror/lang-vue';
   import { oneDark } from '@codemirror/theme-one-dark';
 
+  import { useSysStore } from '@/stores/sys';
+  import { computed, unref } from 'vue';
+
+  const { mode } = useSysStore();
+
   withDefaults(
     defineProps<{
       modelValue: string;
@@ -15,14 +20,15 @@
       show: true,
     }
   );
+
+  const extensions = computed(() =>
+    unref(mode) === 'dark' ? [javascript(), html(), vue(), oneDark] : [javascript(), html(), vue()]
+  );
 </script>
 
 <template>
   <div class="codemirror-content">
-    <Codemirror
-      :model-value="modelValue"
-      :extensions="[javascript(), html(), vue(), oneDark]"
-    ></Codemirror>
+    <Codemirror :model-value="modelValue" :extensions="extensions"></Codemirror>
   </div>
 </template>
 

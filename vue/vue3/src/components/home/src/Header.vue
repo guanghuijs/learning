@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useRoute, useRouter } from 'vue-router';
-  import { NIcon } from 'naive-ui';
-  import { MdSunny, MdMoon } from '@vicons/ionicons4';
+  import { NIcon, NColorPicker } from 'naive-ui';
+  import { MdSunny, MdMoon, LogoGithub } from '@vicons/ionicons4';
   import { useSysStoreRefs } from '@/stores/sys';
 
   import router from '@/router';
@@ -9,7 +9,7 @@
 
   const [_route, _router] = [useRoute(), useRouter()];
 
-  const { mode } = useSysStoreRefs();
+  const { mode, primaryColor } = useSysStoreRefs();
 
   watch(mode, (value) => {
     if (value === 'dark') {
@@ -43,13 +43,40 @@
         {{ name }}
       </div>
     </div>
-    <div class="right">
+    <div class="right flex-star">
       <div class="mode">
         <NIcon>
           <md-sunny v-show="mode === 'light'" @click="toggleMode"></md-sunny>
           <md-moon v-show="mode === 'dark'" @click="toggleMode"></md-moon>
         </NIcon>
       </div>
+      <NColorPicker
+        size="small"
+        :modes="['hex']"
+        :swatches="[
+          '#18A058',
+          '#2080F0',
+          '#F0A020',
+          '#FFC0CB',
+          '#ef82a0',
+          '#951c48',
+          '#1177b0',
+          '#1a94bc',
+          '#12aa9c',
+          '#45b787',
+          '#fed71a',
+          '#fbda41',
+          '#fa5d19',
+          '#f68c60',
+        ]"
+        class="color-picker"
+        v-model:value="primaryColor"
+      ></NColorPicker>
+      <a href="https://github.com/guanghuijs/learning" target="_blank">
+        <n-icon>
+          <logo-github></logo-github>
+        </n-icon>
+      </a>
     </div>
   </div>
 </template>
@@ -74,15 +101,29 @@
         font-size: 16px;
         cursor: pointer;
         &.act {
-          color: var(--theme);
+          color: v-bind(primaryColor);
         }
       }
       &::-webkit-scrollbar {
         display: none;
       }
     }
-    .mode {
+    .right {
       font-size: 20px;
+      > * {
+        margin-left: 10px;
+        cursor: pointer;
+        i {
+          margin-top: 7px;
+        }
+      }
+      .color-picker {
+        width: 20px;
+        height: 20px;
+        :deep(.n-color-picker-trigger__value) {
+          display: none !important;
+        }
+      }
     }
   }
 </style>

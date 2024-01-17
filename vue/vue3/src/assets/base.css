@@ -32,13 +32,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a,
+button,
+input {
+  -webkit-appearance: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 body{
   font-size: 14px;
   color: #666;
+  overflow: hidden;
 }
 
 body.dark{
   color: red;
+  .layout-main{
+    transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+    background: #18181C;
+    color: rgba(255, 255, 255, 0.82);
+  }
 }
 
 
