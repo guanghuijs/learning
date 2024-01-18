@@ -11,6 +11,8 @@ const router = createRouter({
     getModuleRouter('vue', '1.template'),
     getModuleRouter('es6', '1.let'),
     getModuleRouter('css', '1.属性选择器'),
+    getModuleRouter('less', '1.var'),
+    getModuleRouter('scss', '1.annotation'),
     getModuleRouter('demo', 'grape'),
     getModuleRouter('three-js', 'amf'),
     getModuleRouter('bmap', '1.init'),
