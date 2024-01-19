@@ -128,6 +128,9 @@
       &::-webkit-scrollbar {
         display: none;
       }
+      &:has(.goods-cart) {
+        padding: 0;
+      }
     }
     .footer {
       height: 50px;

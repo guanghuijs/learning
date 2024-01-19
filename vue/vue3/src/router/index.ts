@@ -13,7 +13,7 @@ const router = createRouter({
     getModuleRouter('css', '1.属性选择器'),
     getModuleRouter('less', '1.var'),
     getModuleRouter('scss', '1.annotation'),
-    getModuleRouter('demo', 'grape'),
+    getModuleRouter('demo', '1.grape'),
     getModuleRouter('three-js', 'amf'),
     getModuleRouter('bmap', '1.init'),
     getModuleRouter('echarts', '1.基本使用'),

@@ -1,7 +1,3 @@
-:root {
-  --theme: pink;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -42,6 +38,48 @@ body.dark {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: #18181c;
     color: rgba(255, 255, 255, 0.82);
+  }
+  //goods-car
+  .goods-cart {
+    .cart-top {
+      background: #111;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .goods-list {
+      .goods-stop {
+        background: #111;
+        .goods-stop-title {
+          border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        .goods-item {
+          border-bottom-color: rgba(255, 255, 255, 0.1);
+          .goods-item-delete {
+            background: linear-gradient(to left, #000, rgba(0, 0, 0, 0));
+          }
+        }
+      }
+    }
+    .goods-cart-bottom {
+      background: #111;
+    }
+  }
+
+  //goods-spec
+  .goods-spec {
+    background: #18181c;
+    .spec-top {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    .specific {
+      .spec-item {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+        .spec-item-tag {
+          span {
+            background: #222;
+          }
+        }
+      }
+    }
   }
 }
 
