@@ -1,0 +1,1 @@
+import{_ as c,o as e,c as a,F as t,b as n,a as r,n as o}from"./index-WJebj2m3.js";const _={},l={class:"each-base"};function d(i,f){return e(),a("div",l,[(e(),a(t,null,n(5,s=>r("div",{class:o(`item${s}`)},null,2)),64))])}const u=c(_,[["render",d],["__scopeId","data-v-2257a6ff"]]);export{u as default};

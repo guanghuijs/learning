@@ -1,1 +1,0 @@
-import{d as n}from"./index-T-s7Xc-u.js";const m=n({__name:"6.symbol",setup(s){const{log:l}=console;{let o=Symbol("kkk");const e=Symbol("wgh");l(typeof o,o),e.description}{let o={};o[Symbol()]="hello",o[Symbol()]="wgh";let e={[Symbol()]:"hello"},t={};Object.defineProperty(t,Symbol(),{value:"hello"}),l(o,e,t),console.log(l)}return(o,e)=>null}});export{m as default};

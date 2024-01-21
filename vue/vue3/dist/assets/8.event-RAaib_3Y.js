@@ -1,0 +1,1 @@
+import{d as s,r as a,o as l,c,a as t,t as r,F as u}from"./index-WJebj2m3.js";const _=t("h3",null,"内联事件",-1),i=t("h3",null,"方法事件",-1),k=s({__name:"8.event",setup(p){const e=a(1),o=()=>{console.log("事件触发了")};return(m,n)=>(l(),c(u,null,[_,t("button",{onClick:n[0]||(n[0]=d=>e.value++)},"按钮"+r(e.value),1),i,t("button",{onClick:o},"按钮")],64))}});export{k as default};

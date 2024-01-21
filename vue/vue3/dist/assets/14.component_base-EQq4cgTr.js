@@ -1,0 +1,1 @@
+import{_ as e}from"./Children.vue_vue_type_script_setup_true_lang-nvrs30GS.js";import{d as o,o as a,h as n}from"./index-WJebj2m3.js";const m=o({__name:"14.component_base",setup(t){return(_,r)=>(a(),n(e))}});export{m as default};

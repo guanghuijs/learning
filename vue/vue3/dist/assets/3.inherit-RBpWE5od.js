@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as s}from"./index-WJebj2m3.js";const t={},_={class:"less-extend"};function o(a,n){return c(),s("div",_,"我系渣渣辉")}const d=e(t,[["render",o],["__scopeId","data-v-aa4fb5c7"]]);export{d as default};
