@@ -5,7 +5,7 @@
   import { useSysStoreRefs } from '@/stores/sys';
 
   import router from '@/router';
-  import { unref, watch } from 'vue';
+  import { onMounted, unref, watch } from 'vue';
 
   const [_route, _router] = [useRoute(), useRouter()];
 
@@ -13,6 +13,14 @@
 
   watch(mode, (value) => {
     if (value === 'dark') {
+      document.querySelector('body')!.classList.add('dark');
+    } else {
+      document.querySelector('body')!.classList.remove('dark');
+    }
+  });
+
+  onMounted(() => {
+    if (unref(mode) === 'dark') {
       document.querySelector('body')!.classList.add('dark');
     } else {
       document.querySelector('body')!.classList.remove('dark');
@@ -99,6 +107,7 @@
         padding: 0 10px;
         margin-left: 20px;
         font-size: 16px;
+        white-space: nowrap;
         cursor: pointer;
         &.act {
           color: v-bind(primaryColor);

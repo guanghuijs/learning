@@ -2,3 +2,4 @@
 /// <reference types="vite-plugin-pages/client" />
 
 declare module '*.ts' {}
+declare module '*.vue' {}
