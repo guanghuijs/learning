@@ -33,6 +33,15 @@ main(){
     'name': '张三',
     'age': 18,
   };
+
+  final test = [...[1,2,4,4,5].map((e) => {
+    'value': e
+  })];
+
+
+  print([1,2,3,4,5]);
+  print(test);
+
   // 符文
   // 符号
 }

@@ -1,6 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="widget" type="FlutterRunConfigurationType" factoryName="Flutter">
-    <option name="filePath" value="$PROJECT_DIR$/lib/3.StatelessWidget/main.dart" />
+    <option name="filePath" value="$PROJECT_DIR$/lib/_3_StatelessWidget/main.dart" />
+    <method v="2" />
+  </configuration>
+  <configuration default="false" name="widget" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="filePath" value="$PROJECT_DIR$/lib/_6_widget/main.dart" />
     <method v="2" />
   </configuration>
 </component>
