@@ -1,6 +1,15 @@
-import 'package:flutter_learning1/app.dart';
+import 'package:flutter/material.dart';
 import '../views/prop/color.dart';
 import '../views/widget/appbar.dart';
+
+
+class Routes {
+  static final Map<String, WidgetBuilder> routes = {
+    LearnColor.pageRouteName: (cts) => const LearnColor(),
+    LearnAppbar.pageRouteName: (ctx) => const LearnAppbar()
+  };
+  static final List mapRoutes = [...routes.keys];
+}
 
 
 final List route = [
@@ -11,21 +20,17 @@ final List route = [
   },
   {
     'path': '/widget/appbar',
-    'component': (ctx) => const Appbar(),
+    'component': (ctx) => const LearnAppbar(),
     'title': 'Appbar'
   },
 ];
 
-final routes = {
-  "/": (ctx) => const HomeTest(),
-  "/prop/color": (ctx) => const LearnColor(),
-  "/widget/appbar": (ctx) => const Appbar(),
-};
 
-// Map<String, Widget Function(BuildContext)> routeMap() {
-//   final Map<String, Widget Function(BuildContext)> map = {};
-//   for (var item in route) {
-//     map[item['path'] as String] = item['component'];
-//   }
-//   return map;
-// }
+
+Map<String, Widget Function(BuildContext)> routeMap() {
+  final Map<String, Widget Function(BuildContext)> map = {};
+  for (var item in route) {
+    map[item['path'] as String] = item['component'];
+  }
+  return map;
+}

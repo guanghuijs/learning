@@ -1,14 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './route/index.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
+
+
   // final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: routes,
+      routes: routeMap(),
       initialRoute: '/prop/color',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -64,7 +67,10 @@ class HomeTest extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/prop/color');
+                  if (kDebugMode) {
+                    print(Routes.routes);
+                  }
+                  // Navigator.of(context).pushNamed('/prop/color');
                 },
                 child: const Text('按钮')
             )

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 /// create at 2024-01-26 14:37
 /// by 吴光辉
 
-class Appbar extends StatelessWidget {
-  const Appbar({super.key});
+class LearnAppbar extends StatelessWidget {
+  const LearnAppbar({super.key});
+
+  static const pageRouteName = '/widget/appbar';
 
   @override
   Widget build(BuildContext context) {
