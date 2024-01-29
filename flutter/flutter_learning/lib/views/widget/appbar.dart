@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LearnAppbar extends StatelessWidget {
   const LearnAppbar({super.key});
 
-  static const pageRouteName = '/widget/appbar';
+  static const routeName = '/widget/appbar';
 
   @override
   Widget build(BuildContext context) {

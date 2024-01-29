@@ -5,4 +5,11 @@ class Person{
 }
 main(){
   Person p = Person("张三", 18); print(p.name);
+
+  // final List<Person> list = [
+  //   {
+  //     name:'hhh',
+  //     age:18
+  //   }
+  // ];
 }

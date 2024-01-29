@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LearnColor extends StatelessWidget {
   const LearnColor({super.key});
 
-  static const pageRouteName = '/prop/color';
+  static const routeName = '/prop/color';
 
   @override
   Widget build(BuildContext context) {

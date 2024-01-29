@@ -4,33 +4,38 @@ import '../views/widget/appbar.dart';
 
 
 class Routes {
-  static final Map<String, WidgetBuilder> routes = {
-    LearnColor.pageRouteName: (cts) => const LearnColor(),
-    LearnAppbar.pageRouteName: (ctx) => const LearnAppbar()
+  static final List<Map<String, dynamic>> route = [
+    {
+      'path': '/prop/color',
+      'component': (ctx) => const LearnColor(),
+      'title': '颜色属性'
+    },
+    {
+      'path': '/widget/appbar',
+      'component': (ctx) => const LearnAppbar(),
+      'title': 'Appbar'
+    },
+  ];
+
+  static Map<String, Widget Function(BuildContext)> routes = {
+    '/prop/color': (ctx) => const LearnColor(),
+    '/widget/appbar': (ctx) => const LearnAppbar(),
   };
-  static final List mapRoutes = [...routes.keys];
+
+  // static Map<String, Widget Function(BuildContext)> routes () {
+  //   final Map<String, Widget Function(BuildContext)> routes = {};
+  //   for (var item in route) {
+  //     routes['path'] = item['component'];
+  //   }
+  //   return routes;
+  // }
+
+  static const String initialRoute = '/';
 }
 
 
-final List route = [
-  {
-    'path': '/prop/color',
-    'component': (ctx) => const LearnColor(),
-    'title': '颜色属性'
-  },
-  {
-    'path': '/widget/appbar',
-    'component': (ctx) => const LearnAppbar(),
-    'title': 'Appbar'
-  },
-];
 
 
 
-Map<String, Widget Function(BuildContext)> routeMap() {
-  final Map<String, Widget Function(BuildContext)> map = {};
-  for (var item in route) {
-    map[item['path'] as String] = item['component'];
-  }
-  return map;
-}
+
+

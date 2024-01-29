@@ -11,8 +11,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: routeMap(),
-      initialRoute: '/prop/color',
+      routes: Routes.routes,
+      initialRoute: Routes.initialRoute,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -43,43 +43,44 @@ class HomeTest extends StatelessWidget {
         ),
         body: ListView(
           // children:  ,
+          children:
+            [...Routes.route.map((route) =>
+              Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                  ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.ice_skating),
+                        onPressed: () {
+                          if (kDebugMode) {
+                            Navigator.of(context).pushNamed(route['path']);
+                          }
+                        },
+                      ),
+                      Text(route['title']),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           // children: [
-          //   ...route.map((route) =>
-          //       Container(
-          //           padding: const EdgeInsets.all(12),
-          //           decoration: const BoxDecoration(
-          //             color: Colors.red,
-          //           ),
-          //           child: Row(
-          //             children: [
-          //               IconButton(
-          //                 icon: const Icon(Icons.ice_skating),
-          //                 onPressed: () {
-          //                   Navigator.of(context).pushNamed('/prop/color');
-          //                 },
-          //               ),
-          //               Text(route['title']),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
+          //   ElevatedButton(
+          //       onPressed: () {
+          //         if (kDebugMode) {
+          //           print(Routes.routes);
+          //         }
+          //         // Navigator.of(context).pushNamed('/prop/color');
+          //       },
+          //       child: const Text('按钮')
+          //   )
           // ],
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  if (kDebugMode) {
-                    print(Routes.routes);
-                  }
-                  // Navigator.of(context).pushNamed('/prop/color');
-                },
-                child: const Text('按钮')
-            )
-          ],
         )
       // drawer: const HomeMenuDrawer(),
       // drawerEdgeDragWidth: 100,
       // drawerScrimColor: Colors.black.withOpacity(0.6),
     );
   }
-
 }
