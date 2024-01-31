@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../views/prop/color.dart';
 import '../views/widget/appbar.dart';
 
-
 class Routes {
   static final List<Map<String, dynamic>> route = [
     {
@@ -32,10 +31,3 @@ class Routes {
 
   static const String initialRoute = '/';
 }
-
-
-
-
-
-
-

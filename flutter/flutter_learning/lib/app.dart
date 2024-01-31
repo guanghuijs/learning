@@ -1,23 +1,19 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import './route/index.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
-
-
   // final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: Routes.routes,
-      initialRoute: Routes.initialRoute,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const HomeTest()
-    );
+        routes: Routes.routes,
+        initialRoute: Routes.initialRoute,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: const HomeTest());
   }
 }
 
@@ -27,7 +23,7 @@ class HomeTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: _globalKey,
+        // key: _globalKey,
         appBar: AppBar(
           title: const Text('flutter learn'),
           centerTitle: true,
@@ -43,44 +39,33 @@ class HomeTest extends StatelessWidget {
         ),
         body: ListView(
           // children:  ,
-          children:
-            [...Routes.route.map((route) =>
-              Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: const BoxDecoration(
+          children: [
+            ...Routes.route.map(
+              (route) => Container(
+                margin: const EdgeInsets.fromLTRB(14, 14, 14, 0),
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(
                     color: Colors.red,
-                  ),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.ice_skating),
-                        onPressed: () {
-                          if (kDebugMode) {
-                            Navigator.of(context).pushNamed(route['path']);
-                          }
-                        },
-                      ),
-                      Text(route['title']),
-                    ],
-                  ),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.ice_skating),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(route['path']);
+                      },
+                    ),
+                    Text(route['title']),
+                  ],
                 ),
               ),
-            ],
-          // children: [
-          //   ElevatedButton(
-          //       onPressed: () {
-          //         if (kDebugMode) {
-          //           print(Routes.routes);
-          //         }
-          //         // Navigator.of(context).pushNamed('/prop/color');
-          //       },
-          //       child: const Text('按钮')
-          //   )
-          // ],
+            ),
+            const Text('啦啦啦,flutter真好玩')
+          ],
         )
-      // drawer: const HomeMenuDrawer(),
-      // drawerEdgeDragWidth: 100,
-      // drawerScrimColor: Colors.black.withOpacity(0.6),
-    );
+        // drawer: const HomeMenuDrawer(),
+        // drawerEdgeDragWidth: 100,
+        // drawerScrimColor: Colors.black.withOpacity(0.6),
+        );
   }
 }
