@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import './route/index.dart';
 
@@ -37,32 +39,19 @@ class HomeTest extends StatelessWidget {
           //   },
           // ),
         ),
-        body: ListView(
-          // children:  ,
-          children: [
-            ...Routes.route.map(
-              (route) => Container(
-                margin: const EdgeInsets.fromLTRB(14, 14, 14, 0),
-                padding: const EdgeInsets.all(12),
-                decoration: const BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.ice_skating),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(route['path']);
-                      },
-                    ),
-                    Text(route['title']),
-                  ],
-                ),
-              ),
-            ),
-            const Text('啦啦啦,flutter真好玩')
-          ],
-        )
+        body: ListView.builder(
+            itemCount: Routes.route.length,
+            itemBuilder: (content, index) {
+              return;
+            })
+        // ListView(
+        //   children: [
+        //     ...Routes.route.map(
+        //       (route) => Container()
+        //     ),
+        //     const Text('啦啦啦,flutter真好玩')
+        //   ],
+        // )
         // drawer: const HomeMenuDrawer(),
         // drawerEdgeDragWidth: 100,
         // drawerScrimColor: Colors.black.withOpacity(0.6),
