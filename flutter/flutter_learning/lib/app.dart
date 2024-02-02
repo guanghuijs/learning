@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import './route/index.dart';
+import './widget/nav_item.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -25,36 +24,16 @@ class HomeTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // key: _globalKey,
         appBar: AppBar(
           title: const Text('flutter learn'),
           centerTitle: true,
           foregroundColor: Colors.white,
           backgroundColor: Colors.deepPurpleAccent,
-          // drawer
-          // leading: IconButton(
-          //   icon: const Icon(Icons.menu),
-          //   onPressed: () {
-          //     _globalKey.currentState?.openDrawer();
-          //   },
-          // ),
         ),
         body: ListView.builder(
             itemCount: Routes.route.length,
             itemBuilder: (content, index) {
-              return;
-            })
-        // ListView(
-        //   children: [
-        //     ...Routes.route.map(
-        //       (route) => Container()
-        //     ),
-        //     const Text('啦啦啦,flutter真好玩')
-        //   ],
-        // )
-        // drawer: const HomeMenuDrawer(),
-        // drawerEdgeDragWidth: 100,
-        // drawerScrimColor: Colors.black.withOpacity(0.6),
-        );
+              return NavItemE(navItem: Routes.route[index]);
+            }));
   }
 }
