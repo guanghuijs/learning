@@ -29,3 +29,31 @@ class NavItemE extends StatelessWidget {
     );
   }
 }
+
+class NavItemB extends StatelessWidget {
+  const NavItemB({Key? key, required this.navItem}) : super(key: key);
+  final NavItem navItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 56, 94, 216),
+          Color.fromARGB(255, 172, 243, 6)
+        ]),
+      ),
+      child: InkWell(
+        onTap: () => {Navigator.of(context).pushNamed(navItem.path)},
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(navItem.title),
+          ),
+        ),
+      ),
+    );
+  }
+}

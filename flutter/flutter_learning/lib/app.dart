@@ -33,7 +33,7 @@ class HomeTest extends StatelessWidget {
         body: ListView.builder(
             itemCount: Routes.route.length,
             itemBuilder: (content, index) {
-              return NavItemE(navItem: Routes.route[index]);
+              return NavItemB(navItem: Routes.route[index]);
             }));
   }
 }
