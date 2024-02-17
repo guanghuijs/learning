@@ -6,6 +6,8 @@ import '../models/navItem.dart';
 import '../views/widget/stateful.dart';
 import '../views/widget/父子通讯.dart';
 import '../views/widget/混合状态管理.dart';
+import '../views/widget/container.dart';
+import '../views/wechat/home.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -32,7 +34,15 @@ class Routes {
     NavItem(
         path: MixInState.routeName,
         title: '混合状态管理',
-        component: (xtx) => const MixInState())
+        component: (xtx) => const MixInState()),
+    NavItem(
+        path: StudyContainer.routeName,
+        title: '盒子',
+        component: (ctx) => const StudyContainer()),
+    NavItem(
+        path: WeChatHome.routeName,
+        title: '微信',
+        component: (ctx) => const WeChatHome())
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -42,6 +52,8 @@ class Routes {
     LearnStatefulWidget.routeName: (xtx) => const LearnStatefulWidget(),
     ParentWidget.routeName: (xtx) => const ParentWidget(),
     MixInState.routeName: (xtx) => const MixInState(),
+    StudyContainer.routeName: (xtx) => const StudyContainer(),
+    WeChatHome.routeName: (xtx) => const WeChatHome(),
   };
 
   static const String initialRoute = '/';
