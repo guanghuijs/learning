@@ -15,12 +15,18 @@ class WeChatHome extends StatefulWidget {
 }
 
 class _WeChatHome extends State<WeChatHome> {
-  int currentIndex = 0;
+  int _currentTab = 0;
+  final _tabView = [
+    const PageChat(),
+    const PageAddressBook(),
+    const PageFind(),
+    const PageMine()
+  ];
 
   void chagePage(int index) {
-    if (index != currentIndex) {
+    if (index != _currentTab) {
       setState(() {
-        currentIndex = index;
+        _currentTab = index;
       });
     }
   }
@@ -28,12 +34,21 @@ class _WeChatHome extends State<WeChatHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: [
-        const PageChat(),
-        const PageAddressBook(),
-        const PageFind(),
-        const PageMine()
-      ][currentIndex],
+      //
+      // body: _tabView[currentIndex],
+      //
+
+      // body: SafeArea(
+      //   child: IndexedStack(
+      //     index: _currentTab,
+      //     children: _tabView,
+      //   ),
+      // ),
+
+      body: IndexedStack(
+        index: _currentTab,
+        children: _tabView,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.sms_outlined), label: '微信'),
@@ -43,7 +58,7 @@ class _WeChatHome extends State<WeChatHome> {
           BottomNavigationBarItem(
               icon: Icon(Icons.face_unlock_outlined), label: '我的'),
         ],
-        currentIndex: currentIndex,
+        currentIndex: _currentTab,
         type: BottomNavigationBarType.fixed,
         onTap: (index) => chagePage(index),
       ),
