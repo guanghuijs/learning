@@ -43,7 +43,8 @@ class _MyApp extends State<MyApp> {
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("home_top_bg.png"), fit: BoxFit.fill)),
+                      image: AssetImage("assets/images/home_top_bg.png"),
+                      fit: BoxFit.fill)),
               child: Column(
                 children: [
                   Container(
@@ -74,9 +75,9 @@ class _MyApp extends State<MyApp> {
                           height: 20,
                           margin: const EdgeInsets.symmetric(
                               vertical: 0, horizontal: 5),
-                          decoration: const BoxDecoration(color: Colors.red),
+                          decoration: const BoxDecoration(color: Colors.black),
                         ),
-                        const Text('今日下单的新用户订单可享8折优...')
+                        const Expanded(child: Text('今日下单的新用户订单可享8折优...'))
                       ],
                     ),
                   )
