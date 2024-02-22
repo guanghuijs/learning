@@ -16,7 +16,36 @@ class LearnAppbar extends StatelessWidget {
         foregroundColor: Colors.white,
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: ListView(),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {},
+            ),
+            const SizedBox(), //中间位置空出
+
+            IconButton(
+              icon: const Icon(Icons.business),
+              onPressed: () {},
+            ),
+          ], //均分底部导航栏横向空间
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+          color: Colors.red,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: ListView(
+        children: [],
+      ),
     );
   }
 }

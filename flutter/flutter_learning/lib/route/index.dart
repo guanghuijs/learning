@@ -9,6 +9,10 @@ import '../views/widget/混合状态管理.dart';
 import '../views/widget/container.dart';
 import '../views/wechat/home.dart';
 import '../views/widget/使用阿里云图标.dart';
+import '../views/widget/flex.dart';
+import '../views/widget/宫格布局.dart';
+import '../views/widget/tabbar.dart';
+import '../views/widget/listView.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -46,8 +50,24 @@ class Routes {
         component: (ctx) => const WeChatHome()),
     NavItem(
         path: IconfontPage.routeName,
-        title: '使用阿里云图标11',
+        title: '使用阿里云图标',
         component: (ctx) => const IconfontPage()),
+    NavItem(
+        path: FlexPage.routeName,
+        title: 'flex',
+        component: (ctx) => const FlexPage()),
+    NavItem(
+        path: GridViewPage.routeName,
+        title: '宫格布局',
+        component: (ctx) => const GridViewPage()),
+    NavItem(
+        path: TabViewRoute1.routeName,
+        title: 'tabbar',
+        component: (ctx) => const TabViewRoute1()),
+    NavItem(
+        path: ListViewPage.routeName,
+        title: 'listView',
+        component: (ctx) => const ListViewPage()),
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -60,6 +80,9 @@ class Routes {
     StudyContainer.routeName: (xtx) => const StudyContainer(),
     WeChatHome.routeName: (xtx) => const WeChatHome(),
     IconfontPage.routeName: (xtx) => const IconfontPage(),
+    FlexPage.routeName: (xtx) => const FlexPage(),
+    GridViewPage.routeName: (xtx) => const GridViewPage(),
+    ListViewPage.routeName: (xtx) => const ListViewPage(),
   };
 
   static const String initialRoute = '/';

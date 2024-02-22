@@ -37,20 +37,22 @@ class NavItemB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+      margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 56, 94, 216),
-          Color.fromARGB(255, 172, 243, 6)
-        ]),
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(6)),
+          gradient: LinearGradient(colors: [Colors.blue, Colors.red]),
+          boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 2)]),
       child: InkWell(
         onTap: () => {Navigator.of(context).pushNamed(navItem.path)},
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Text(navItem.title),
+            child: Text(
+              navItem.title,
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
