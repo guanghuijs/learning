@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyApp extends State<MyApp> {
   final numList = [
-    {'label': '设备总数', 'num': '20'},
+    {'label': '设备总数66', 'num': '2066'},
     {'label': '设备故障数', 'num': '6'},
     {'label': '未修复故障', 'num': '3'},
   ];
