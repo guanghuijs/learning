@@ -8,6 +8,7 @@ import '../views/widget/父子通讯.dart';
 import '../views/widget/混合状态管理.dart';
 import '../views/widget/container.dart';
 import '../views/wechat/home.dart';
+import '../views/widget/使用阿里云图标.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -42,7 +43,11 @@ class Routes {
     NavItem(
         path: WeChatHome.routeName,
         title: '微信',
-        component: (ctx) => const WeChatHome())
+        component: (ctx) => const WeChatHome()),
+    NavItem(
+        path: IconfontPage.routeName,
+        title: '使用阿里云图标11',
+        component: (ctx) => const IconfontPage()),
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -54,6 +59,7 @@ class Routes {
     MixInState.routeName: (xtx) => const MixInState(),
     StudyContainer.routeName: (xtx) => const StudyContainer(),
     WeChatHome.routeName: (xtx) => const WeChatHome(),
+    IconfontPage.routeName: (xtx) => const IconfontPage(),
   };
 
   static const String initialRoute = '/';
