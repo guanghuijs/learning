@@ -13,6 +13,7 @@ import '../views/widget/flex.dart';
 import '../views/widget/宫格布局.dart';
 import '../views/widget/tabbar.dart';
 import '../views/widget/listView.dart';
+import '../views/widget/防抖节流.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -68,6 +69,10 @@ class Routes {
         path: ListViewPage.routeName,
         title: 'listView',
         component: (ctx) => const ListViewPage()),
+    NavItem(
+        path: PageFDJL.routeName,
+        title: '防抖节流',
+        component: (ctx) => const PageFDJL()),
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -83,6 +88,7 @@ class Routes {
     FlexPage.routeName: (xtx) => const FlexPage(),
     GridViewPage.routeName: (xtx) => const GridViewPage(),
     ListViewPage.routeName: (xtx) => const ListViewPage(),
+    PageFDJL.routeName: (xtx) => const PageFDJL(),
   };
 
   static const String initialRoute = '/';

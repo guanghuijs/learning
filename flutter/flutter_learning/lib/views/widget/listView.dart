@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({super.key});
@@ -11,6 +12,7 @@ class ListViewPage extends StatefulWidget {
 class _ListViewPage extends State<ListViewPage> {
   final ScrollController _controller = ScrollController();
   bool showToTopBtn = false; //是否显示“返回到顶部”按钮
+  Timer timer = Timer(const Duration(seconds: 3), () {});
 
   @override
   void initState() {
@@ -37,12 +39,17 @@ class _ListViewPage extends State<ListViewPage> {
         ),
         body: NotificationListener<ScrollNotification>(
           onNotification: (notification) {
-            // 判断是否滚动到底部
             if (notification.metrics.pixels ==
-                notification.metrics.maxScrollExtent) {
-              print('Scrolled to bottom!');
-              // 在这里你可以添加加载更多数据的逻辑
-            }
+                notification.metrics.maxScrollExtent) {}
+            // 防抖
+            setState(() {
+              timer.cancel();
+              timer = Timer(const Duration(seconds: 2), () {
+                // 判断是否滚动到底部
+                print('Scrolled to bottom!');
+              });
+            });
+
             return true;
           },
           child: ListView.builder(

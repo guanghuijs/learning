@@ -20,8 +20,11 @@ class GridViewPage extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      // 一行几个
                       crossAxisCount: 6,
+                      // 把宫格压扁
                       childAspectRatio: 1,
+                      // 宫格上下间距
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10),
                   itemCount: 20,
