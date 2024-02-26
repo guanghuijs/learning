@@ -14,6 +14,8 @@ import '../views/widget/宫格布局.dart';
 import '../views/widget/tabbar.dart';
 import '../views/widget/listView.dart';
 import '../views/widget/防抖节流.dart';
+import '../views/widget/下拉菜单.dart';
+import '../views/widget/bruno.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -73,6 +75,14 @@ class Routes {
         path: PageFDJL.routeName,
         title: '防抖节流',
         component: (ctx) => const PageFDJL()),
+    NavItem(
+        path: DropMenu.path,
+        title: '防抖节流',
+        component: (ctx) => const DropMenu()),
+    NavItem(
+        path: BrunoTest.path,
+        title: 'BrunoTest',
+        component: (ctx) => const BrunoTest()),
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -89,6 +99,8 @@ class Routes {
     GridViewPage.routeName: (xtx) => const GridViewPage(),
     ListViewPage.routeName: (xtx) => const ListViewPage(),
     PageFDJL.routeName: (xtx) => const PageFDJL(),
+    DropMenu.path: (xtx) => const DropMenu(),
+    BrunoTest.path: (xtx) => const BrunoTest(),
   };
 
   static const String initialRoute = '/';
