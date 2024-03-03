@@ -16,9 +16,14 @@ import '../views/widget/listView.dart';
 import '../views/widget/防抖节流.dart';
 import '../views/widget/下拉菜单.dart';
 import '../views/widget/bruno.dart';
+import '../views/form.dart';
 
 class Routes {
   static final List<NavItem> route = [
+    NavItem(
+        path: FormPage.path,
+        title: 'form',
+        component: (ctx) => const FormPage()),
     NavItem(
         path: LearnColor.routeName,
         title: '颜色属性',
@@ -101,6 +106,7 @@ class Routes {
     PageFDJL.routeName: (xtx) => const PageFDJL(),
     DropMenu.path: (xtx) => const DropMenu(),
     BrunoTest.path: (xtx) => const BrunoTest(),
+    FormPage.path: (xtx) => const FormPage(),
   };
 
   static const String initialRoute = '/';
