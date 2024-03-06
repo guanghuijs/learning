@@ -42,6 +42,8 @@ dependencies:
   dio: ^5.4.1
   # UI库
   bruno: ^3.4.2
+  # form
+  flutter_form_builder: ^9.2.1
 
 dev_dependencies:
   flutter_test:

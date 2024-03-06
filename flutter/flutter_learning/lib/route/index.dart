@@ -18,6 +18,7 @@ import '../views/widget/下拉菜单.dart';
 import '../views/widget/bruno.dart';
 import '../views/form.dart';
 import '../views/input.dart';
+import '../views/form2.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -91,7 +92,11 @@ class Routes {
         component: (ctx) => const BrunoTest()),
     NavItem(
         path: PageInput.path,
-        title: 'BrunoTest',
+        title: 'input',
+        component: (ctx) => const PageInput()),
+    NavItem(
+        path: FormTwo.path,
+        title: 'form2',
         component: (ctx) => const PageInput()),
   ];
 
@@ -113,6 +118,7 @@ class Routes {
     BrunoTest.path: (xtx) => const BrunoTest(),
     FormPage.path: (xtx) => const FormPage(),
     PageInput.path: (xtx) => const PageInput(),
+    FormTwo.path: (xtx) => const FormTwo(),
   };
 
   static const String initialRoute = '/';

@@ -1,3 +1,4 @@
+import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import '../widget/input.dart';
 
@@ -11,6 +12,8 @@ class PageInput extends StatefulWidget {
 
 class _PageInput extends State<PageInput> {
   final formKey = GlobalKey<FormState>();
+
+  Map error = {'name': '', 'phone': ''};
 
   void validator() {
     formKey.currentState?.save();
@@ -44,7 +47,21 @@ class _PageInput extends State<PageInput> {
                 onPressed: () => validator(),
                 child: const Center(
                   child: Text('提交'),
-                ))
+                )),
+            BrnTextInputFormItem(
+              title: "姓名",
+              hint: "请输入姓名",
+              error: error['name'],
+              onChanged: (newValue) {
+                setState(() {
+                  if (newValue.isEmpty) {
+                    error['name'] = '姓名不能为空';
+                  } else {
+                    error['name'] = '';
+                  }
+                });
+              },
+            ),
           ],
         ),
       ),
