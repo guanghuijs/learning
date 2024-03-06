@@ -17,6 +17,7 @@ import '../views/widget/防抖节流.dart';
 import '../views/widget/下拉菜单.dart';
 import '../views/widget/bruno.dart';
 import '../views/form.dart';
+import '../views/input.dart';
 
 class Routes {
   static final List<NavItem> route = [
@@ -88,6 +89,10 @@ class Routes {
         path: BrunoTest.path,
         title: 'BrunoTest',
         component: (ctx) => const BrunoTest()),
+    NavItem(
+        path: PageInput.path,
+        title: 'BrunoTest',
+        component: (ctx) => const PageInput()),
   ];
 
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -107,6 +112,7 @@ class Routes {
     DropMenu.path: (xtx) => const DropMenu(),
     BrunoTest.path: (xtx) => const BrunoTest(),
     FormPage.path: (xtx) => const FormPage(),
+    PageInput.path: (xtx) => const PageInput(),
   };
 
   static const String initialRoute = '/';
