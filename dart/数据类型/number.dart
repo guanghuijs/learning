@@ -30,4 +30,8 @@ main() {
   // 科学计数法
   print(1000.toStringAsExponential(2)); // 1.00e+3
   print(1000.toStringAsExponential(1)); // 1.0e+3
+
+  var n = 0 / 0;
+  print(n); // NaN
+  print(n.isNaN); // true
 }
