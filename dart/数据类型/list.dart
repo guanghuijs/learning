@@ -78,4 +78,5 @@ main (){
   // every
   print(test.every((element) => element > 2)); // false
   // 判断是否所有元素大于3,返回布尔值
+
 }
