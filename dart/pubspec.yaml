@@ -1,0 +1,7 @@
+  name: dart
+  
+  environment:
+    sdk: '^3.2.5'
+
+  dependencies:
+      http: ^1.2.0
