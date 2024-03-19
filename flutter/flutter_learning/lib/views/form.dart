@@ -1,4 +1,5 @@
 // import 'package:code_preview/code_preview.dart';
+import 'package:code_preview/code_preview.dart';
 import 'package:flutter/material.dart';
 
 class FormPage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _FormPage extends State<FormPage> {
 
   validator() {
     formKey.currentState?.save();
-    formKey.currentState?.validate();
+    print(formKey.currentState?.validate());
   }
 
   @override
@@ -35,23 +36,15 @@ class _FormPage extends State<FormPage> {
           key: formKey,
           child: ListView(
             children: [
-              const SizedBox(
-                height: 1,
-              ),
-              // Container(
-              //   padding: const EdgeInsets.all(10),
-              //   child: const CodePreview(
-              //     className: 'LearnColor',
-              //   ),
+              // TextFormField(
+              //   validator: (value) => '你好',
               // ),
               const SizedBox(
                 height: 1,
               ),
               SelfInput(
                 lable: '用户名',
-                onInput: (value) {
-                  validator();
-                },
+                onInput: (value) {},
                 validator: (String value) {
                   if (value.isEmpty) {
                     return '不能吃饭';
@@ -62,9 +55,7 @@ class _FormPage extends State<FormPage> {
               ),
               SelfInput(
                 lable: '学校',
-                onInput: (value) {
-                  validator();
-                },
+                onInput: (value) {},
                 error: '我不是渣渣辉',
                 validator: (String value) {
                   if (value.isEmpty) {
@@ -77,9 +68,7 @@ class _FormPage extends State<FormPage> {
               SelfInput(
                 lable: '班级',
                 isRequired: true,
-                onInput: (value) {
-                  validator();
-                },
+                onInput: (value) {},
                 validator: (String value) {
                   if (value.isEmpty) {
                     return '不能打豆豆';
@@ -89,7 +78,10 @@ class _FormPage extends State<FormPage> {
                 },
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print('6666666');
+                    validator();
+                  },
                   child: const SizedBox(
                     height: 40,
                     child: Center(
@@ -97,15 +89,22 @@ class _FormPage extends State<FormPage> {
                     ),
                   )),
               TextButton(
-                  onPressed: () {
-                    formKey.currentState?.reset();
-                  },
+                  onPressed: () {},
                   child: const SizedBox(
                     height: 40,
                     child: Center(
                       child: Text('清空'),
                     ),
-                  ))
+                  )),
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: const CodePreview(
+                  className: 'LearnColor',
+                ),
+              ),
+              const SizedBox(
+                height: 1,
+              ),
             ],
           )),
     );
@@ -133,7 +132,7 @@ class SelfInput extends StatefulWidget {
 }
 
 class _SelfInput extends State<SelfInput> {
-  late String error;
+  String error = '';
   @override
   void initState() {
     super.initState();
@@ -151,16 +150,19 @@ class _SelfInput extends State<SelfInput> {
             contentPadding: const EdgeInsets.fromLTRB(0, 12, 20, 0),
             hintText: widget.placeholder ?? '请输入${widget.lable}',
             hintStyle: const TextStyle(fontSize: 14, color: Color(0xffaaaaaa)),
-            error: (() {
-              return error != ''
-                  ? Transform(
-                      transform: Matrix4.translationValues(20, -15, 1),
-                      child: Text(
-                        error,
-                        style: const TextStyle(color: Colors.red, fontSize: 12),
-                      ))
-                  : null;
-            })(),
+            // error: (() {
+            //   return error != ''
+            //       ? Transform(
+            //           transform: Matrix4.translationValues(20, -15, 1),
+            //           child: Text(
+            //             error,
+            //             style: const TextStyle(color: Colors.red, fontSize: 12),
+            //           ))
+            //       : null;
+            // })(),
+            errorStyle: TextStyle(
+              height: 2,
+            ),
             prefixIcon: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -184,11 +186,11 @@ class _SelfInput extends State<SelfInput> {
               ],
             )),
         validator: (value) {
-          print('validator');
           if (widget.validator != null) {
             setState(() {
               error = widget.validator!(value);
             });
+            return widget.validator!(value);
           }
         },
         onChanged: (value) {
