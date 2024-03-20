@@ -100,7 +100,7 @@ flutter:
 
   assets:
     - assets/images/
-    - lib/views/prop/
+    - lib/pages/demo/
 
   fonts:
     - family: IconFont
