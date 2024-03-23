@@ -4,7 +4,20 @@
     <n-button @click="resetArr">数据重置</n-button>
     <n-button @click="resetChart">图表重置</n-button>
     <div class="flex-star" style="padding: 10px 0">
-      选择排序方式:<n-select style="width: 200px"></n-select>
+      选择排序方式:<n-select
+        placeholder="选则排序方式"
+        v-model:value="way"
+        :options="[
+          { label: '冒泡', value: 'bubble' },
+          { label: '选择', value: 'selection' },
+          { label: '插入', value: 'insertion' },
+          { label: '快速', value: 'quick' },
+          { label: '归并', value: 'merge' },
+          { label: '计数', value: 'counting' },
+        ]"
+        style="width: 200px"
+      ></n-select>
+      {{ way }}
     </div>
     <n-button @click="startSort">开始排序</n-button>
   </div>
@@ -18,6 +31,7 @@
   import { useECharts, sortHelper, hexToRgba } from '@/utils';
 
   const { primaryColor } = useSysStoreRefs();
+  const way = ref<keyof typeof sortHelper>('bubble');
 
   watch(primaryColor, (value) => {
     const [_] = chart!;
@@ -25,7 +39,7 @@
   });
 
   const arr = ref<Array<number>>(
-    Array.from({ length: 30 }, () => Random.integer(0, 100))
+    Array.from({ length: 20 }, () => Random.integer(0, 100))
   );
 
   let chart;
@@ -42,7 +56,7 @@
       },
       xAxis: {
         // x轴
-        data: Array.from({ length: 30 }, (_, i) => i),
+        data: Array.from({ length: 20 }, (_, i) => i),
       },
       yAxis: {
         // y轴
@@ -54,6 +68,9 @@
         // 图表类型
         type: 'bar',
         data: arr.value,
+        label: {
+          show: true,
+        },
         itemStyle: {
           color: function (params: any) {
             return hexToRgba(primaryColor.value, params.value);
@@ -65,7 +82,7 @@
 
   const resetArr = () => {
     const [_] = chart!;
-    arr.value = Array.from({ length: 30 }, () => Random.integer(0, 100));
+    arr.value = Array.from({ length: 20 }, () => Random.integer(0, 100));
     _.setOption(series(unref(arr)));
   };
 
@@ -75,7 +92,7 @@
   };
 
   const startSort = () => {
-    sortHelper.bubble(chart!, [...arr.value], primaryColor.value, () => {
+    sortHelper[way.value](chart!, [...arr.value], primaryColor.value, () => {
       console.log('排序完成');
     });
   };
