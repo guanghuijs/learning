@@ -55,12 +55,9 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
-    /// 关键代码
     Navigator.of(context).push(MaterialPageRoute(
         builder: (_) => const PageCommunicationTwo(),
         settings: const RouteSettings(arguments: '点击事件构建路由跳转')));
-  },
 ''',
             title: '关键代码',
           ),
@@ -84,12 +81,8 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
-    // 关键代码
-    // 全局注册路由后通过name跳转
     Navigator.of(context).pushNamed('/demo/communication2',
         arguments: '全局注册路由后通过name跳转');
-  },
 ''',
             title: '关键代码',
           ),
@@ -112,11 +105,9 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
     Navigator.of(context).pushReplacementNamed(
         '/demo/communication2',
         arguments: '替换当前页面跳转');
-  },
 ''',
             title: '关键代码',
           ),
@@ -142,12 +133,8 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
-    /// 关键代码
-    /// 更简写法
     Navigator.pushNamed(context, '/demo/communication2',
         arguments: '更简写法');
-  },
 ''',
             title: '关键代码',
           ),
@@ -172,13 +159,9 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
-    /// 关键代码
-    /// 更简写法
     Navigator.pushNamed(context, '/demo/communication2',
         arguments: params);
     // ===========
-  },
 ''',
             title: '关键代码',
           ),
@@ -207,16 +190,12 @@ class _PageCommunication extends State<PageCommunication> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
-    /// 关键代码
-    /// 返回时做一些事情
     Navigator.pushNamed(context, '/demo/communication2',
             arguments: params)
         .then((value) {
       BrnToast.show(
           '我返回来了,做一些事情,我能拿到返回的携带的参数:value.toString()', context);
     });
-    // ===========
   },
 ''',
             title: '关键代码',
@@ -329,10 +308,8 @@ class _PageCommunicationTwo extends State<PageCommunicationTwo> {
           ),
           const CodeBlock(
             code: '''
-  onTap: () {
     Navigator.pop(
         context, '======我是返回时的数据,编码8848,记住我,我收尾有很多等号=======');
-  },
 ''',
             title: '关键代码',
           )
