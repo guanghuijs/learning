@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bruno/bruno.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/theme_map.dart';
@@ -44,7 +45,10 @@ class _CodeBlock extends State<CodeBlock> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          print('复制');
+                          Clipboard.setData(ClipboardData(text: widget.code))
+                              .then((value) {
+                            BrnToast.show('复制成功~', context);
+                          });
                         },
                         icon: const Icon(
                           Icons.copy_all,
