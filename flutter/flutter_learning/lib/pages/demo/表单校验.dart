@@ -39,8 +39,11 @@ class _FormVerify extends State<FormVerify> {
           child: Column(
             children: [
               Container(
-                color: Colors.white,
+                margin: const EdgeInsets.only(top: 1),
                 padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -53,6 +56,7 @@ class _FormVerify extends State<FormVerify> {
                         )),
                     Expanded(
                       child: TextFormField(
+                        textAlign: TextAlign.right,
                         decoration: const InputDecoration(
                             isCollapsed: true,
                             filled: true,
@@ -94,6 +98,7 @@ class _FormVerify extends State<FormVerify> {
                               },
                               child: TextFormField(
                                 decoration: const InputDecoration(
+                                    hintTextDirection: TextDirection.rtl,
                                     enabled: false,
                                     isCollapsed: true,
                                     fillColor: Color(0xfff2f2f2),
@@ -109,7 +114,7 @@ class _FormVerify extends State<FormVerify> {
                               ),
                             ),
                           ),
-                          Icon(Icons.abc)
+                          const Icon(Icons.keyboard_arrow_right)
                         ],
                       ),
                     ),
@@ -197,6 +202,99 @@ class _FormVerify extends State<FormVerify> {
                       return '不能为空';
                     }
                   },
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 1),
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: 100,
+                        height: 45,
+                        color: Colors.red,
+                        child: const Center(
+                          child: Text(
+                            '姓名',
+                            textDirection: TextDirection.rtl,
+                          ),
+                        )),
+                    Expanded(
+                      child: TextFormField(
+                        textAlign: TextAlign.right,
+                        decoration: const InputDecoration(
+                            // isCollapsed: true,
+                            filled: true,
+                            fillColor: Color(0xfff2f2f2),
+                            contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            border: InputBorder.none,
+                            hintText: '请输入'),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '不能为空';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 1),
+                color: Colors.white,
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                        width: 100,
+                        height: 45,
+                        color: Colors.red,
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              '设备名称',
+                              textDirection: TextDirection.rtl,
+                            ),
+                          ],
+                        )),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                BrnToast.show('点击', context);
+                              },
+                              child: TextFormField(
+                                decoration: const InputDecoration(
+                                    hintTextDirection: TextDirection.ltr,
+                                    enabled: false,
+                                    isCollapsed: true,
+                                    fillColor: Color(0xfff2f2f2),
+                                    // contentPadding:
+                                    //     EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    border: InputBorder.none,
+                                    hintText: '请输入'),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return '不能为空';
+                                  }
+                                },
+                              ),
+                            ),
+                          ),
+                          const Icon(Icons.keyboard_arrow_right)
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
