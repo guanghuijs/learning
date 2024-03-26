@@ -1,3 +1,4 @@
+import 'package:GHUI/route/index.dart';
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,26 @@ class _Component extends State<Component> {
         title: '组件',
         automaticallyImplyLeading: false,
       ),
-      body: const Text('组件'),
+      body: ListView.builder(
+          itemCount: componentMenus.length,
+          itemBuilder: (content, index) {
+            final route = componentMenus[index];
+            return Container(
+              color: Colors.white,
+              margin: const EdgeInsets.only(top: 1),
+              padding: const EdgeInsets.all(15),
+              child: InkWell(
+                  onTap: () {
+                    if (route.path.isNotEmpty) {
+                      BrnToast.show(route.title ?? '', content);
+                      Navigator.of(context).pushNamed(route.path);
+                    } else {
+                      BrnToast.show('${route.title ?? ''}开发中...', content);
+                    }
+                  },
+                  child: Text(route.title ?? '')),
+            );
+          }),
     );
   }
 }

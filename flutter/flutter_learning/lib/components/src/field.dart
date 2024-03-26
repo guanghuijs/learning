@@ -9,13 +9,15 @@ class Field extends StatelessWidget {
       this.isRequire,
       this.onChanged,
       this.disable,
-      this.isSelect});
+      this.isSelect,
+      required String label});
   final String? lable;
   final String? placeholder;
   final bool? disable;
   final bool? isSelect;
   final bool? isRequire;
   final String? Function(String val)? validator;
+
   final Function(String val)? onChanged;
 
   @override

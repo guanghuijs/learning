@@ -1,6 +1,6 @@
 import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
-import '../src/field.dart';
+import '../src/field2.dart';
 
 class DictItem {
   String label;
@@ -32,7 +32,7 @@ class Dict extends StatefulWidget {
       this.value,
       required this.dictType});
   final String dictType;
-  final dynamic value;
+  final String? value;
   final String? label;
   final Function(Map dictItem)? onConfirm;
 
@@ -45,13 +45,17 @@ class _Dict extends State<Dict> {
   @override
   void initState() {
     super.initState();
+    setState(() {
+      value = getLabel();
+    });
   }
 
   String getLabel() {
-    if (dictList[widget.dictType] != null && widget.value != null) {
+    if (widget.value == null || dictList[widget.dictType] == null) return '';
+    if (widget.value!.isNotEmpty) {
       return dictList[widget.dictType]!
           .where((element) => element['value'] == widget.value)
-          .toList()[0]['label'];
+          .first['label'];
     }
     return '';
   }
@@ -85,7 +89,7 @@ class _Dict extends State<Dict> {
             context: context,
             title: '选择${widget.label}',
             delegate: Brn1RowDelegate(
-                // firstSelectedIndex: getActIndex(),
+                firstSelectedIndex: getActIndex(),
                 list: dictList[widget.dictType]!),
             confirmClick: (selects) {
               int select = selects[0];
@@ -165,7 +169,9 @@ class Brn1RowDelegate implements BrnMultiDataPickerDelegate {
 
   /// 定义每列内容的高度
   @override
-  double? rowHeightForComponent(int component) {}
+  double? rowHeightForComponent(int component) {
+    return null;
+  }
 
   /// 定义选择更改后的操作
   @override

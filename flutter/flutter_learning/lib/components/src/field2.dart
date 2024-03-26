@@ -41,8 +41,10 @@ class Field extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
-                controller: TextEditingController.fromValue(
-                    TextEditingValue(text: value ?? '')),
+                controller: value != null
+                    ? TextEditingController.fromValue(
+                        TextEditingValue(text: value!))
+                    : null,
                 textAlign: TextAlign.right,
                 enabled: disable == true ? false : true,
                 style: const TextStyle(fontSize: 18),
