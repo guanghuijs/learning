@@ -3,12 +3,14 @@ import '../../models/routes.dart';
 import '../../pages/demo/下拉刷新.dart';
 import '../../pages/demo/页面通讯.dart';
 import '../../pages/demo/表单校验.dart';
+import '../../pages/demo/popup.dart';
 
 final Map<String, Widget Function(BuildContext)> demoRoutes = {
   MyHomePage.path: (ctx) => MyHomePage(),
   PageCommunication.path: (ctx) => const PageCommunication(),
   PageCommunicationTwo.path: (ctx) => const PageCommunicationTwo(),
   FormVerify.path: (ctx) => const FormVerify(),
+  PopupUse.path: (ctx) => const PopupUse(),
 };
 
 final List<Menu> demoMenus = [
@@ -19,4 +21,5 @@ final List<Menu> demoMenus = [
   Menu(path: '', title: '模拟数据', meta: MenuMata()),
   Menu(path: '', title: 'tab吸顶效果', meta: MenuMata()),
   Menu(path: '', title: 'TODOLIST', meta: MenuMata()),
+  Menu(path: PopupUse.path, title: '弹出层', meta: MenuMata()),
 ];
