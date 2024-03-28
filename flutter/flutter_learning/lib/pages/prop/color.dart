@@ -1,5 +1,7 @@
+import 'package:bruno/bruno.dart';
 import 'package:flutter/material.dart';
 import '../../components/i.dart';
+import '../../utils/request.dart';
 
 /// create at 2024-01-26 14:21
 /// by 吴光辉
@@ -97,6 +99,14 @@ Container(
 ''',
               title: 'Color.fromRGBO',
             ),
+            IconButton(
+                onPressed: () async {
+                  var responseData = await HttpApi.request('book', context);
+                  print('============');
+                  print(responseData);
+                  print('============');
+                },
+                icon: const Icon(Icons.abc))
           ],
         ));
   }
