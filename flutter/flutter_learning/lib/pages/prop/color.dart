@@ -101,7 +101,9 @@ Container(
             ),
             IconButton(
                 onPressed: () async {
-                  var responseData = await HttpApi.request('book', context);
+                  var responseData = await HttpApi.request(
+                      '/spare-parts/page', context,
+                      params: {'page': 1, 'pageSize': 10});
                   print('============');
                   print(responseData);
                   print('============');
