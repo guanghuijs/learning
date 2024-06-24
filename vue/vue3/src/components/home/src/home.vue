@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { ref, unref, watch } from 'vue';
+  import { MdCopy } from '@vicons/ionicons4';
   import type { RouteRecordRaw } from 'vue-router';
   import { useRoute, useRouter } from 'vue-router';
-
   import type { GlobalThemeOverrides } from 'naive-ui';
   import {
     darkTheme,
@@ -34,6 +34,10 @@
   const activeKey = ref(_route.path);
   const code = ref(allCode[`../../../views${unref(activeKey)}.vue`]);
 
+  // 代码复制功能
+  import { useClipboard } from '@vueuse/core';
+  const { copy } = useClipboard({ source: code });
+
   watch(activeKey, (key) => {
     code.value = allCode[`../../../views${key}.vue`];
     _router.push({
@@ -62,7 +66,7 @@
     :theme="mode === 'dark' ? darkTheme : null"
     :theme-overrides="themeOverrides"
   >
-    <div class="layout-container" style="height: 100%">
+    <div class="layout-container">
       <n-layout>
         <n-layout-header bordered>
           <NHeader></NHeader>
@@ -101,6 +105,11 @@
               :native-scrollbar="false"
             >
               <div class="left">
+                <div class="copy" @click="copy(code)">
+                  <n-icon>
+                    <md-copy></md-copy>
+                  </n-icon>
+                </div>
                 <CodeMirror :key="mode" :modelValue="code"></CodeMirror>
               </div>
             </n-layout-sider>
@@ -136,6 +145,31 @@
       height: 50px;
       text-align: center;
       line-height: 50px;
+    }
+  }
+
+  .copy {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-radius: 4px;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0.1;
+    width: 30px;
+    height: 30px;
+    padding-top: 6px;
+    transition: opacity 0.25s;
+    svg {
+      fill: #999;
+      width: 16px;
+      height: 16px;
+    }
+    &:hover {
+      opacity: 1;
     }
   }
 </style>

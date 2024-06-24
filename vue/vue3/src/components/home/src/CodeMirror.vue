@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  // https://www.npmjs.com/package/vue-codemirror
   import { Codemirror } from 'vue-codemirror';
   import { javascript } from '@codemirror/lang-javascript';
   import { html } from '@codemirror/lang-html';
@@ -30,7 +31,12 @@
 
 <template>
   <div class="codemirror-content">
-    <Codemirror :model-value="modelValue" :extensions="extensions"></Codemirror>
+    <!-- https://www.npmjs.com/package/vue-codemirror -->
+    <Codemirror
+      :disabled="true"
+      :model-value="modelValue"
+      :extensions="extensions"
+    ></Codemirror>
   </div>
 </template>
 
