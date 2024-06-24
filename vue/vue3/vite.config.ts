@@ -27,5 +27,6 @@ export default defineConfig(() => {
     server: {
       port: Number(GLOBAL_PORT),
     },
+    envPrefix: ['GLOBAL'],
   };
 });

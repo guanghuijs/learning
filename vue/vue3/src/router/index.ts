@@ -16,6 +16,7 @@ const router = createRouter({
     getModuleRouter('demo', '1.grape'),
     getModuleRouter('three-js', 'amf'),
     getModuleRouter('bmap', '1.init'),
+    getModuleRouter('amap', '1.高德地图初体验'),
     getModuleRouter('echarts', '1.basics'),
   ],
 });
