@@ -1,58 +1,78 @@
 <template>
   <div class="box">
-    <div class="result">{{ source }} {{ address.join(' ') }}</div>
-    <n-Button type="primary" @click="copy()">
-      <!-- by default, `copied` will be reset in 1.5s -->
-      <span v-if="!copied">复制当前经纬度</span>
-      <span v-else>已复制</span>
-    </n-Button>
+    <div id="container" class="container" ref="mapEle"></div>
+    <div class="opt">
+      <div class="flex-star">
+        <div class="result">{{ point }}</div>
+        <n-input-number
+          placeholder="复制小数点后多少位"
+          v-model:value="number"
+        ></n-input-number>
+      </div>
+      <div style="margin: 10px 0">
+        <n-Button type="primary" @click="copy()">
+          <span v-if="!copied">复制当前经纬度</span>
+          <span v-else>已复制</span>
+        </n-Button>
+      </div>
+      <div>{{ address.join('') }}</div>
+    </div>
   </div>
-  <div id="container" class="container" ref="container"></div>
 </template>
 
 <script setup lang="ts">
-  // @ts-nocheck
-  import { onMounted, ref } from 'vue';
-
+  import { computed, onMounted, ref, unref } from 'vue';
   import { useClipboard } from '@vueuse/core';
-  import { NButton } from 'naive-ui';
-
+  import { NButton, NInputNumber } from 'naive-ui';
   import { loadBMapGL } from '@/utils';
 
-  const container = ref();
+  const mapEle = ref();
+  const map = ref();
 
-  const source = ref('102.85076697175514, 24.89248383034783');
-  const address = ref([]);
+  const point = ref('102.85076697175514,24.89248383034783');
+  const address = ref<string[]>([]);
+  const number = ref<number>(7);
+  const source = computed<string>(() => {
+    if (unref(number) > 0) {
+      const [lng, lat] = unref(point).split(',');
+      return `${Number(lng).toFixed(unref(number))},${Number(lat).toFixed(
+        unref(number)
+      )}`;
+    } else {
+      return unref(point);
+    }
+  });
   const { copy, copied } = useClipboard({ source });
 
   onMounted(async () => {
-    await initMap(container.value);
+    await initMap();
   });
 
   //初始化地图
-  async function initMap(dom) {
+  async function initMap() {
     const BMapGL: any = await loadBMapGL();
     // 创建地图实例
-    const _map: any = new BMapGL.Map(dom);
-    _map.centerAndZoom(
+    map.value = new BMapGL.Map(mapEle.value);
+    map.value.centerAndZoom(
       new BMapGL.Point(102.85076697175514, 24.89248383034783),
       18
     );
-    _map.enableScrollWheelZoom(true);
-    _map.addControl(
+    map.value.enableScrollWheelZoom(true);
+    map.value.addControl(
       new BMapGL.CityListControl({
         // 控件的停靠位置（可选，默认左上角）
         anchor: BMAP_ANCHOR_TOP_LEFT,
       })
     );
-    var geoc = new BMapGL.Geocoder();
-    _map.addEventListener('click', (e) => {
-      source.value = `${e.latlng.lng},${e.latlng.lat}`;
-      _map.clearOverlays();
-      _map.addOverlay(
+    const geoc = new BMapGL.Geocoder();
+    map.value.addEventListener('click', (e: any) => {
+      point.value = `${e.latlng.lng},${e.latlng.lat}`;
+      map.value.clearOverlays();
+      map.value.addOverlay(
         new BMapGL.Marker(new BMapGL.Point(e.latlng.lng, e.latlng.lat))
       );
-      geoc.getLocation(e.latlng, (res) => {
+      geoc.getLocation(e.latlng, (res: any) => {
+        console.log(res);
         const addressArr = res.addressComponents;
         address.value = [
           addressArr['province'],
@@ -82,6 +102,11 @@
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       margin-right: 10px;
+      white-space: nowrap;
     }
+  }
+
+  .opt {
+    padding: 20px 0;
   }
 </style>
