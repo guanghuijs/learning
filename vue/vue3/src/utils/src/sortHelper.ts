@@ -1,3 +1,5 @@
+// @ts-nocheck
+import * as echarts from 'echarts';
 export function hexToRgba(hex: string = '#ff0000', withOpacity: number = 1) {
   hex = hex.slice(1);
   return `rgba(${parseInt(hex.slice(0, 2), 16)},${parseInt(
@@ -8,13 +10,12 @@ export function hexToRgba(hex: string = '#ff0000', withOpacity: number = 1) {
 
 export const sortHelper = {
   bubble: function (
-    chart: any,
+    chart: echarts.ECharts,
     arr: Array<number>,
     primaryColor: string,
     callback: Function = () => {}
   ) {
     const len = arr.length;
-    const [_] = chart!;
     let timer = setInterval(() => {
       if (isSorted(arr)) {
         clearInterval(timer);
@@ -26,7 +27,7 @@ export const sortHelper = {
             let temp = arr[j];
             arr[j] = arr[j + 1];
             arr[j + 1] = temp;
-            setData(_, primaryColor, arr);
+            setData(chart, primaryColor, arr);
             return;
           }
         }
@@ -34,13 +35,12 @@ export const sortHelper = {
     }, 400);
   },
   selection: function (
-    chart: any,
+    chart: echarts.ECharts,
     arr: Array<number>,
     primaryColor: string,
     callback: Function = () => {}
   ) {
     const len = arr.length;
-    const [_] = chart!;
     let timer = setInterval(async () => {
       if (isSorted(arr)) {
         clearInterval(timer);
@@ -57,7 +57,7 @@ export const sortHelper = {
           let temp = arr[i];
           arr[i] = arr[minIndex];
           arr[minIndex] = temp;
-          await _.setOption({
+          await chart.setOption({
             series: {
               // 图表类型
               type: 'bar',
@@ -78,12 +78,11 @@ export const sortHelper = {
     }, 400);
   },
   insertion: function (
-    chart: any,
+    chart: echarts.ECharts,
     arr: Array<number>,
     primaryColor: string,
     callback: Function = () => {}
   ) {
-    const [_] = chart!;
     let currentIndex = 0;
     insertionSort();
     // 插入排序算法
@@ -99,25 +98,23 @@ export const sortHelper = {
           position--;
         }
         arr[position] = current;
-        setData(_, primaryColor, arr); // 更新图表
+        setData(chart, primaryColor, arr); // 更新图表
         currentIndex++; // 移动到下一个元素
         setTimeout(insertionSort, 400); // 每500毫秒执行下一步
       }
     }
   },
   quick: function (
-    chart: any,
+    chart: echarts.ECharts,
     arr: Array<number>,
     primaryColor: string,
     callback: Function = () => {}
   ) {
-    const [_] = chart!;
     quickSort(arr, 0, arr.length - 1);
-
     // 快速排序算法
     function quickSort(arr, left, right) {
       if (left < right) {
-        var pivotIndex = partition(arr, left, right);
+        const pivotIndex = partition(arr, left, right);
         // 递归排序左半部分
         if (left < pivotIndex - 1) {
           setTimeout(function () {
@@ -143,13 +140,13 @@ export const sortHelper = {
           var temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
-          setData(_, primaryColor, arr); // 更新图表
+          setData(chart, primaryColor, arr); // 更新图表
         }
       }
       var temp = arr[i + 1];
       arr[i + 1] = arr[right];
       arr[right] = temp;
-      setData(_, primaryColor, arr); // 更新图表
+      setData(chart, primaryColor, arr); // 更新图表
       return i + 1;
     }
   },
@@ -159,7 +156,6 @@ export const sortHelper = {
     primaryColor: string,
     callback: Function = () => {}
   ) {
-    const [_] = chart!;
     mergeSort(arr);
     // 归并排序算法
     function mergeSort(arr) {
@@ -174,8 +170,8 @@ export const sortHelper = {
 
     // 合并两个已排序数组
     function merge(left, right) {
-      var result = [];
-      var i = 0,
+      const result = [];
+      let i = 0,
         j = 0;
       while (i < left.length && j < right.length) {
         if (left[i] < right[j]) {
@@ -194,19 +190,18 @@ export const sortHelper = {
             result.push(right[j]);
             j++;
           }
-          setData(_, primaryColor, result); // 更新图表
+          setData(chart, primaryColor, result); // 更新图表
         }, 1000); // 设置定时器间隔，这里以 1 秒为例
       }
       return result.concat(left.slice(i)).concat(right.slice(j));
     }
   },
   counting: function (
-    chart: any,
+    chart: echarts.ECharts,
     arr: Array<number>,
     primaryColor: string,
     callback: Function = () => {}
   ) {
-    const [_] = chart;
     countingSort(arr, arr.length);
     function countingSort(array, max) {
       let count = Array(max + 1).fill(0);
@@ -218,7 +213,7 @@ export const sortHelper = {
         while (count[i] > 0) {
           array[index++] = i;
           setTimeout(() => {
-            setData(_, primaryColor, array); // 更新图表
+            setData(chart, primaryColor, array); // 更新图表
           }, 400);
 
           count[i]--;

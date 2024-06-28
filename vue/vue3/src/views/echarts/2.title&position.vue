@@ -5,8 +5,9 @@
   // @ts-nocheck
   import { onMounted, ref } from 'vue';
   import { useECharts } from '@/utils';
+  import type { EChartsType } from 'echarts';
 
-  let chart;
+  let chart: EChartsType;
   const titlePositionRef = ref();
 
   onMounted(() => {

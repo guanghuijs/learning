@@ -6,8 +6,9 @@
   import { onMounted, ref } from 'vue';
   import { useECharts } from '@/utils';
   import mock from 'mockjs';
+  import type { EChartsType } from 'echarts';
 
-  let chart;
+  let chart: EChartsType;
   const xAxisChartRef = ref();
 
   onMounted(() => {

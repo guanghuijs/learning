@@ -34,15 +34,14 @@
   const way = ref<keyof typeof sortHelper>('bubble');
 
   watch(primaryColor, (value) => {
-    const [_] = chart!;
-    _.setOption(series(unref(arr)));
+    chart.setOption(series(unref(arr)));
   });
 
   const arr = ref<Array<number>>(
     Array.from({ length: 20 }, () => Random.integer(0, 100))
   );
 
-  let chart;
+  let chart: echarts.ECharts;
   const helloChartRef = ref();
 
   onMounted(() => {
@@ -81,18 +80,16 @@
   });
 
   const resetArr = () => {
-    const [_] = chart!;
     arr.value = Array.from({ length: 20 }, () => Random.integer(0, 100));
-    _.setOption(series(unref(arr)));
+    chart.setOption(series(unref(arr)));
   };
 
   const resetChart = () => {
-    const [_] = chart!;
-    _.setOption(series(unref(arr)));
+    chart.setOption(series(unref(arr)));
   };
 
   const startSort = () => {
-    sortHelper[way.value](chart!, [...arr.value], primaryColor.value, () => {
+    sortHelper[way.value](chart, [...arr.value], primaryColor.value, () => {
       console.log('排序完成');
     });
   };

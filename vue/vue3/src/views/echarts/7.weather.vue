@@ -10,9 +10,10 @@
   import cloudy from './assets/cloudy.png';
   import rainy from './assets/rainy.png';
   import thundershower from './assets/thundershower.png';
+  import type { EChartsType } from 'echarts';
   const weather = [clear, cloudy, rainy, thundershower];
 
-  let chart;
+  let chart: EChartsType;
   const xAxisChartRef = ref();
 
   onMounted(() => {
