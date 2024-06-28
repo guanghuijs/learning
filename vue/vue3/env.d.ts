@@ -3,3 +3,4 @@
 
 declare module '*.ts' {}
 declare module '*.vue' {}
+declare module '*.json' {}
