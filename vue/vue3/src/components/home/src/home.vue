@@ -12,6 +12,7 @@
     NLayoutSider,
     NLayoutFooter,
     NMenu,
+    NIcon,
   } from 'naive-ui';
 
   import { useSysStoreRefs } from '@/stores/sys';
