@@ -61,6 +61,20 @@
       },
     };
   });
+
+  import { useWindowSize, useDebounceFn } from '@vueuse/core';
+  // 侧边栏折叠相关
+  const { width } = useWindowSize();
+  const rightCollapsed = ref(true);
+  watch(
+    width,
+    useDebounceFn(() => {
+      rightCollapsed.value = width.value <= 900;
+    }, 500),
+    {
+      immediate: true,
+    }
+  );
 </script>
 <template>
   <n-config-provider
@@ -102,7 +116,8 @@
               show-trigger
               collapse-mode="width"
               :collapsed-width="0"
-              width="40%"
+              :width="width > 900 ? '40%' : '100%'"
+              v-model:collapsed="rightCollapsed"
               :native-scrollbar="false"
             >
               <div class="left">
@@ -138,7 +153,7 @@
       &::-webkit-scrollbar {
         display: none;
       }
-      &:has(.goods-cart) {
+      &:has(.goods-cart, .mySwiper) {
         padding: 0;
       }
     }
@@ -171,6 +186,25 @@
     }
     &:hover {
       opacity: 1;
+    }
+  }
+
+  .n-layout-sider--left-placement {
+    z-index: 2;
+  }
+
+  /* 屏幕宽度在0 - 300像素之间的样式 */
+  @media screen and (max-width: 900px) {
+    .n-layout-sider--left-placement {
+      position: absolute;
+      width: 50vw !important;
+      z-index: 10;
+    }
+    .n-layout-sider--right-placement {
+      position: absolute;
+      right: 0;
+      width: 0;
+      z-index: 11;
     }
   }
 </style>
