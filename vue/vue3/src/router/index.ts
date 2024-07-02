@@ -8,6 +8,7 @@ const router = createRouter({
       path: '/',
       redirect: '/vue',
     },
+    getModuleRouter('js', '1.btoa'),
     getModuleRouter('vue', '1.template'),
     getModuleRouter('es6', '1.let'),
     getModuleRouter('css', '1.属性选择器'),
