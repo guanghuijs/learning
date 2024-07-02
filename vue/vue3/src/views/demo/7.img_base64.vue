@@ -43,7 +43,7 @@
     });
   });
 
-  const logoFileHandle = (res: any) => {
+  const upFileHandle = (res: any) => {
     const reader = new FileReader();
     reader.onload = function (e) {
       form.dataUrl = e.target!.result as string;
@@ -76,7 +76,7 @@
         <n-upload
           list-type="image-card"
           :max="1"
-          :on-before-upload="logoFileHandle"
+          :on-before-upload="upFileHandle"
         >
           点击上传
         </n-upload>
@@ -95,7 +95,7 @@
         <n-button @click="downloadImg" type="primary" block>下载</n-button>
       </n-form-item-gi>
       <n-form-item-gi :span="24">
-        <n-button @click="copy" type="primary" block>
+        <n-button @click="copy(form.dataUrl)" type="primary" block>
           {{ copied ? '已复制' : '复制图片base64编码' }}
         </n-button>
       </n-form-item-gi>

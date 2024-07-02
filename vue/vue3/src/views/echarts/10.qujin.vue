@@ -2,8 +2,8 @@
   import { onMounted, ref, unref, watch } from 'vue';
   import { NSelect } from 'naive-ui';
   import { useECharts } from '@/utils';
-  import { useSysStore } from '@/stores/sys';
-  const { primaryColor } = useSysStore();
+  import { useSysStoreRefs } from '@/stores/sys';
+  const { primaryColor } = useSysStoreRefs();
 
   const options = [
     { label: '曲靖市', value: '曲靖市' },
