@@ -1,14 +1,14 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { getModuleRouter } from '@/router/utils';
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
-      redirect: '/vue',
+      redirect: '/java-script/2.window-api?name=gh&age=18',
     },
-    getModuleRouter('js', '1.btoa'),
+    getModuleRouter('java-script', '1.btoa'),
     getModuleRouter('vue', '1.template'),
     getModuleRouter('es6', '1.let'),
     getModuleRouter('css', '1.属性选择器'),
