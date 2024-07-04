@@ -103,15 +103,15 @@
     <div class="code" ref="qrcode"></div>
     <div class="option">
       <n-form ref="formRef" :label-width="80" :model="form" size="small">
-        <n-grid :cols="24" :x-gap="24">
-          <n-form-item-gi :span="12" label="二维码内容">
+        <n-grid :cols="4" :x-gap="20" item-responsive>
+          <n-form-item-gi span="0:4 900:4 900:2" label="二维码内容">
             <n-input
               type="textarea"
               v-model:value="text"
               placeholder="输入文字或者网址"
             />
           </n-form-item-gi>
-          <n-form-item-gi :span="6" label="logo">
+          <n-form-item-gi span="0:2 900:2 900:1" label="logo">
             <n-upload
               list-type="image-card"
               :max="1"
@@ -120,7 +120,7 @@
               点击上传
             </n-upload>
           </n-form-item-gi>
-          <n-form-item-gi :span="6" label="二维码背景">
+          <n-form-item-gi span="0:2 900:2 900:1" label="二维码背景">
             <n-upload
               list-type="image-card"
               :max="1"
@@ -129,25 +129,25 @@
               点击上传
             </n-upload>
           </n-form-item-gi>
-          <n-form-item-gi :span="6" label="自动颜色">
+          <n-form-item-gi span="0:2 900:2 900:1" label="自动颜色">
             <n-switch v-model:value="form.autoColor">
               <template #checked> 怎能见彩虹 </template>
               <template #unchecked> 不经历风雨 </template>
             </n-switch>
           </n-form-item-gi>
-          <n-form-item-gi :span="6" label="暗色">
+          <n-form-item-gi span="0:2 900:2 900:1" label="暗色">
             <n-color-picker
               v-model:value="form.colorDark"
               :show-alpha="false"
             />
           </n-form-item-gi>
-          <n-form-item-gi :span="6" label="亮色">
+          <n-form-item-gi span="0:2 900:2 900:1" label="亮色">
             <n-color-picker
               v-model:value="form.colorLight"
               :show-alpha="false"
             />
           </n-form-item-gi>
-          <n-form-item-gi :span="24">
+          <n-form-item-gi :span="4">
             <n-button type="primary" size="large" block @click="downloadQrCode">
               下载二维码
             </n-button>
