@@ -6,9 +6,9 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/java-script/2.window-api?name=gh&age=18',
+      redirect: '/js/2.window-api?name=gh&age=18',
     },
-    getModuleRouter('java-script', '1.btoa'),
+    getModuleRouter('js', '1.btoa'),
     getModuleRouter('vue', '1.template'),
     getModuleRouter('es6', '1.let'),
     getModuleRouter('css', '1.属性选择器'),
