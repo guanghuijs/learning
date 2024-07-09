@@ -6,27 +6,34 @@
 
   const { primaryColor } = useSysStoreRefs();
 
-  let map = null;
+  let map, marker;
   onMounted(() => {
     useAMap((AMap) => {
       map = new AMap.Map('container', {
         viewMode: '3D',
         zoom: 11,
-        center: [116.397428, 39.90923],
+        center: [102.86775401882852, 24.876217395873415],
       });
-      const position = new AMap.LngLat(116.397428, 39.90923);
-      const marker = new AMap.Marker({
-        position: position,
-        content: `<div class="bmap marker">点标记</div>`, //将 html 传给 content
-        offset: new AMap.Pixel(-25, -25), //以 icon 的 [center bottom] 为原点
+      marker = new AMap.Text({
+        position: new AMap.LngLat(102.86775401882852, 24.876217395873415),
+        anchor: 'bottom-center',
+        text: `102.86775401882852, 24.876217395873415`,
+        style: { 'background-color': 'red' },
       });
       map.add(marker);
-      // 标记点点击事件
-      document.querySelector('.bmap.marker').onclick = function (e) {
-        console.log(e);
-      };
-      map.on('click', (e) => {
-        console.log(e);
+      map.on('click', ({ lnglat }) => {
+        if (marker) {
+          marker.setMap(null);
+          marker = null;
+        }
+        // 文本标记
+        marker = new AMap.Text({
+          position: new AMap.LngLat(lnglat.lng, lnglat.lat),
+          anchor: 'bottom-center',
+          text: `${lnglat.lng},${lnglat.lat}`,
+          style: { 'background-color': 'red' },
+        });
+        map.add(marker);
       });
     });
   });
