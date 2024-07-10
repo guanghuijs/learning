@@ -30,12 +30,12 @@
       marker = new AMap.Marker({
         position: new AMap.LngLat(lngLat[0], lngLat[1]),
         content: `<div class="bmap marker">
-                      <img src="${local}" alt="">
-                      <div class="info">
-                        <div>地址:${result.regeocode.formattedAddress}</div>
-                        <div>经纬度:${lngLat[0]},${lngLat[1]}</div>
-                      </div>
-                    </div>`,
+                    <img src="${local}" alt="">
+                    <div class="info">
+                      <div>地址:${result.regeocode.formattedAddress}</div>
+                      <div>经纬度:${lngLat[0]},${lngLat[1]}</div>
+                    </div>
+                  </div>`,
         offset: new AMap.Pixel(-15, -38), //以 icon 的 [center bottom] 为原点
       });
       map.add(marker);

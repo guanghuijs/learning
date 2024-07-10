@@ -1,7 +1,6 @@
 import AMapLoader from '@amap/amap-jsapi-loader';
 // @ts-ignore
 const { GLOBAL_AMMAP_SECURITY, GLOBAL_AMAP_KEY } = import.meta.env;
-console.log(GLOBAL_AMAP_KEY, GLOBAL_AMMAP_SECURITY);
 /**
  * 高德德图
  */
