@@ -3,6 +3,8 @@
   import { useAMap } from '@/utils';
   import { useSysStoreRefs } from '@/stores/sys';
   import local from '@/assets/_yy-location.png';
+  import { NButton } from 'naive-ui';
+
   const { primaryColor } = useSysStoreRefs();
 
   let map,
@@ -34,6 +36,7 @@
                     <div class="info">
                       <div>地址:${result.regeocode.formattedAddress}</div>
                       <div>经纬度:${lngLat[0]},${lngLat[1]}</div>
+                    <div>${() => h(NButton)}</div>
                     </div>
                   </div>`,
         offset: new AMap.Pixel(-15, -38), //以 icon 的 [center bottom] 为原点
