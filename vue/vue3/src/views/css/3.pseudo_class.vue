@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>同级选择器</h1>
     <div class="test_active">拉拉</div>
     <div class="fullscreenTest" @click="fullscreen" ref="fullscreenTest">
       全屏展示

@@ -11,7 +11,7 @@ const router = createRouter({
     getModuleRouter('js', '1.btoa'),
     getModuleRouter('vue', '1.template'),
     getModuleRouter('es6', '1.let'),
-    getModuleRouter('css', '1.属性选择器'),
+    getModuleRouter('css', '1.props_select'),
     getModuleRouter('less', '1.var'),
     getModuleRouter('scss', '1.annotation'),
     getModuleRouter('demo', '1.grape'),
