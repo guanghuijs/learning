@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { NButton } from 'naive-ui';
-  import { g } from 'vitest/dist/suite-6Pt_ep5V';
   import { ref } from 'vue';
   // WebHash无效
   const queryParams = new URLSearchParams(location.search);
