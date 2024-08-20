@@ -2,17 +2,13 @@ import { loadEnv, UserConfig } from 'vite';
 import { viteConfigBase } from './vite.config.base';
 
 export function build(mode: string): UserConfig {
-  console.log('生产环境');
-  console.log(loadEnv('production', './env', ''));
-  if (mode === 'lib') {
-    console.log('打包成库');
-  } else {
-    console.log('打包');
-  }
+  const [env] = mode.split('-');
+  const { VITE_OUT_INPUT_DIR } = loadEnv(env, './env');
   return {
     ...viteConfigBase,
     build: {
-      outDir: mode ?? 'lib',
+      outDir: VITE_OUT_INPUT_DIR,
+      emptyOutDir: true,
     },
   };
 }

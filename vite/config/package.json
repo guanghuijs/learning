@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "i": "pnpm i",
-    "dev": "vite serve",
+    "dev": "vite",
+    "dev:mode": "vite --mode development-tool-ssl",
     "build": "vite build",
-    "build lib": "vite build --mode lib",
+    "build:test": "vite build --mode test",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
