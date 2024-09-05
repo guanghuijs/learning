@@ -1,1 +1,0 @@
-import{_ as a,o as s,c as t,b as r,a as n,t as c,n as o,F as _}from"./index-WJebj2m3.js";const l={};function d(m,i){return s(),t(_,null,r(5,e=>n("div",{key:e,class:o(`item${e}`)},c(e),3)),64)}const p=a(l,[["render",d],["__scopeId","data-v-5a5ea77e"]]);export{p as default};

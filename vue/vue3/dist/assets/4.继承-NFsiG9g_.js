@@ -1,1 +1,0 @@
-import{_ as e,o as _,c}from"./index-WJebj2m3.js";const t={},s={class:"test"};function o(a,n){return _(),c("div",s,"测试")}const d=e(t,[["render",o],["__scopeId","data-v-58704d37"]]);export{d as default};

@@ -1,1 +1,0 @@
-const s={__name:"11.Iterator",setup(a){const e=[1,2,3,4,5,6,7,8],l=e[Symbol.iterator]();for(let t=0;t<e.length;t++)console.log(l.next());let o=new Set().add("a").add("b").add("c");console.log(o);let[n,r]=o;return console.log(n,r),(t,c)=>null}};export{s as default};
