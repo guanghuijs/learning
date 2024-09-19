@@ -5,11 +5,11 @@
   import { useSysStoreRefs } from '@/stores/sys';
 
   import router from '@/router';
-  import { onMounted, unref, watch } from 'vue';
+  import { nextTick, onMounted, unref, watch } from 'vue';
 
   const [_route, _router] = [useRoute(), useRouter()];
 
-  const { mode, primaryColor } = useSysStoreRefs();
+  const { mode, primaryColor, isDark } = useSysStoreRefs();
 
   watch(mode, (value) => {
     if (value === 'dark') {
@@ -27,12 +27,44 @@
     }
   });
 
-  const toggleMode = () => {
-    if (unref(mode) === 'light') {
-      mode.value = 'dark';
-    } else {
-      mode.value = 'light';
+  const toggleMode = (event: MouseEvent) => {
+    const isAppearanceTransition =
+      // @ts-expect-error
+      document.startViewTransition &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!isAppearanceTransition || !event) {
+      mode.value = unref(isDark) ? 'light' : 'dark';
+      return;
     }
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    );
+    // @ts-expect-error: Transition API
+    const transition = document.startViewTransition(async () => {
+      mode.value = unref(isDark) ? 'light' : 'dark';
+      await nextTick();
+    });
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      document.documentElement.animate(
+        {
+          clipPath: unref(isDark) ? [...clipPath].reverse() : clipPath,
+        },
+        {
+          duration: 450,
+          easing: 'ease-in',
+          pseudoElement: unref(isDark)
+            ? '::view-transition-old(root)'
+            : '::view-transition-new(root)',
+        }
+      );
+    });
   };
 </script>
 
