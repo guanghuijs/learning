@@ -1,0 +1,10 @@
+{
+  "name": "@packages/utils",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "default": "./index.ts"
+    }
+  }
+}

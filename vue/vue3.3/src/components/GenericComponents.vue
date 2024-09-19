@@ -5,7 +5,6 @@
 </script>
 
 <template>
-  <h1>通用组件</h1>
   <div>{{ people }}</div>
 </template>
 

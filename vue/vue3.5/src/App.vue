@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { Layout } from '@/components';
+  import { routes } from '@/router';
+  import { Layout } from '@packages/components';
 </script>
 
 <template>
-  <layout> </layout>
+  <layout :routes="routes" />
 </template>

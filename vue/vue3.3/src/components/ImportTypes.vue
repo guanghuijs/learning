@@ -1,6 +1,6 @@
-<script setup lang="ts" generic="">
+<script setup lang="ts">
   import type { People } from '@/types';
-  const { name: testName, age: testAge } = withDefaults(defineProps<People>(), {
+  withDefaults(defineProps<People>(), {
     name: '张三',
     age: 18,
   });
@@ -9,7 +9,6 @@
 <template>
   <h1>宏中的导入和复杂类型支持</h1>
   <div>{{ name }}{{ age }}</div>
-  <div>{{ testName }}{{ testAge }}</div>
 </template>
 
 <style scoped></style>

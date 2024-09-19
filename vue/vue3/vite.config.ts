@@ -13,7 +13,7 @@ import VueDevTools from 'vite-plugin-vue-devtools';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   console.log(mode);
-  const { GLOBAL_PORT } = loadEnv('', '', 'GLOBAL');
+  const { GLOBAL_PORT } = loadEnv('lock', '', 'GLOBAL');
   return {
     base: './',
     plugins: [

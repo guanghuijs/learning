@@ -1,19 +1,30 @@
 <script setup lang="ts">
-  // const props = withDefaults(
-  //   defineProps<{
-  //     value: string;
-  //   }>(),
-  //   {
-  //     value: '我系渣渣辉',
-  //   }
-  // );
+  // before
+  const props = defineProps<{
+    cont: number;
+  }>();
+  const emits = defineEmits<{
+    'update:cont': [cont: number];
+  }>();
+  // const add = () => {
+  //   emits('update:cont', props.cont + 1);
+  // };
 
-  const modelValue = defineModel();
+  // after
+  const num = defineModel('num', {
+    required: true,
+    default: 2,
+  });
+
+  const add = () => {
+    emits('update:cont', props.cont + 1);
+    num.value++;
+  };
 </script>
 
 <template>
-  <h1>DefineModel</h1>
-  <input v-model="modelValue" />
+  <div>cont:{{ cont }} | num:{{ num }}</div>
+  <button @click="add">++</button>
 </template>
 
 <style scoped></style>

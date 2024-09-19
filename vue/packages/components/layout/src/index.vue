@@ -1,6 +1,9 @@
 <script setup lang="ts">
-  import { routes } from '@/router';
-  import { useRoute, useRouter } from 'vue-router';
+  import { type RouteRecordRaw, useRoute, useRouter } from 'vue-router';
+  defineProps<{
+    routes: RouteRecordRaw[];
+  }>();
+
   const route = useRoute();
   const router = useRouter();
 
@@ -10,16 +13,16 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-if="routes">
     <div class="left">
       <div
         class="item"
-        :class="route.path === path ? 'act' : ''"
-        v-for="{ path, meta } in routes"
+        :class="route?.path === path ? 'act' : ''"
+        v-for="{ path, meta, name } in routes"
         :key="path"
         @click="routeToggle(path)"
       >
-        {{ meta!.title }}
+        {{ meta ? meta.title : name }}
       </div>
     </div>
     <div class="right">

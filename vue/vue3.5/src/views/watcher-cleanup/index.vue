@@ -1,8 +1,6 @@
 <script setup lang="ts">
   import { ref, watch, onWatcherCleanup } from 'vue';
-
   const num = ref(0);
-
   watch(
     () => num.value,
     (value) => {

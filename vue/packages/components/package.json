@@ -1,0 +1,17 @@
+{
+  "name": "@packages/components",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.5.3",
+    "vue-router": "^4.4.3"
+  },
+  "exports": {
+    ".": {
+      "default": "./index.ts"
+    }
+  }
+}

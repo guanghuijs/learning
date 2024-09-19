@@ -1,5 +1,7 @@
 // @ts-nocheck
 import * as echarts from 'echarts';
+import 'echarts-wordcloud';
+
 import { useResizeObserver, useDebounceFn } from '@vueuse/core';
 // @ts-ignore
 import china from './china.json';

@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "vue": "^3.3.11",
-    "vue-router": "^4.4.3"
+    "vue-router": "^4.4.3",
+    "@packages/components": "workspace:*"
   },
   "devDependencies": {
+    "vite-plugin-pages": "^0.32.3",
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^18.19.3",
     "@vitejs/plugin-vue": "^4.5.2",

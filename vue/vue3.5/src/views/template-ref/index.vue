@@ -7,16 +7,18 @@
   // after
   const div = useTemplateRef('domDiv');
   const divInnerText = () => {
-    div.value.innerText = '张三6666';
+    div.value!.innerText = '张三6666';
   };
 
   // before
   // const comp = ref<HTMLDivElement>();
   // after
-  const useTComp = useTemplateRef('comp');
+  const useTComp = useTemplateRef<{
+    addNum: () => void;
+  }>('comp');
 
   const addCompNum = () => {
-    useTComp.value.addNum();
+    useTComp.value!.addNum();
     // comp.value.addNum();
   };
 </script>

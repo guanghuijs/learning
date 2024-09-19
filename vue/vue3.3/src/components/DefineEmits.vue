@@ -6,7 +6,6 @@
 </script>
 
 <template>
-  <h1>DefineEmits</h1>
   <div @click="emits('change', 'change')">change</div>
   <div @click="emits('update', 123, 666, 888, 77, 111)">update</div>
 </template>
