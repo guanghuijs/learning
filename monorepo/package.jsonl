@@ -1,0 +1,72 @@
+{
+  // 项目名 
+  "name": "vben-admin-pro",
+  // 版本 
+  "version": "5.2.0",
+  // 表示该包私有化,防止意外发布npm
+  "private": true,
+  // 关键词
+  "keywords": [
+    "monorepo",
+    "turbo",
+    "vue",
+    "vue admin",
+    "vue3"
+  ],
+  // 主页
+  "homepage": "https://github.com/****",
+  // 问题反馈,一般是开源仓库issues
+  "bugs": "https://github.com/***/issues",
+  // 仓库
+  "repository": "",
+  // 开源许可证
+  // MIT License：非常宽松，允许用户几乎可以无限制地使用代码，只需保留版权声明。
+  // GNU General Public License (GPL)：要求任何修改后的代码或衍生作品也必须以 GPL 许可证发布。
+  // Apache License：与 MIT 类似，但提供了额外的专利保护条款。
+  // Mozilla Public License (MPL)：旨在确保代码的开放性，同时保护贡献者的版权。
+  "license": "MIT",
+  // 作者信息
+  "author": {
+    "name": "gh",
+    "email": "ann.vben@gmail.com",
+    "url": "https://github.com/anncwb"
+  },
+  // 
+  "type": "module",
+  // 
+  "scripts": {
+    "bootstrap": "pnpm install",
+  },
+  // 生产依赖
+  "devDependencies": {
+    "vitest": "^2.0.5",
+    "vue": "^3.4.38",
+    "vue-tsc": "^2.0.29"
+  },
+  // 开发依赖
+  "dependencies": {},
+  // 指定项目运行所需的环境
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  // 包管理工具版本
+  "packageManager": "pnpm@9.9.0",
+  // pnpm的一些特定选项
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "*"
+      }
+    },
+    "overrides": {
+      "@ctrl/tinycolor": "4.1.0",
+      "clsx": "2.1.1",
+      "pinia": "2.2.2",
+      // 表示强制使用 vue 3.4.38
+      "vue": "3.4.38" 
+    },
+    // 包含了不应该被构建的依赖项
+    "neverBuiltDependencies": ["canvas", "node-gyp", "playwright"]
+  }
+}
