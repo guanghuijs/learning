@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "dev ssl": "vite --host --mode ssl",
     "boot": "pnpm i",
+    "dev": "vite --host",
+    "dev:ssl": "vite --host --mode ssl",
     "build": "run-p \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",

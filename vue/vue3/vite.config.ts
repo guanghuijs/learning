@@ -12,8 +12,7 @@ import VueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  console.log(mode);
-  const { GLOBAL_PORT } = loadEnv('lock', '', 'GLOBAL');
+  const { GLOBAL_PORT, GLOBAL_SSL } = loadEnv(mode, '', 'GLOBAL');
   return {
     base: './',
     plugins: [
@@ -28,7 +27,7 @@ export default defineConfig(({ mode }) => {
         exclude: ['**/src/*.vue'],
       }),
       VueDevTools(),
-      mode === 'ssl'
+      GLOBAL_SSL
         ? basicSsl({
             name: 'test',
             domains: ['*.custom.com'],
