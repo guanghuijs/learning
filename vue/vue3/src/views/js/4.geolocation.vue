@@ -7,7 +7,6 @@
     if ('geolocation' in navigator) {
       // 浏览器支持 Geolocation
       navigator.geolocation.getCurrentPosition((res) => {
-        console.log(res.coords);
         p.value = res;
       });
     } else {
@@ -16,6 +15,6 @@
   });
 </script>
 
-<template>{{ p.coords }}</template>
+<template>{{ p }}</template>
 
 <style scoped lang="less"></style>
