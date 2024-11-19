@@ -3,9 +3,7 @@ import { viteConfigBase } from './vite.config.base';
 
 export function serve(mode: string): UserConfig {
   console.log('开发环境');
-  const [env, tool, ssl] = mode.split('-');
-  console.log(env, tool, ssl);
-  const { DEV_PORT, DEV_PROXY } = loadEnv(env, './env', 'DEV_');
+  const { DEV_PORT, DEV_PROXY } = loadEnv(mode, './env', 'DEV_');
   return {
     ...viteConfigBase,
     server: {

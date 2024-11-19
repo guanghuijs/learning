@@ -7,5 +7,5 @@ export const viteConfigBase: UserConfig = {
     alias: {},
   },
   envDir: './env',
-  envPrefix: ['DEV', 'PRO'], //环境变量前缀,不配置默认VITE,可配置多个
+  envPrefix: ['DEV', 'PRO', 'VITE'], //环境变量前缀,不配置默认VITE,可配置多个
 };
