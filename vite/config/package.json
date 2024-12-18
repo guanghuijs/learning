@@ -15,6 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^16.18.70",
-    "vite": "^5.0.11"
+    "vite": "^6.0.3"
   }
 }
