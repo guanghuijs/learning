@@ -29,7 +29,7 @@
   );
 
   defineEmits<{
-    (e: 'itemClick', index: number): void;
+    (e: 'itemClick', index: string): void;
   }>();
 
   /**

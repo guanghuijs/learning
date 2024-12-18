@@ -2,8 +2,8 @@
   import { computed, ref, unref } from 'vue';
   import { NIcon, NCheckbox, NInputNumber } from 'naive-ui';
   import { IosTrash } from '@vicons/ionicons4';
-  import type { ShopItem } from './type';
-  import { cartList } from './data';
+  import type { ShopItem } from './js/type';
+  import { cartList } from './js/data';
   import { useSysStoreRefs } from '@/stores/sys';
 
   const { primaryColor } = useSysStoreRefs();
