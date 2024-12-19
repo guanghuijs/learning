@@ -149,13 +149,13 @@
     .layout-main {
       height: calc(100vh - 100px);
       overflow-y: scroll;
-      padding: 10px 20px;
+      //padding: 10px 20px;
       &::-webkit-scrollbar {
         display: none;
       }
-      &:has(.goods-cart, .mySwiper) {
-        padding: 0;
-      }
+      //&:has(.goods-cart, .mySwiper) {
+      //  padding: 0;
+      //}
     }
     .footer {
       height: 50px;
