@@ -1,5 +1,7 @@
 <template>
-  <div id="container" class="container" ref="container"></div>
+  <page title="控件">
+    <div id="container" class="container" ref="container"></div>
+  </page>
 </template>
 
 <script setup lang="ts">
@@ -8,6 +10,7 @@
   import { loadBMapGL } from '@/utils';
   import { NButton, NSwitch } from 'naive-ui';
   import { h, render } from 'vue';
+  import { Page } from '@packages/components';
 
   const container = ref();
 

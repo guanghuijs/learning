@@ -1,7 +1,9 @@
 <script setup lang="ts">
+  import { ref } from 'vue';
   import { NButton } from 'naive-ui';
   import { Html5Qrcode } from 'html5-qrcode';
-  import { ref } from 'vue';
+
+  import { Page } from '@packages/components';
 
   const qrShow = ref(false);
   const qrCode = () => {
@@ -27,12 +29,12 @@
 </script>
 
 <template>
-  <div>
+  <page title="扫码">
     <div v-show="qrShow" class="qr-content">
       <div id="reader"></div>
     </div>
     <n-button @click="qrCode">扫码</n-button>
-  </div>
+  </page>
 </template>
 
 <style scoped lang="less">

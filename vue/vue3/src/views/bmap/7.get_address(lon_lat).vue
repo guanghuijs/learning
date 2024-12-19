@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { loadBMapGL } from '@/utils';
   import { onMounted, ref } from 'vue';
+  import { Page } from '@packages/components';
 
   const mapEle = ref<HTMLDivElement>();
   const map = ref<any>();
@@ -38,6 +39,7 @@
 </script>
 
 <template>
+  <page title="根据经纬度获取位置信息"></page>
   <div class="map" ref="mapEle"></div>
 </template>
 

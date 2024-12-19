@@ -1,30 +1,33 @@
 <template>
-  <div class="box">
-    <div id="container" class="container" ref="mapEle"></div>
-    <div class="opt">
-      <div class="flex-star">
-        <div class="result">{{ point }}</div>
-        <n-input-number
-          placeholder="复制小数点后多少位"
-          v-model:value="number"
-        ></n-input-number>
+  <page title="拾取经纬度">
+    <div class="box">
+      <div id="container" class="container" ref="mapEle"></div>
+      <div class="opt">
+        <div class="flex-star">
+          <div class="result">{{ point }}</div>
+          <n-input-number
+            placeholder="复制小数点后多少位"
+            v-model:value="number"
+          ></n-input-number>
+        </div>
+        <div style="margin: 10px 0">
+          <n-Button type="primary" @click="copy()">
+            <span v-if="!copied">复制当前经纬度</span>
+            <span v-else>已复制</span>
+          </n-Button>
+        </div>
+        <div>{{ address.join('') }}</div>
       </div>
-      <div style="margin: 10px 0">
-        <n-Button type="primary" @click="copy()">
-          <span v-if="!copied">复制当前经纬度</span>
-          <span v-else>已复制</span>
-        </n-Button>
-      </div>
-      <div>{{ address.join('') }}</div>
     </div>
-  </div>
+  </page>
 </template>
 
 <script setup lang="ts">
   import { computed, onMounted, ref, unref } from 'vue';
   import { useClipboard } from '@vueuse/core';
-  import { NButton, NInputNumber } from 'naive-ui';
+  import { NInputNumber, NButton } from 'naive-ui';
   import { loadBMapGL } from '@/utils';
+  import { Page } from '@packages/components';
 
   const mapEle = ref();
   const map = ref();
@@ -92,7 +95,6 @@
     height: 500px;
   }
   .box {
-    padding: 10px 0;
     height: initial;
     .result {
       display: inline-block;

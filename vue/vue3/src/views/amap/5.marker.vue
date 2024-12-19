@@ -2,7 +2,7 @@
   import { onMounted, onUnmounted } from 'vue';
   import { useAMap } from '@/utils';
   import { useSysStoreRefs } from '@/stores/sys';
-  import loca from '@/assets/_yy-location.png';
+  import { Page } from '@packages/components';
 
   const { primaryColor } = useSysStoreRefs();
 
@@ -37,7 +37,9 @@
 </script>
 
 <template>
-  <div id="container"></div>
+  <page title="添加点标记">
+    <div id="container"></div>
+  </page>
 </template>
 
 <style lang="less">

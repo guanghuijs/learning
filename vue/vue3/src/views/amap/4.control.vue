@@ -1,5 +1,7 @@
 <script setup>
   import { onMounted, onUnmounted } from 'vue';
+
+  import { Page } from '@packages/components';
   import { useAMap } from '@/utils';
 
   let map = null;
@@ -47,7 +49,9 @@
 </script>
 
 <template>
-  <div id="container"></div>
+  <page title="控件">
+    <div id="container"></div>
+  </page>
 </template>
 
 <style scoped>

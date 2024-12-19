@@ -1,10 +1,12 @@
 <template>
-  <n-select
-    v-model:value="selectType"
-    :options="mapType"
-    @change="mapTypeChange"
-  />
-  <div id="container" class="container" ref="container"></div>
+  <page title="地图类型切换">
+    <n-select
+      v-model:value="selectType"
+      :options="mapType"
+      @change="mapTypeChange"
+    />
+    <div id="container" class="container" ref="container"></div>
+  </page>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +14,7 @@
   import { onMounted, ref } from 'vue';
   import { loadBMapGL } from '@/utils';
 
+  import { Page } from '@packages/components';
   import { NSelect } from 'naive-ui';
   import type { SelectOption } from 'naive-ui';
 

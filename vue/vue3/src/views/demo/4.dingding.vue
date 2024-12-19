@@ -1,43 +1,47 @@
 <template>
-  <div class="main-conteiner">
-    <div class="logo-title">
-      <div class="logo">
-        <img alt="" src="" />
+  <page title="防钉钉官网动画">
+    <div class="main-conteiner">
+      <div class="logo-title">
+        <div class="logo">
+          <img alt="" src="" />
+        </div>
+        <div class="title">
+          <img src="" alt="" />
+        </div>
       </div>
-      <div class="title">
-        <img src="" alt="" />
-      </div>
-    </div>
-    <div class="playground" ref="playground">
-      <div class="animation-container" ref="animationRef">
-        <div class="list" ref="listRef">
-          <div
-            class="list-item"
-            :data-order="orderMap[index]"
-            v-for="(item, index) in list"
-            :key="index"
-            :class="[
-              index == 6 || index == 13 ? 'mr-0' : '',
-              index > 6 ? 'mt-100' : '',
-            ]"
-          >
-            <img :src="item.url" alt="" />
+      <div class="playground" ref="playground">
+        <div class="animation-container" ref="animationRef">
+          <div class="list" ref="listRef">
+            <div
+              class="list-item"
+              :data-order="orderMap[index]"
+              v-for="(item, index) in list"
+              :key="index"
+              :class="[
+                index == 6 || index == 13 ? 'mr-0' : '',
+                index > 6 ? 'mt-100' : '',
+              ]"
+            >
+              <img :src="item.url" alt="" />
+            </div>
           </div>
         </div>
       </div>
+      <div class="last-area">
+        <img
+          src="https://gw.alicdn.com/imgextra/i4/O1CN013OYoqp1foK6tig7lJ_!!6000000004053-2-tps-864-168.png"
+          alt=""
+        />
+        <span>企业数字化一个钉钉就解决</span>
+      </div>
     </div>
-    <div class="last-area">
-      <img
-        src="https://gw.alicdn.com/imgextra/i4/O1CN013OYoqp1foK6tig7lJ_!!6000000004053-2-tps-864-168.png"
-        alt=""
-      />
-      <span>企业数字化一个钉钉就解决</span>
-    </div>
-  </div>
+  </page>
 </template>
 
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
+  import { Page } from '@packages/components';
+
   const listRef = ref();
   const playground = ref();
   const animationRef = ref();

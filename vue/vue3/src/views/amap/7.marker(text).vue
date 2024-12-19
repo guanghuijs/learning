@@ -1,8 +1,10 @@
 <script setup>
   import { onMounted, onUnmounted } from 'vue';
+
+  import { Page } from '@packages/components';
+
   import { useAMap } from '@/utils';
   import { useSysStoreRefs } from '@/stores/sys';
-  import loca from '@/assets/_yy-location.png';
 
   const { primaryColor } = useSysStoreRefs();
 
@@ -44,7 +46,9 @@
 </script>
 
 <template>
-  <div id="container"></div>
+  <page title="点标记(文本)">
+    <div id="container"></div>
+  </page>
 </template>
 
 <style lang="less">

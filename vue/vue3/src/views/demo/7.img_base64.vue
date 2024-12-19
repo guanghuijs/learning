@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { onMounted, reactive, ref } from 'vue';
+  import { onMounted, reactive } from 'vue';
   import {
     NInput,
     NUpload,
@@ -8,6 +8,8 @@
     NFormItemGi,
     NButton,
   } from 'naive-ui';
+
+  import { Page } from '@packages/components';
 
   function convertImgToBase64(url: string, callback: Function) {
     const img = new Image();
@@ -61,46 +63,47 @@
 </script>
 
 <template>
-  <h1>图片base64转换器</h1>
-  <img class="img" :src="form.url" alt="" />
-  <n-form ref="formRef" :label-width="80" :model="form" size="small">
-    <n-grid :cols="24" :x-gap="24">
-      <n-form-item-gi :span="24" label="输入图片网址">
-        <n-input
-          type="textarea"
-          v-model:value="form.url"
-          placeholder="输入文字或者网址"
-        />
-      </n-form-item-gi>
-      <n-form-item-gi :span="24" label="上传图片">
-        <n-upload
-          list-type="image-card"
-          :max="1"
-          :on-before-upload="upFileHandle"
-        >
-          点击上传
-        </n-upload>
-      </n-form-item-gi>
-      <n-form-item-gi :span="24" label="二维码内容">
-        <n-input
-          type="textarea"
-          v-model:value="form.dataUrl"
-          placeholder="输入文字或者网址"
-        />
-      </n-form-item-gi>
-      <n-form-item-gi :span="24" label="base64预览">
-        <img class="preview" :src="form.dataUrl" alt="" />
-      </n-form-item-gi>
-      <n-form-item-gi :span="24">
-        <n-button @click="downloadImg" type="primary" block>下载</n-button>
-      </n-form-item-gi>
-      <n-form-item-gi :span="24">
-        <n-button @click="copy(form.dataUrl)" type="primary" block>
-          {{ copied ? '已复制' : '复制图片base64编码' }}
-        </n-button>
-      </n-form-item-gi>
-    </n-grid>
-  </n-form>
+  <page title="图片base64转换">
+    <img class="img" :src="form.url" alt="" />
+    <n-form ref="formRef" :label-width="80" :model="form" size="small">
+      <n-grid :cols="24" :x-gap="24">
+        <n-form-item-gi :span="24" label="输入图片网址">
+          <n-input
+            type="textarea"
+            v-model:value="form.url"
+            placeholder="输入文字或者网址"
+          />
+        </n-form-item-gi>
+        <n-form-item-gi :span="24" label="上传图片">
+          <n-upload
+            list-type="image-card"
+            :max="1"
+            :on-before-upload="upFileHandle"
+          >
+            点击上传
+          </n-upload>
+        </n-form-item-gi>
+        <n-form-item-gi :span="24" label="二维码内容">
+          <n-input
+            type="textarea"
+            v-model:value="form.dataUrl"
+            placeholder="输入文字或者网址"
+          />
+        </n-form-item-gi>
+        <n-form-item-gi :span="24" label="base64预览">
+          <img class="preview" :src="form.dataUrl" alt="" />
+        </n-form-item-gi>
+        <n-form-item-gi :span="24">
+          <n-button @click="downloadImg" type="primary" block>下载</n-button>
+        </n-form-item-gi>
+        <n-form-item-gi :span="24">
+          <n-button @click="copy(form.dataUrl)" type="primary" block>
+            {{ copied ? '已复制' : '复制图片base64编码' }}
+          </n-button>
+        </n-form-item-gi>
+      </n-grid>
+    </n-form>
+  </page>
 </template>
 
 <style scoped lang="less">

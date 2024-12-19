@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { computed, ref, unref } from 'vue';
-  import { goods } from './data';
+  import { Page } from '@packages/components';
+
+  import { goods } from './js/data';
 
   import { useSysStoreRefs } from '@/stores/sys';
 
@@ -99,39 +101,43 @@
 </script>
 
 <template>
-  <div class="goods-spec">
-    <div class="spec-top flex-between">
-      <div class="spec-top-left">
-        <img />
-        <div class="goods-base-info">
-          <div>￥{{ calcSpecific.result.price }}</div>
-          <p>库存:{{ calcSpecific.result.stock }}</p>
-          <span>{{ calcSpecific.specString }}</span>
+  <page title="商品规格选择">
+    <div class="goods-spec">
+      <div class="spec-top flex-between">
+        <div class="spec-top-left">
+          <img />
+          <div class="goods-base-info">
+            <div>￥{{ calcSpecific.result.price }}</div>
+            <p>库存:{{ calcSpecific.result.stock }}</p>
+            <span>{{ calcSpecific.specString }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="specific">
+        <div
+          class="spec-item"
+          v-for="({ name, items }, specIndex) in specific"
+          :key="specIndex"
+        >
+          <p>{{ name }}</p>
+          <div class="spec-item-tag">
+            <span
+              v-for="({ name, isToggle }, specItemIndex) in items"
+              :key="name"
+              :class="[
+                isToggle ? '' : 'noProduct',
+                subIndex[specIndex] === specItemIndex ? 'active' : '',
+              ]"
+              @click="
+                specificationBtn(name, specIndex, specItemIndex, isToggle)
+              "
+              >{{ name }}</span
+            >
+          </div>
         </div>
       </div>
     </div>
-    <div class="specific">
-      <div
-        class="spec-item"
-        v-for="({ name, items }, specIndex) in specific"
-        :key="specIndex"
-      >
-        <p>{{ name }}</p>
-        <div class="spec-item-tag">
-          <span
-            v-for="({ name, isToggle }, specItemIndex) in items"
-            :key="name"
-            :class="[
-              isToggle ? '' : 'noProduct',
-              subIndex[specIndex] === specItemIndex ? 'active' : '',
-            ]"
-            @click="specificationBtn(name, specIndex, specItemIndex, isToggle)"
-            >{{ name }}</span
-          >
-        </div>
-      </div>
-    </div>
-  </div>
+  </page>
 </template>
 
 <style scoped lang="less">

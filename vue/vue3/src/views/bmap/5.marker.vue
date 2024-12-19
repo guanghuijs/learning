@@ -1,26 +1,28 @@
 <template>
-  <div class="box">
-    <div class="result">{{ source }}</div>
-    <n-button @click="copy()">
-      <!-- by default, `copied` will be reset in 1.5s -->
-      <span v-if="!copied">复制</span>
-      <span v-else>已复制</span>
-    </n-button>
-  </div>
-  <div id="container" class="container" ref="container"></div>
-  <n-select
-    v-model:value="overlay"
-    style="margin-top: 20px"
-    :options="
-      ['Marker', 'Polyline', 'Circle', 'Polygon', 'Label', 'Marker3D'].map(
-        (value) => ({
-          value,
-          label: value,
-        })
-      )
-    "
-  >
-  </n-select>
+  <page title="覆盖物">
+    <div class="box">
+      <div class="result">{{ source }}</div>
+      <n-button @click="copy()">
+        <!-- by default, `copied` will be reset in 1.5s -->
+        <span v-if="!copied">复制</span>
+        <span v-else>已复制</span>
+      </n-button>
+    </div>
+    <div id="container" class="container" ref="container"></div>
+    <n-select
+      v-model:value="overlay"
+      style="margin-top: 20px"
+      :options="
+        ['Marker', 'Polyline', 'Circle', 'Polygon', 'Label', 'Marker3D'].map(
+          (value) => ({
+            value,
+            label: value,
+          })
+        )
+      "
+    >
+    </n-select>
+  </page>
 </template>
 
 <script setup lang="ts">
@@ -28,6 +30,8 @@
   import { onMounted, ref, unref, watch } from 'vue';
   import { useClipboard } from '@vueuse/core';
   import { NSelect, NButton } from 'naive-ui';
+
+  import { Page } from '@packages/components';
 
   import { loadBMapGL } from '@/utils';
 
@@ -151,7 +155,6 @@
     height: 500px;
   }
   .box {
-    padding: 10px 0;
     .result {
       display: inline-block;
       font-size: 14px;

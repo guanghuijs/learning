@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { onMounted, reactive, ref, unref, watch } from 'vue';
-  //  @ts-ignore
-  import * as QRCode from 'easyqrcodejs';
+  import { Page } from '@packages/components';
+  import QRCode from 'easyqrcodejs';
+  console.log(QRCode);
   import logoImg from '/public/logo.webp';
   import {
     NInput,
@@ -99,7 +100,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <page title="前端二维码生成">
     <div class="code" ref="qrcode"></div>
     <div class="option">
       <n-form ref="formRef" :label-width="80" :model="form" size="small">
@@ -155,18 +156,15 @@
         </n-grid>
       </n-form>
     </div>
-  </div>
+  </page>
 </template>
 
 <style lang="less" scoped>
-  .container {
-    padding-top: 10px;
-    .code {
-      width: 300px;
-      height: 300px;
-      margin: 0 auto;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
+  .code {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
   }
 </style>

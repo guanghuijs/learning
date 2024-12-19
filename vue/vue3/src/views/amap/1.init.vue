@@ -1,4 +1,5 @@
 <script setup>
+  import { Page } from '@packages/components';
   import { onMounted, onUnmounted } from 'vue';
   import { useAMap } from '@/utils';
 
@@ -6,8 +7,6 @@
   onMounted(() => {
     useAMap((AMap) => {
       map = new AMap.Map('container', {
-        // 设置样式
-        mapStyle: 'amap://styles/whitesmoke',
         // 设置地图容器id
         viewMode: '3D', // 是否为3D地图模式
         zoom: 11, // 初始化地图级别
@@ -22,7 +21,9 @@
 </script>
 
 <template>
-  <div id="container"></div>
+  <page title="高度地图初体验" padding="0">
+    <div id="container"></div>
+  </page>
 </template>
 
 <style scoped>

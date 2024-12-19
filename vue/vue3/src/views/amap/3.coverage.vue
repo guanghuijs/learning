@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import { onMounted, onUnmounted, ref } from 'vue';
+
+  import { Page } from '@packages/components';
   import { useAMap } from '@/utils';
 
   import { NButton } from 'naive-ui';
@@ -44,14 +46,16 @@
 </script>
 
 <template>
-  <div id="container"></div>
-  <n-button @click="show">显示</n-button>
-  <n-button @click="hidden">隐藏</n-button>
+  <page title="图层展示">
+    <div id="container"></div>
+    <n-button @click="show">显示</n-button>
+    <n-button @click="hidden">隐藏</n-button>
+  </page>
 </template>
 
 <style scoped>
   #container {
     width: 100%;
-    height: 100%;
+    height: 500px;
   }
 </style>

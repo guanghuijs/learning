@@ -1,11 +1,15 @@
 <template>
-  <div id="container" class="container" ref="container"></div>
+  <page title="区域模式">
+    <div id="container" class="container" ref="container"></div>
+  </page>
 </template>
 
 <script setup lang="ts">
   // @ts-nocheck
   import { onMounted, ref } from 'vue';
   import { loadBMapGL } from '@/utils';
+  import { Page } from '@packages/components';
+
   const container = ref();
   onMounted(async () => {
     await initMap(container.value);

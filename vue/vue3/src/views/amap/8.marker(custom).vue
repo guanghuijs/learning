@@ -1,5 +1,8 @@
 <script setup>
   import { onMounted, onUnmounted, h } from 'vue';
+
+  import { Page } from '@packages/components';
+
   import { useAMap } from '@/utils';
   import { useSysStoreRefs } from '@/stores/sys';
   import local from '@/assets/_yy-location.png';
@@ -52,7 +55,9 @@
 </script>
 
 <template>
-  <div id="container"></div>
+  <page title="自定义点标记">
+    <div id="container"></div>
+  </page>
 </template>
 
 <style lang="less">

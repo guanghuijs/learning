@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  import { NButton } from 'naive-ui';
+  import { ref, unref } from 'vue';
+  import { NButton, useMessage } from 'naive-ui';
   import CryptoJs from 'crypto-js';
-  import { ref, unref, h } from 'vue';
-  import { useMessage } from 'naive-ui';
+
+  import { Page } from '@packages/components';
 
   const message = useMessage();
   const {
@@ -97,7 +98,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <page title="科大讯飞3.5" padding="0">
     <div class="chat-content" ref="chartContentRef"></div>
     <div class="ask-content">
       <textarea v-model="sMsg"></textarea>
@@ -105,46 +106,41 @@
         <n-button type="primary" size="large" @click="sendMsg">发送</n-button>
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 <style lang="less" scoped>
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #f2f2f2;
-    .chat-content {
-      flex: 1;
-      overflow-y: scroll;
-      .msg-ai {
-        background: white;
-        text-align: left;
-      }
-      .msg-user {
-        margin-bottom: 10px;
-        text-align: right;
-      }
-    }
-    .ask-content {
-      height: 150px;
+  .chat-content {
+    flex: 1;
+    overflow-y: scroll;
+    .msg-ai {
       background: white;
-      border: 1px solid #eee;
-      padding: 8px;
-      position: relative;
-      textarea {
-        border: none;
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        background: #f2f2f2;
-        outline: none;
-      }
-      .opt {
-        text-align: right;
-        position: absolute;
-        inset: auto 10px 10px auto;
-      }
+      text-align: left;
+    }
+    .msg-user {
+      margin-bottom: 10px;
+      text-align: right;
+    }
+  }
+  .ask-content {
+    height: 150px;
+    background: white;
+    border: 1px solid #eee;
+    padding: 8px;
+    position: sticky;
+    bottom: 0;
+    textarea {
+      border: none;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      background: #f2f2f2;
+      outline: none;
+    }
+    .opt {
+      text-align: right;
+      position: absolute;
+      inset: auto 10px 10px auto;
     }
   }
 </style>

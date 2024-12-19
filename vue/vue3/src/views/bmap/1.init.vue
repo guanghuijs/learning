@@ -1,5 +1,7 @@
 <template>
-  <div id="container" class="container" ref="container"></div>
+  <page title="百度地图初体验">
+    <div id="container" class="container" ref="container"></div>
+  </page>
 </template>
 
 <script setup lang="ts">
@@ -7,6 +9,7 @@
   import { onMounted, ref } from 'vue';
   // @ts-ignore 忽略单行校验
   import { loadBMapGL } from '@/utils';
+  import { Page } from '@packages/components';
 
   const container = ref();
 

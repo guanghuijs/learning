@@ -1,5 +1,8 @@
 <script setup lang="ts">
-  import { onMounted, onUnmounted } from 'vue';
+  import { onUnmounted } from 'vue';
+
+  import { Page } from '@packages/components';
+
   import { NButton } from 'naive-ui';
   import { useAMap } from '@/utils';
 
@@ -44,8 +47,10 @@
 </script>
 
 <template>
-  <div id="container"></div>
-  <n-button @click="getAddress">获取当前定位</n-button>
+  <page title="地图获取当前定位">
+    <div id="container"></div>
+    <n-button @click="getAddress">获取当前定位</n-button>
+  </page>
 </template>
 
 <style scoped>

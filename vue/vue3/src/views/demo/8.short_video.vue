@@ -1,22 +1,25 @@
 <template>
-  <swiper
-    class="mySwiper"
-    direction="vertical"
-    @swiper="onSwiper"
-    @slideChangeTransitionEnd="transitionEnd"
-    @slideChange="slideChange"
-  >
-    <swiper-slide
-      v-for="video in [CAT_1, CAT_2, CAT_3, CAT_4, CAT_5]"
-      class="swiper-item"
+  <page title="短视频刷刷刷">
+    <swiper
+      class="mySwiper"
+      direction="vertical"
+      @swiper="onSwiper"
+      @slideChangeTransitionEnd="transitionEnd"
+      @slideChange="slideChange"
     >
-      <video loop>
-        <source :src="video" />
-      </video>
-    </swiper-slide>
-  </swiper>
+      <swiper-slide
+        v-for="video in [CAT_1, CAT_2, CAT_3, CAT_4, CAT_5]"
+        class="swiper-item"
+      >
+        <video loop>
+          <source :src="video" />
+        </video>
+      </swiper-slide>
+    </swiper>
+  </page>
 </template>
 <script setup lang="ts">
+  import { onMounted } from 'vue';
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
   // Import Swiper styles
@@ -26,7 +29,8 @@
   import CAT_3 from '@/assets/video/cat_3.mp4';
   import CAT_4 from '@/assets/video/cat_4.mp4';
   import CAT_5 from '@/assets/video/cat_5.mp4';
-  import { onMounted } from 'vue';
+
+  import { Page } from '@packages/components';
 
   onMounted(() => {
     const video = document
