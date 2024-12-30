@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         //文件后缀
         extensions: ['vue'],
         //可以排除指定目录
-        exclude: ['**/src/*.vue'],
+        exclude: ['**/components/*.vue'],
       }),
       VueDevTools(),
       DEV_HTTPS === 'true'

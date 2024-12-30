@@ -27,7 +27,8 @@
     "swiper": "^11.1.4",
     "three": "^0.140.2",
     "vue": "^3.3.1",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "@packages/components": "workspace:*"
   },
   "devDependencies": {
     "@codemirror/lang-html": "^6.4.7",
