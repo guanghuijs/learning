@@ -10,7 +10,7 @@ lerna-debug.log*
 *-lock.yaml
 *.rar
 .env.lock
-**-lock.json
+**/**-lock.json
 
 node_modules
 *.local

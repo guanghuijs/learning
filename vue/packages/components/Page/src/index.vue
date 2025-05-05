@@ -12,7 +12,7 @@
       <div>{{ title }}</div>
       <p class="describe">{{ describe }}</p>
     </div>
-    <div class="content"><slot></slot></div>
+    <div class="content" v-bind="$attrs"><slot></slot></div>
   </div>
 </template>
 
