@@ -1,7 +1,27 @@
 <template>
+	<view class="container">
+		<view class="top">
+			<view @tap="menusPopupShow = true">菜单</view>
+		</view>
+		<Menus v-model="menusPopupShow"></Menus>
+		<router-view></router-view>
+	</view>
 </template>
 <script>
+	import Menus from '@/components/Menus/index.vue';
 	export default {
+		data() {
+			return {
+				// 定义一个全局变量
+				globalVariable: 'Hello, UniApp!'
+			};
+		},
+		components: {
+			Menus
+		},
+		globalData: {
+			menusPopupShow: false
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},
@@ -10,7 +30,8 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
-		}
+		},
+		methods: {}
 	}
 </script>
 
@@ -51,4 +72,17 @@
 	注：在添加图标替换文件时需要修改 iconfont.css 中引用路径的iconfont 更改为@/common/iconfont/iconfont
 	*/
 	@import url("@/common/iconfont/iconfont.css");
+
+	.container {
+		min-height: 100vh;
+		background: #f2f2f2;
+
+		.top {
+			position: sticky;
+			top: 0;
+			height: 44px;
+			background: white;
+			z-index: 10;
+		}
+	}
 </style>

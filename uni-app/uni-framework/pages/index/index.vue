@@ -2,9 +2,9 @@
  * @Description: app首页
  * @Author: @晏长刚
  * @Date: 2024-09-09 19:19:57
- * @LastEditors: @晏长刚
- * @LastEditTime: 2024-12-14 11:45:15
- * @FilePath: /demo/pages/index/index.vue
+ * @LastEditors: @吴光辉
+ * @LastEditTime: 2025-05-08 11:29:37
+ * @FilePath: /uni-framework/pages/index/index.vue
 -->
 
 <template>
@@ -26,7 +26,6 @@
 				</view>
 			</view>
 		</view>
-
 		<view class="strip">
 			<view class="strip-left">接口调用</view>
 			<view class="strip-right">

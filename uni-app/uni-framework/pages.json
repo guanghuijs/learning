@@ -3,9 +3,22 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "展示区",
 				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#ffffff"
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/_location/index",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/_scroll_view/index",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 			}
 		}
 	],
