@@ -8,5 +8,8 @@ export default [{
 	}, {
 		key: '_scroll_view',
 		title: 'scroll view',
+	}, {
+		key: '_drag_btn',
+		title: 'drag btn',
 	}
 ];

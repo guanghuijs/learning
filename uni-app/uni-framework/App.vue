@@ -1,22 +1,19 @@
-<template>
+<!-- <template>
 	<view class="container">
 		<view class="top"></view>
 		<Menus></Menus>
 		<router-view></router-view>
 	</view>
-</template>
+</template> -->
 <script>
-	import Menus from '@/components/Menus/index.vue';
+	// import Menus from '@/components/Menus/index.vue';
 	export default {
 		data() {
-			return {
-				// 定义一个全局变量
-				globalVariable: 'Hello, UniApp!'
-			};
+			return {};
 		},
-		components: {
-			Menus
-		},
+		// components: {
+		// 	Menus
+		// },
 		onLaunch: function() {
 			console.log('App Launch')
 		},
