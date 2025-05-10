@@ -16,6 +16,8 @@
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@codemirror/lang-vue": "^0.1.3",
+    "@packages/components": "workspace:*",
+    "address-smart-parse": "^3.0.3",
     "easyqrcodejs": "^4.6.1",
     "echarts": "^5.5.1",
     "echarts-wordcloud": "^2.1.0",
@@ -27,8 +29,7 @@
     "swiper": "^11.1.4",
     "three": "^0.140.2",
     "vue": "^3.3.1",
-    "vue-router": "^4.2.5",
-    "@packages/components": "workspace:*"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@codemirror/lang-html": "^6.4.7",
