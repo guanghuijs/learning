@@ -1,5 +1,7 @@
 <template>
-	<view class="page">定位</view>
+	<view class="page">
+		<map></map>
+	</view>
 </template>
 
 <script>

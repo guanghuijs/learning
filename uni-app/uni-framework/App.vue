@@ -1,9 +1,7 @@
 <template>
 	<view class="container">
-		<view class="top">
-			<view @tap="menusPopupShow = true">菜单</view>
-		</view>
-		<Menus v-model="menusPopupShow"></Menus>
+		<view class="top"></view>
+		<Menus></Menus>
 		<router-view></router-view>
 	</view>
 </template>
@@ -18,9 +16,6 @@
 		},
 		components: {
 			Menus
-		},
-		globalData: {
-			menusPopupShow: false
 		},
 		onLaunch: function() {
 			console.log('App Launch')
@@ -62,6 +57,20 @@
 		background-size: 400% 100%;
 		animation: loading 2s ease infinite;
 	}
+
+	.container {
+		min-height: 100vh;
+		background: #f2f2f2;
+		font-size: 28rpx;
+
+		.top {
+			position: sticky;
+			top: 0;
+			height: 44px;
+			background: white;
+			z-index: 10;
+		}
+	}
 </style>
 
 
@@ -72,17 +81,4 @@
 	注：在添加图标替换文件时需要修改 iconfont.css 中引用路径的iconfont 更改为@/common/iconfont/iconfont
 	*/
 	@import url("@/common/iconfont/iconfont.css");
-
-	.container {
-		min-height: 100vh;
-		background: #f2f2f2;
-
-		.top {
-			position: sticky;
-			top: 0;
-			height: 44px;
-			background: white;
-			z-index: 10;
-		}
-	}
 </style>
