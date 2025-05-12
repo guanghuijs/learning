@@ -1,29 +1,38 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/_location/index",
-			"style": {
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/index/index",
-			"style": {
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/_scroll_view/index",
+			"path": "pages/home",
 			"style": {
 				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
-			"path": "pages/_drag_btn/index",
+			"path": "pages/demo",
 			"style": {
 				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "demo"
+			}
+		},
+		{
+			"path": "pages/location",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "定位"
+			}
+		},
+		{
+			"path": "pages/drag_btn",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "拖拽按钮"
+			}
+		},
+		{
+			"path": "pages/scroll_view",
+			"style": {
+				"navigationBarTitleText": "scroll_view"
 			}
 		}
 	],
@@ -39,7 +48,8 @@
 		}]
 	}],
 	"preloadRule": { //分包预下载，当加载到测试页面时，预下载分包
-		"pages/index/index": {
+		// "pages/index/index": {
+		"pages/home": {
 			"network": "all",
 			"packages": ["pkg_main"]
 		}

@@ -2,9 +2,9 @@
  * @Description: 公共api存放处,该文件只能存放公共的api
  * @Author: @晏长刚
  * @Date: 2024-09-09 18:25:30
- * @LastEditors: @晏长刚
- * @LastEditTime: 2024-09-09 18:25:33
- * @FilePath: /demo/common/api/index.js
+ * @LastEditors: @吴光辉
+ * @LastEditTime: 2025-05-12 11:17:30
+ * @FilePath: /uni-framework/common/api/index.js/index.js
  */
 
 import {
@@ -21,3 +21,10 @@ export function weather(data) {
 	})
 }
 
+export const getKunMingWeather = (data) => {
+	return uni_get({
+		url: '/simpleWeather/query',
+		data,
+		loading: 'byo'
+	})
+}

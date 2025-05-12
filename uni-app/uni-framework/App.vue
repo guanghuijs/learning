@@ -6,7 +6,7 @@
 	</view>
 </template> -->
 <script>
-	// import Menus from '@/components/Menus/index.vue';
+	// import Menus from '@/scomponents/Menus/index.vue';
 	export default {
 		data() {
 			return {};
@@ -30,6 +30,8 @@
 <style lang="scss">
 	/*每个页面公共css */
 	@import "@/uni_modules/uview-ui/index.scss";
+	@import "@/common/css/framework.scss";
+
 
 	// 骨架屏动画--白底灰影
 	.skeleton {

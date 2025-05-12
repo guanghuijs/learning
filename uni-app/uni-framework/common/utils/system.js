@@ -2,9 +2,9 @@
  * @Description: 系统层挂载的全局函数
  * @Author: @晏长刚
  * @Date: 2024-09-09 18:29:23
- * @LastEditors: @晏长刚
- * @LastEditTime: 2025-03-27 09:48:14
- * @FilePath: /demo/common/utils/system.js
+ * @LastEditors: @吴光辉
+ * @LastEditTime: 2025-05-12 11:09:36
+ * @FilePath: /uni-framework/common/utils/system.js
  */
 
 import store from "../../store/index.js"
@@ -31,8 +31,8 @@ const sys = {
 				second: second ? second : 2000,
 			});
 		},
-	
-	
+
+
 		/**
 		 * @description: 头部弹窗失败样式
 		 * @param {string} title 标题
@@ -52,8 +52,8 @@ const sys = {
 				second: second ? second : 3000,
 			});
 		},
-	
-	
+
+
 		/**
 		 * @description: 头部弹窗警告样式
 		 * @param {string} title 标题
@@ -73,7 +73,7 @@ const sys = {
 				second: second ? second : 2000,
 			});
 		},
-	
+
 		/**
 		 * @description: 头部弹窗通知样式
 		 * @param {string} title 标题
@@ -151,7 +151,7 @@ const sys = {
 			store.commit('systemStore/closeLoading');
 		}
 	},
-	
+
 	/**
 	 * @description: //判断数组内容是否大于0
 	 * @param {all} value 传入的参数
@@ -163,8 +163,8 @@ const sys = {
 		}
 		return false;
 	},
-	
-	
+
+
 	/**
 	 * @description: 检测数组的长度是否等于0或者1 用于与<u-loadmore :status="status" /> 组件使用
 	 * @param {Number} value 传入的参数
@@ -181,7 +181,7 @@ const sys = {
 		}
 		return "nomore";
 	},
-	
+
 	/**
 	 * @description: 判断传入值是否是对象
 	 * @param {all} value 传入值
@@ -190,7 +190,7 @@ const sys = {
 	isObject(value) {
 		return value !== null && typeof value === 'object' && !Array.isArray(value);
 	},
-	
+
 	/**
 	 * @description: 复制文本
 	 * @param {String} value 要复制的文字
@@ -212,7 +212,7 @@ const sys = {
 			})
 		}
 	},
-	
+
 	/**
 	 * @description: 点击放大查看图片
 	 * @param {Array} arr 图片数组
@@ -227,7 +227,7 @@ const sys = {
 			});
 		}
 	},
-	
+
 	/**
 	 * @description: 普通跳转
 	 * @param {PageURIString} url 携带参数的url
@@ -237,6 +237,14 @@ const sys = {
 		uni.navigateTo({
 			url
 		})
+	},
+
+	/**
+	 * @description: 返回
+	 * @return viod
+	 */
+	toBack() {
+		uni.navigateBack()
 	}
 
 }
