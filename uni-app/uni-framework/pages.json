@@ -34,6 +34,12 @@
 			"style": {
 				"navigationBarTitleText": "scroll_view"
 			}
+		},
+		{
+			"path": "pages/scroll_view_2",
+			"style": {
+				"navigationBarTitleText": "scroll_view_2"
+			}
 		}
 	],
 	"subPackages": [{

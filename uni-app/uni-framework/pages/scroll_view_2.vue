@@ -1,11 +1,18 @@
+<!--
+ * @Description: 普通移动端分页代码模板
+ * @Author: @吴光辉
+ * @Date: 2025-05-16 18:46:35
+ * @LastEditors: @吴光辉
+ * @LastEditTime: 2025-05-16 18:46:35
+ * @FilePath: /uni-framework/pages/scroll_view_2.vue
+-->
+
 <template>
 	<view class="page flex-star">
 		<view class="top">列表查询条件</view>
 		<view class="list">
 			<scroll-view class="scroll-view" refresher-enabled scroll-y :refresher-triggered="triggered"
-				@scrolltolower="scrolltolower" @scrolltoupper="scrolltoupper" @refresherpulling="refresherpulling"
-				@refresherrefresh="refresherrefresh" @refresherrestore="refresherrestore"
-				@refresherabort="refresherabort">
+				@scrolltolower="scrolltolower" @refresherrefresh="refresherrefresh">
 				<view class="item" v-for="i in list" :key="i">{{i}}</view>
 				<view class="loadMore" v-show="loadMoreFlag">加载中...</view>
 			</scroll-view>
@@ -19,9 +26,8 @@
 			return {
 				triggered: false,
 				loadMoreFlag: false,
-				list: Array.from({
-					length: 20
-				}, (_, i) => ++i)
+				list: [],
+				queryParams: {}
 			}
 		},
 		components: {},
@@ -30,43 +36,18 @@
 		onLoad() {},
 		onShow() {},
 		methods: {
-			loadList() {
-				// 模拟请求
-				this.loadMoreFlag = true;
-				setTimeout(() => {
-					const temp = Array.from({
-						length: 20
-					}, (_, i) => this.list.length + i);
-					this.list = [...this.list, ...temp];
-					this.loadMoreFlag = false;
-				}, 2000)
-			},
-			scrolltoupper() {
-				console.log('触顶');
+			/**
+			 * 列表加载
+			 * @param {Object} status 加载嘞 reload(重新加载,清空列表)
+			 */
+			loadList(status = 'reload') {
+				api(this.queryParams)
 			},
 			scrolltolower() {
 				console.log('触底');
-				setTimeout(() => {}, 2000)
-			},
-			refresherpulling() {
-				// console.log('下拉中触发');
 			},
 			refresherrefresh() {
-				console.log('下拉放手触发');
-				this.triggered = true;
-				// 模拟请求
-				setTimeout(() => {
-					this.list = Array;
-					console.log('数据请求成功');
-					this.triggered = false;
-				}, 2000)
-			},
-			refresherrestore() {
-				// this.triggered 重新 = false 时触发
-				console.log('下拉被复位');
-			},
-			refresherabort() {
-				console.log('拉刷新被中止');
+				console.log('下拉刷新');
 			}
 		},
 		onReachBottom() {},
@@ -94,6 +75,7 @@
 
 			.scroll-view {
 				height: 100%;
+				box-sizing: border-box;
 
 				.item {
 					background: white;
