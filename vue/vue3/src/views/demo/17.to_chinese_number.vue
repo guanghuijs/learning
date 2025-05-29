@@ -3,7 +3,7 @@
   import { computed, ref } from 'vue';
   import { NInput } from 'naive-ui';
 
-  const value = ref('8848');
+  const value = ref('123456789');
 
   const toChineseNumber = computed(() => (num: string | number) => {
     const numStr = num

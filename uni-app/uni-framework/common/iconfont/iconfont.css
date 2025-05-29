@@ -1,67 +1,91 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 4663052 */
-  src: url('@/common/iconfont/iconfont.woff2?t=1725585986260') format('woff2'),
-       url('@/common/iconfont/iconfont.woff?t=1725585986260') format('woff'),
-       url('@/common/iconfont/iconfont.ttf?t=1725585986260') format('truetype');
+	font-family: "iconfont";
+	/* Project id 4915379 */
+	src: url('@/common/iconfont/iconfont.woff2?t=1748506897408') format('woff2'),
+		url('@/common/iconfont/iconfont.woff?t=1748506897408') format('woff'),
+		url('@/common/iconfont/iconfont.ttf?t=1748506897408') format('truetype');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-tixing:before {
-  content: "\e6cc";
+.icon-class_of_business:before {
+	content: "\e625";
 }
 
-.icon-chenggong:before {
-  content: "\e61c";
+.icon-sales_vol:before {
+	content: "\e88e";
 }
 
-.icon-jinggao:before {
-  content: "\e62b";
+.icon-haohuo2x:before {
+	content: "\e603";
 }
 
-.icon-shibai:before {
-  content: "\e62e";
+.icon-recommend:before {
+	content: "\e63f";
 }
 
-.icon-yun1:before {
-  content: "\e61e";
+.icon-go_up:before {
+	content: "\e790";
 }
 
-.icon-rocket-full:before {
-  content: "\e9d7";
+.icon-decline:before {
+	content: "\e791";
 }
 
-.icon-zhenqinghuahui:before {
-  content: "\e641";
+.icon-left:before {
+	content: "\e632";
 }
 
-.icon-icon_arrow_bottom:before {
-  content: "\e601";
+.icon-search:before {
+	content: "\e61f";
 }
 
-.icon-icon_arrow_left:before {
-  content: "\e60c";
+.icon-hua:before {
+	content: "\e68f";
 }
 
-.icon-icon_arrow_right:before {
-  content: "\e60d";
+.icon-color:before {
+	content: "\e678";
 }
 
-.icon-jiantoushang:before {
-  content: "\e61d";
+.icon-address:before {
+	content: "\e60a";
 }
 
-.icon-xiangshang:before {
-  content: "\e600";
+.icon-check:before {
+	content: "\e6ce";
 }
 
-.icon-xiangxia:before {
-  content: "\e602";
+.icon-del:before {
+	content: "\e8b6";
 }
 
+.icon-flower:before {
+	content: "\e696";
+}
+
+.icon-lan_toggle:before {
+	content: "\e643";
+}
+
+.icon-down:before {
+	content: "\eca8";
+}
+
+.icon-right:before {
+	content: "\eca9";
+}
+
+.icon-up:before {
+	content: "\ecaa";
+}
+
+.icon-caidan:before {
+	content: "\e62c";
+}

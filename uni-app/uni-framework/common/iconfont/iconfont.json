@@ -1,100 +1,142 @@
 {
-  "id": "4663052",
-  "name": "deom",
+  "id": "4915379",
+  "name": "uni-self",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "673801",
-      "name": "提醒",
-      "font_class": "tixing",
-      "unicode": "e6cc",
-      "unicode_decimal": 59084
+      "icon_id": "765527",
+      "name": "鲜花",
+      "font_class": "class_of_business",
+      "unicode": "e625",
+      "unicode_decimal": 58917
     },
     {
-      "icon_id": "1951950",
-      "name": "成功",
-      "font_class": "chenggong",
-      "unicode": "e61c",
-      "unicode_decimal": 58908
+      "icon_id": "846526",
+      "name": "销量预测",
+      "font_class": "sales_vol",
+      "unicode": "e88e",
+      "unicode_decimal": 59534
     },
     {
-      "icon_id": "7463945",
-      "name": "警告",
-      "font_class": "jinggao",
-      "unicode": "e62b",
-      "unicode_decimal": 58923
+      "icon_id": "993351",
+      "name": "好货@2x",
+      "font_class": "haohuo2x",
+      "unicode": "e603",
+      "unicode_decimal": 58883
     },
     {
-      "icon_id": "10156298",
-      "name": "失败",
-      "font_class": "shibai",
-      "unicode": "e62e",
-      "unicode_decimal": 58926
+      "icon_id": "1440917",
+      "name": "推荐",
+      "font_class": "recommend",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
     },
     {
-      "icon_id": "12103031",
-      "name": "云",
-      "font_class": "yun1",
-      "unicode": "e61e",
-      "unicode_decimal": 58910
+      "icon_id": "3092315",
+      "name": "图表 上升趋势",
+      "font_class": "go_up",
+      "unicode": "e790",
+      "unicode_decimal": 59280
     },
     {
-      "icon_id": "18170570",
-      "name": "火箭,快速,技术,升级",
-      "font_class": "rocket-full",
-      "unicode": "e9d7",
-      "unicode_decimal": 59863
+      "icon_id": "3092316",
+      "name": "图表 下降趋势",
+      "font_class": "decline",
+      "unicode": "e791",
+      "unicode_decimal": 59281
     },
     {
-      "icon_id": "33236263",
-      "name": "珍情花卉",
-      "font_class": "zhenqinghuahui",
-      "unicode": "e641",
-      "unicode_decimal": 58945
+      "icon_id": "3315445",
+      "name": "上",
+      "font_class": "left",
+      "unicode": "e632",
+      "unicode_decimal": 58930
     },
     {
-      "icon_id": "833975",
-      "name": "箭头_下",
-      "font_class": "icon_arrow_bottom",
-      "unicode": "e601",
-      "unicode_decimal": 58881
+      "icon_id": "4942663",
+      "name": "搜索",
+      "font_class": "search",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
     },
     {
-      "icon_id": "834040",
-      "name": "箭头_左",
-      "font_class": "icon_arrow_left",
-      "unicode": "e60c",
-      "unicode_decimal": 58892
+      "icon_id": "5187903",
+      "name": "花",
+      "font_class": "hua",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
     },
     {
-      "icon_id": "834043",
-      "name": "箭头_右",
-      "font_class": "icon_arrow_right",
-      "unicode": "e60d",
-      "unicode_decimal": 58893
+      "icon_id": "5886128",
+      "name": "颜色",
+      "font_class": "color",
+      "unicode": "e678",
+      "unicode_decimal": 59000
     },
     {
-      "icon_id": "851709",
-      "name": "箭头_上",
-      "font_class": "jiantoushang",
-      "unicode": "e61d",
-      "unicode_decimal": 58909
+      "icon_id": "9526785",
+      "name": "地址",
+      "font_class": "address",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
     },
     {
-      "icon_id": "1348",
-      "name": "向上",
-      "font_class": "xiangshang",
-      "unicode": "e600",
-      "unicode_decimal": 58880
+      "icon_id": "9874488",
+      "name": "KHCFDC_勾选 2",
+      "font_class": "check",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
     },
     {
-      "icon_id": "1351",
-      "name": "向下",
-      "font_class": "xiangxia",
-      "unicode": "e602",
-      "unicode_decimal": 58882
+      "icon_id": "11372693",
+      "name": "删除",
+      "font_class": "del",
+      "unicode": "e8b6",
+      "unicode_decimal": 59574
+    },
+    {
+      "icon_id": "15765356",
+      "name": "花支",
+      "font_class": "flower",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "27876671",
+      "name": "语言 英文",
+      "font_class": "lan_toggle",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "43967751",
+      "name": "上-copy",
+      "font_class": "down",
+      "unicode": "eca8",
+      "unicode_decimal": 60584
+    },
+    {
+      "icon_id": "43967769",
+      "name": "上-copy",
+      "font_class": "right",
+      "unicode": "eca9",
+      "unicode_decimal": 60585
+    },
+    {
+      "icon_id": "43993741",
+      "name": "上-copy-copy",
+      "font_class": "up",
+      "unicode": "ecaa",
+      "unicode_decimal": 60586
+    },
+    {
+      "icon_id": "1304947",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
     }
   ]
 }

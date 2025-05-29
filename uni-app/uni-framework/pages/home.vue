@@ -1,7 +1,12 @@
 <template>
 	<view class="page">
-		<view class="menu-item" v-for="(route, i) in routes" :key="i" @tap="$sys.toPage(`/pages/${route.key}`)">
-			{{route.title}}
+		<view
+			class="menu-item"
+			v-for="(route, i) in routes"
+			:key="i"
+			@tap="$sys.toPage(`/pages/${route.key}`)"
+		>
+			{{ route.title }}
 		</view>
 	</view>
 </template>
@@ -11,23 +16,19 @@
 	export default {
 		data() {
 			return {
-				routes
-			}
+				routes,
+			};
 		},
 		components: {},
 		computed: {},
 		watch: {},
 		onLoad() {},
 		onShow() {},
-		methods: {
-			navTo() {
-
-			}
-		},
+		methods: {},
 		onReachBottom() {},
 		onPageScroll() {},
-		onUnload() {}
-	}
+		onUnload() {},
+	};
 </script>
 
 <style lang="scss" scoped>
