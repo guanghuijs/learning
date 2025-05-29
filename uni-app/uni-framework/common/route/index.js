@@ -14,5 +14,11 @@ export default [{
 	}, {
 		key: 'scroll_view_2',
 		title: 'scroll view 2',
+	}, {
+		key: 'store',
+		title: 'store',
+	}, {
+		key: 'store_2',
+		title: 'store_2',
 	}
 ];

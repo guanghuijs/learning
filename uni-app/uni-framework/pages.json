@@ -32,13 +32,27 @@
 		{
 			"path": "pages/scroll_view",
 			"style": {
-				"navigationBarTitleText": "scroll_view"
+				"navigationBarTitleText": "scroll_view",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/scroll_view_2",
 			"style": {
-				"navigationBarTitleText": "scroll_view_2"
+				"navigationBarTitleText": "scroll_view_2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/store",
+			"style": {
+				"navigationBarTitleText": "store"
+			}
+		},
+		{
+			"path": "pages/store_2",
+			"style": {
+				"navigationBarTitleText": "store_2"
 			}
 		}
 	],

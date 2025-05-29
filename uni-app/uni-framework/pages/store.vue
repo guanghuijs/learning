@@ -1,0 +1,71 @@
+<template>
+	<view class="page">
+		<view class="item" v-for="(item, i) in list" :key="i">
+			<view class="top flex-between">
+				<view class="flex-star">
+					<GhCheckBox v-model="item.checked"></GhCheckBox>
+					<view> {{ item.goodsName }}</view>
+				</view>
+				<view>
+					<view class="flex-star">
+						<text @tap="numChange([item, '-'])">-</text>
+						<view style="margin: 0 10px">{{ item.num }}</view>
+						<text @tap="numChange([item, '+'])">+</text>
+					</view>
+				</view>
+			</view>
+			<pre>{{ item }}</pre>
+		</view>
+		<view class="bottom">
+			<view>总价:{{ allPrice }}</view>
+			<view>所选:{{ checkNum }}</view>
+			<view>总数:{{ allNum }}</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import { mapState, mapGetters, mapActions } from 'vuex';
+	import GhCheckBox from '@/components/GhCheckBox/index.vue';
+	export default {
+		data() {
+			return {};
+		},
+		components: {
+			GhCheckBox,
+		},
+		computed: {
+			...mapState('shopCartStore', ['list']),
+			...mapGetters('shopCartStore', ['allPrice', 'checkNum', 'allNum']),
+		},
+		watch: {},
+		onLoad() {},
+		onShow() {},
+		methods: {
+			...mapActions('shopCartStore', ['numChange', 'add', 'del']),
+		},
+		onReachBottom() {},
+		onPageScroll() {},
+		onUnload() {},
+	};
+</script>
+
+<style lang="scss" scoped>
+	.page {
+		padding-top: 20upx;
+		padding-bottom: 100upx;
+		.item {
+			background: white;
+			padding: 20upx;
+			margin: 0 20upx 20upx;
+		}
+		.bottom {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background: white;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+	}
+</style>
