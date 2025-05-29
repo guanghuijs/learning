@@ -3,18 +3,25 @@
  * @Author: @吴光辉
  * @Date: 2025-05-16 18:46:35
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-05-16 18:46:35
+ * @LastEditTime: 2025-05-28 14:21:57
  * @FilePath: /uni-framework/pages/scroll_view_2.vue
 -->
 
 <template>
 	<view class="page flex-star">
-		<view class="top">列表查询条件</view>
+		<view class="top">列表查询条件666</view>
 		<view class="list">
-			<scroll-view class="scroll-view" refresher-enabled scroll-y :refresher-triggered="triggered"
-				@scrolltolower="scrolltolower" @refresherrefresh="refresherrefresh">
-				<view class="item" v-for="i in list" :key="i">{{i}}</view>
-				<view class="loadMore" v-show="loadMoreFlag">加载中...</view>
+			<scroll-view
+				class="scroll-view"
+				refresher-enabled
+				scroll-y
+				:refresher-triggered="triggered"
+				@scrolltolower="scrolltolower"
+				@refresherrefresh="refresherrefresh"
+				:scroll-Top="scrollTop"
+			>
+				<view class="item" v-for="i in list" :key="i">{{ i }}</view>
+				<u-loadmore v-if="list.length" :status="loadmoreStatus" />
 			</scroll-view>
 		</view>
 	</view>
@@ -24,16 +31,21 @@
 	export default {
 		data() {
 			return {
-				triggered: false,
-				loadMoreFlag: false,
-				list: [],
-				queryParams: {}
-			}
+				triggered: false, // 下拉刷新状态
+				queryParams: {}, // 查询条件
+				list: [], // 列表数据
+				loadmoreStatus: 'loading', // 加载更多状态
+				page: 1,
+				pageTotal: 0,
+				scrollTop: 0,
+				a: '',
+			};
 		},
-		components: {},
 		computed: {},
 		watch: {},
-		onLoad() {},
+		onLoad() {
+			this.loadList();
+		},
 		onShow() {},
 		methods: {
 			/**
@@ -41,19 +53,37 @@
 			 * @param {Object} status 加载嘞 reload(重新加载,清空列表)
 			 */
 			loadList(status = 'reload') {
-				api(this.queryParams)
+				this.loadmoreStatus = 'loading';
+				if (status === 'reload') {
+					this.page = 1;
+					this.list = [];
+				}
+				// todo 分页加载完不请求
+				setTimeout(() => {
+					const temp = Array.from(
+						{
+							length: 20,
+						},
+						(_, i) => this.list.length + i
+					);
+					this.list = status === 'reload' ? temp : this.list.concat(temp);
+					this.triggered = false;
+				}, 2000);
 			},
 			scrolltolower() {
 				console.log('触底');
+				this.loadList('loadmore');
 			},
 			refresherrefresh() {
 				console.log('下拉刷新');
-			}
+				this.triggered = true;
+				this.loadList();
+			},
 		},
 		onReachBottom() {},
 		onPageScroll() {},
-		onUnload() {}
-	}
+		onUnload() {},
+	};
 </script>
 
 <style lang="scss" scoped>
@@ -72,6 +102,7 @@
 			flex: 1;
 			width: 100%;
 			padding: 0 20px env(safe-area-inset-bottom);
+			overflow-y: scroll;
 
 			.scroll-view {
 				height: 100%;
