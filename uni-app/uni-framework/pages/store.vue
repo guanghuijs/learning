@@ -1,20 +1,35 @@
 <template>
 	<view class="page">
 		<view class="item" v-for="(item, i) in list" :key="i">
-			<view class="top flex-between">
+			<view class="top">
 				<view class="flex-star">
 					<GhCheckBox v-model="item.checked"></GhCheckBox>
 					<view> {{ item.goodsName }}</view>
 				</view>
 				<view>
-					<view class="flex-star">
-						<text @tap="numChange([item, '-'])">-</text>
+					<view>
+						<text @tap="numChange([i, '-'])">-</text>
 						<view style="margin: 0 10px">{{ item.num }}</view>
-						<text @tap="numChange([item, '+'])">+</text>
+						<text @tap="numChange([i, '+'])">+</text>
+						<!-- 状态使用 -->
+						<!-- $store.state.[?modules].list  -->
+						<pre>{{ $store.state.shopCartStore.list[i] }}</pre>
+						<!-- 方法调用用 -->
+						<!-- $store.dispatch('[?modules]/del', params) -->
+						<view @tap="$store.dispatch('shopCartStore/del')">删除</view>
+						<!-- mutations 触发 -->
+						<!-- $store.commit('[?modules]/del', params) -->
+						<view
+							@tap="$store.commit('shopCartStore/setList', 'commit/setList')"
+						>
+							删除
+						</view>
+						<!-- getters 使用 -->
+						<!-- $store.getters['[?modules]/goods'](参数) -->
+						<pre>{{ $store.getters['shopCartStore/goods'](i) }}</pre>
 					</view>
 				</view>
 			</view>
-			<pre>{{ item }}</pre>
 		</view>
 		<view class="bottom">
 			<view>总价:{{ allPrice }}</view>

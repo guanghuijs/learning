@@ -25,8 +25,8 @@ const store = {
 	},
 	// 获取器:用于从状态中派生计算值
 	getters: {
-		goods(state) {
-			return state.list;
+		goods: (state) => (index) => {
+			return state.list[index];
 		},
 		allPrice(state) {
 			return state.list.reduce((acc, cur) => {
@@ -46,20 +46,21 @@ const store = {
 	},
 	// 变更:用于修改状态的同步操作
 	mutations: {
-		setList(state, list) {
-			state.list = list;
+		setList(state, str) {
+			console.log(str);
 		},
 	},
 	// 动作:用于处理异步操作，并触发 mutations
 	actions: {
 		add() {},
-		del({ commit }) {},
-		numChange(_, [item, type]) {
-			console.log(_);
+		del({ commit }) {
+			commit('setList', 'actions/commit');
+		},
+		numChange({ state }, [index, type]) {
 			if (type === '+') {
-				item.num += 1;
+				state.list[index].num += 1;
 			} else {
-				item.num -= 1;
+				state.list[index].num -= 1;
 			}
 		},
 	},
