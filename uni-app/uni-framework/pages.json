@@ -54,6 +54,13 @@
 			"style": {
 				"navigationBarTitleText": "store_2"
 			}
+		},
+		{
+			"path": "pages/tabs-nav",
+			"style": {
+				"navigationBarTitleText": "tabs nav",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"subPackages": [{
