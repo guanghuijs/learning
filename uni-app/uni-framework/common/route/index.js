@@ -35,4 +35,8 @@ export default [
 		key: 'tabs-trans',
 		title: 'tabs-trans',
 	},
+	{
+		key: 'stepper',
+		title: 'stepper',
+	},
 ];

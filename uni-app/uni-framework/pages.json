@@ -68,6 +68,12 @@
 				"navigationBarTitleText": "tabs-trans",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/stepper",
+			"style": {
+				"navigationBarTitleText": "stepper"
+			}
 		}
 	],
 	"subPackages": [{

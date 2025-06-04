@@ -1,9 +1,9 @@
 @font-face {
 	font-family: "iconfont";
 	/* Project id 4915379 */
-	src: url('@/common/iconfont/iconfont.woff2?t=1748506897408') format('woff2'),
-		url('@/common/iconfont/iconfont.woff?t=1748506897408') format('woff'),
-		url('@/common/iconfont/iconfont.ttf?t=1748506897408') format('truetype');
+	src: url('@/common/iconfont/iconfont.woff2?t=1749019396545') format('woff2'),
+		url('@/common/iconfont/iconfont.woff?t=1749019396545') format('woff'),
+		url('@/common/iconfont/iconfont.ttf?t=1749019396545') format('truetype');
 }
 
 .iconfont {
@@ -12,6 +12,14 @@
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-minus:before {
+	content: "\e8e2";
+}
+
+.icon-plus:before {
+	content: "\e626";
 }
 
 .icon-class_of_business:before {
