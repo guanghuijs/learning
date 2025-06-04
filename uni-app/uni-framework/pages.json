@@ -61,6 +61,13 @@
 				"navigationBarTitleText": "tabs nav",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/tabs-trans",
+			"style": {
+				"navigationBarTitleText": "tabs-trans",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"subPackages": [{

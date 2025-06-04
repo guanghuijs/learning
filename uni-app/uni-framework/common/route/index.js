@@ -31,4 +31,8 @@ export default [
 		key: 'tabs-nav',
 		title: 'tabs-nav',
 	},
+	{
+		key: 'tabs-trans',
+		title: 'tabs-trans',
+	},
 ];
