@@ -1,5 +1,4 @@
-export default [
-	{
+export default [{
 		key: 'demo',
 		title: 'demo',
 	},
@@ -38,5 +37,9 @@ export default [
 	{
 		key: 'stepper',
 		title: 'stepper',
+	},
+	{
+		key: 'condition-query',
+		title: 'condition-query',
 	},
 ];

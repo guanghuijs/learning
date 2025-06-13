@@ -74,6 +74,12 @@
 			"style": {
 				"navigationBarTitleText": "stepper"
 			}
+		},
+		{
+			"path": "pages/condition-query",
+			"style": {
+				"navigationBarTitleText": "condition-query"
+			}
 		}
 	],
 	"subPackages": [{
