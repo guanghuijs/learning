@@ -10,6 +10,6 @@
 
 <style lang="scss">
   .container {
-    background: white;
+    background: red;
   }
 </style>

@@ -3,10 +3,11 @@ import { loadEnv } from 'vite';
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import vue from '@vitejs/plugin-vue';
 
+// 自动生成路由
 import Pages from 'vite-plugin-pages';
 
-export default defineConfig(({ mode, command }) => {
-  const { VITE_PORT, VITE_PROXY, VITE_OUT_INPUT_DIR } = loadEnv(mode, './env');
+export default defineConfig(({ mode }) => {
+  const { VITE_PORT, VITE_API_HOST } = loadEnv(mode, './env');
   return {
     main: {
       plugins: [externalizeDepsPlugin()]
@@ -31,29 +32,17 @@ export default defineConfig(({ mode, command }) => {
           '@': resolve('src/renderer/src')
         }
       },
-      server:
-        command === 'serve'
-          ? {
-              proxy: {
-                // [JSON.parse(VITE_PROXY)[0]]: {
-                //   target: JSON.parse(VITE_PROXY)[1],
-                //   changeOrigin: true,
-                //   rewrite: (path: string) =>
-                //     path.replace(
-                //       new RegExp(`^${JSON.parse(VITE_PROXY)[0]}`),
-                //       ''
-                //     )
-                // }
-                '/api': 'https://dify-dev-web.hzhytkj.top'
-              },
-              port: Number(VITE_PORT || 8080)
-            }
-          : {},
-      build: {
-        outDir: VITE_OUT_INPUT_DIR,
-        emptyOutDir: true
+      server: {
+        proxy: {
+          '/api': VITE_API_HOST
+        },
+        port: Number(VITE_PORT || 8080)
       },
-      envPrefix: ['VITE_']
+      // build: {
+      //   outDir: VITE_OUT_INPUT_DIR,
+      //   emptyOutDir: true
+      // },
+      envDir: resolve('env')
     }
   };
 });

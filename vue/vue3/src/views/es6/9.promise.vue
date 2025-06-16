@@ -57,7 +57,7 @@
   }
   // const fs = require('fs');
   {
-    // fs.readFile("@/router/index.ts",(err,data) => {
+    // fs.readFile("@/router/index.js",(err,data) => {
     //   if(err) throw err;
     //   console.log(data.toString())
     // })

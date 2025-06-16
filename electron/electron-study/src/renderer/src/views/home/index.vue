@@ -10,14 +10,21 @@
   const { increment } = useCounterStore();
 
   import request from '@/utils/request';
+  import { ref } from 'vue';
+  const data = ref();
+
   const test = () => {
-    request.get('/v1/users/qaList', {
-      params: {
-        page: 1,
-        limit: 5,
-        is_recommend: 1
-      }
-    });
+    request
+      .get('/v1/users/qaList', {
+        params: {
+          page: 1,
+          limit: 5,
+          is_recommend: 1
+        }
+      })
+      .then((res) => {
+        data.value = res.data;
+      });
   };
 </script>
 
@@ -27,6 +34,7 @@
   <el-button @click="increment">count++</el-button>
   <div @click="count++">{{ count }}</div>
   <el-button @click="test">请求测试</el-button>
+  <pre>{{ data }}</pre>
 </template>
 
 <style scoped lang="scss"></style>

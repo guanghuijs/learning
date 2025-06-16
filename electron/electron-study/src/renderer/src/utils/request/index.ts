@@ -1,14 +1,15 @@
 import axios from 'axios';
-import { ElMessage, ElLoading } from 'element-plus'; // 如果你使用了 Element Plus
-console.log(import.meta.env);
+import { ElMessage, ElLoading, type LoadingInstance } from 'element-plus'; // 如果你使用了 Element Plus
+
+const { DEV, VITE_API_HOST } = import.meta.env;
 // 创建 Axios 实例
 const instance = axios.create({
-  baseURL: '/api', // 设置默认 API 地址
+  baseURL: `${DEV ? '' : VITE_API_HOST}/api`, // 设置默认 API 地址
   timeout: 5000, // 设置请求超时时间
   headers: { 'Content-Type': 'application/json' } // 设置默认请求头
 });
 
-let loading: any;
+let loading: LoadingInstance | undefined;
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
@@ -21,6 +22,7 @@ instance.interceptors.request.use(
     const token =
       localStorage.getItem('token') ||
       '9f5c5afc128101ca7994.dcee1904ab.1c1b4828ec660faf0652.c6ee1.b7a1c450ff'; // 假设 token 存储在 localStorage 中
+
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -34,11 +36,11 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
   (response) => {
-    loading.close();
+    loading?.close();
     return response.data; // 直接返回响应数据
   },
   (error) => {
-    loading.close();
+    loading?.close();
     if (error.response) {
       const { status } = error.response;
       switch (status) {
