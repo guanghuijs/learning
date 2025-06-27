@@ -1,6 +1,6 @@
 export const schema = [
 	{
-		key: 'evaluate',
+		key: '0',
 		type: 1,
 		text: '好评',
 		active: false,
@@ -8,7 +8,7 @@ export const schema = [
 		value: '',
 	},
 	{
-		key: 'price',
+		key: '1',
 		type: 2,
 		text: '价格',
 		active: false,
@@ -16,20 +16,20 @@ export const schema = [
 		value: '',
 	},
 	{
-		key: 'grade',
+		key: '2',
 		type: 3,
 		text: '等级',
 		active: false,
 		expansion: false,
 		value: '',
-		subCondition: ['A', 'B', 'C', 'D'].map((t) => ({
-			key: 'grade-' + t,
+		subCondition: ['A', 'B', 'C', 'D'].map((t, i) => ({
+			key: '2-' + i,
 			text: t + '级',
 			active: false,
 		})),
 	},
 	{
-		key: 'filtrate',
+		key: '3',
 		type: 4,
 		text: '筛选',
 		active: false,
@@ -49,7 +49,7 @@ export const schema = [
 					'轻微白粉',
 					'花头大小不均',
 					'轻微黄叶',
-				].map((t) => ({ key: t, text: t, active: false })),
+				].map((t, i) => ({ key: '3-0-' + i, text: t, active: false })),
 			},
 			{
 				key: 'length',
@@ -64,7 +64,7 @@ export const schema = [
 					'35CM',
 					'40CM',
 					'30CM',
-				].map((t) => ({ key: t, text: t, active: false })),
+				].map((t, i) => ({ key: '3-1-' + i, text: t, active: false })),
 			},
 		],
 	},

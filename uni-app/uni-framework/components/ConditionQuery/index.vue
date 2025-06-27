@@ -3,13 +3,17 @@
  * @Author: @吴光辉
  * @Date: 2025-06-13 13:35:10
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-06-13 17:52:46
+ * @LastEditTime: 2025-06-27 16:27:08
  * @FilePath: /uni-framework/components/ConditionQuery/index.vue
 -->
 
 <template>
 	<view class="query">
-		<view class="shade" @tap="shadeClick" :class="popupShow ? 'expansion' : ''"></view>
+		<view
+			class="shade"
+			@tap="shadeClick"
+			:class="popupShow ? 'expansion' : ''"
+		></view>
 		<view class="content flex-star">
 			<QueryItem
 				v-for="(_, i) in schema"
@@ -20,24 +24,28 @@
 			/>
 		</view>
 		<view class="pitch-on flex-star">
-			<view class="pitch-on-item flex-star" v-for="item in calcCancelSchema">
+			<view
+				class="pitch-on-item flex-star"
+				v-for="item in calcCancelSchema"
+				:key="item.key"
+			>
 				<text>{{ item.text }}</text>
-				<text class="close">×</text>
+				<text class="close" @tap="pitchHandle(item)">×</text>
 			</view>
 		</view>
 		<view
 			class="__popup"
+			v-for="(sub, i) in schema"
+			:key="i"
 			v-show="sub.expansion"
 			:class="sub.expansion ? 'expansion' : ''"
-			v-for="(sub, i) in schema.filter((i) => [3, 4].includes(i.type))"
-			:key="i"
 		>
 			<view class="subs flex-star" v-if="sub.type === 3">
 				<view
 					class="item"
-					:class="item.active ? 'act' : ''"
 					v-for="item in sub.subCondition"
 					:key="item.key"
+					:class="item.active ? 'act' : ''"
 					@tap="subHandle(item, sub)"
 				>
 					{{ item.text }}
@@ -49,8 +57,9 @@
 					<view class="filtrate-content flex-star">
 						<view
 							class="filtrate-item"
-							:class="subItem.active ? 'act' : ''"
 							v-for="subItem in item.subCondition"
+							:key="subItem.key"
+							:class="subItem.active ? 'act' : ''"
 							@tap="subItemHandle(subItem, sub)"
 						>
 							{{ subItem.text }}
@@ -90,7 +99,7 @@
 						});
 					}
 					if (item.type === 3) {
-						item.subCondition.forEach((item) => {
+						item.subCondition.forEach((item, index) => {
 							if (item.active)
 								temp.push({
 									key: item.key,
@@ -99,8 +108,8 @@
 						});
 					}
 					if (item.type === 4) {
-						item.subCondition.forEach((item) => {
-							item.subCondition.forEach((subItem) => {
+						item.subCondition.forEach((item, index) => {
+							item.subCondition.forEach((subItem, subIndex) => {
 								if (subItem.active)
 									temp.push({
 										key: subItem.key,
@@ -158,6 +167,30 @@
 					}
 				});
 				sub.active = flag;
+			},
+			pitchHandle(item) {
+				const ids = item.key.split('-');
+				const [i, j, k] = item.key.split('-').map((i) => Number(i));
+				if (ids.length === 1) {
+					this.schema[i].active = false;
+					this.schema[i].value = '';
+				}
+				if (ids.length === 2) {
+					this.schema[i].subCondition[j].active = false;
+					this.schema[i].active = this.schema[i].subCondition.find(
+						(item) => item.active
+					);
+				}
+				if (ids.length === 3) {
+					this.schema[i].subCondition[j].subCondition[k].active = false;
+					let flag = false;
+					this.schema[i].subCondition.forEach((subItem) => {
+						if (subItem.subCondition.find((item) => item.active)) {
+							flag = true;
+						}
+					});
+					this.schema[i].active = flag;
+				}
 			},
 		},
 	};
