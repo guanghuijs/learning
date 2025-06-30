@@ -14,7 +14,7 @@
 						<!-- 状态使用 -->
 						<!-- $store.state.[?modules].list  -->
 						<pre>{{ $store.state.shopCartStore.list[i] }}</pre>
-						<!-- 方法调用用 -->
+						<!-- actions -->
 						<!-- $store.dispatch('[?modules]/del', params) -->
 						<view @tap="$store.dispatch('shopCartStore/del')">删除</view>
 						<!-- mutations 触发 -->

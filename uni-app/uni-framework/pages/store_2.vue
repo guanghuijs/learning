@@ -3,6 +3,7 @@
 		<view>总价:{{ allPrice }}</view>
 		<view>所选:{{ checkNum }}</view>
 		<view>总数:{{ allNum }}</view>
+		<view>{{ h }}</view>
 	</view>
 </template>
 
@@ -15,6 +16,9 @@
 		components: {},
 		computed: {
 			...mapGetters('shopCartStore', ['allPrice', 'checkNum', 'allNum']),
+			h() {
+				return this.$store.state.systemStore.statusBarHeight;
+			},
 		},
 		watch: {},
 		onLoad() {},

@@ -15,6 +15,7 @@
 		// 	Menus
 		// },
 		onLaunch: function () {
+			this.$store.dispatch('systemStore/getSysHead');
 			console.log('App Launch');
 		},
 		onShow: function () {

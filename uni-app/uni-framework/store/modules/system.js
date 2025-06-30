@@ -8,7 +8,10 @@ const systemStore = {
 		noticeLock: true, //消息通知锁
 		toastData: {}, //toast数据参数
 		toastLock: true, //toast锁
-		sysHead: 0, //顶部导航图标
+		statusBarHeight: 0, // 状态栏高度
+		capsuleWidth: 0, // 胶囊宽度
+		capsuleHeight: 0, // 胶囊高度
+		locale: '',
 	},
 	mutations: {
 		/**
@@ -41,7 +44,6 @@ const systemStore = {
 			state.loadingLock = true;
 		},
 
-
 		/**
 		 * @description: 消息提示
 		 * @param {Object} state  state
@@ -63,7 +65,7 @@ const systemStore = {
 					navigation: '', //导航栏类型
 					url: '', //跳转path
 					second: 0, //持续秒数
-				}
+				};
 				Object.keys(newValue).forEach((key) => {
 					state.Notice[key] = newValue[key];
 				});
@@ -94,7 +96,7 @@ const systemStore = {
 					title: '', //提示信息
 					icon: '', //展示logo
 					second: 0, //持续时间
-				}
+				};
 				Object.keys(newValue).forEach((key) => {
 					state.toastData[key] = newValue[key];
 				});
@@ -102,28 +104,30 @@ const systemStore = {
 		},
 
 		/**
-		 * @description: 
+		 * @description:
 		 * @param {Object} state state
 		 * @return viod
 		 */
 		untieToast(state) {
 			state.toastLock = true;
 		},
-
+	},
+	actions: {
 		/**
 		 * @description: 获取设备信息
 		 * @return {*}
 		 */
-		getSysHead(state) {
+		getSysHead({ state }) {
 			uni.getSystemInfo({
-				success: function(res) {
-					let statusBarHeight = res.statusBarHeight;
-					state.sysHead = statusBarHeight;
-				}
+				success: function (res) {
+					state.statusBarHeight = res.statusBarHeight;
+					const capsule = uni.getMenuButtonBoundingClientRect();
+					state.capsuleWidth = capsule.width;
+					state.capsuleHeight = capsule.height;
+				},
 			});
-		}
+		},
 	},
-	actions: {}
-}
+};
 
 export default systemStore;
