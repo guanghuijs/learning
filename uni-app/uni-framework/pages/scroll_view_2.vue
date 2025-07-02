@@ -3,12 +3,13 @@
  * @Author: @吴光辉
  * @Date: 2025-05-16 18:46:35
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-05-28 14:21:57
+ * @LastEditTime: 2025-07-01 15:07:46
  * @FilePath: /uni-framework/pages/scroll_view_2.vue
 -->
 
 <template>
 	<view class="page flex-star">
+		<NavBar title="scroll_view_2"></NavBar>
 		<view class="top">列表查询条件666</view>
 		<view class="list">
 			<scroll-view
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+	import NavBar from '@/components/NavBar/index.vue';
 	export default {
 		data() {
 			return {
@@ -40,6 +42,9 @@
 				scrollTop: 0,
 				a: '',
 			};
+		},
+		components: {
+			NavBar,
 		},
 		computed: {},
 		watch: {},

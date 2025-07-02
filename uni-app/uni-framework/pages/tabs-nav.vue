@@ -1,5 +1,6 @@
 <template>
 	<view class="page flex-star">
+		<NavBar title="tabs 锚点导航(纵向)"></NavBar>
 		<view class="nav">
 			<u-tabs :list="tabs" @click="tabChange"></u-tabs>
 		</view>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+	import NavBar from '@/components/NavBar/index.vue';
 	export default {
 		data() {
 			return {
@@ -32,7 +34,9 @@
 				scrollToId: '',
 			};
 		},
-		components: {},
+		components: {
+			NavBar,
+		},
 		computed: {},
 		watch: {},
 		onLoad() {},

@@ -10,6 +10,9 @@ const store = {
 	// 开启空间命名
 	namespaced: true,
 	// 状态:应用的全局数据或状态
+	// ...mapState('shopCartStore', ['list']),
+	// this.$store.state.[modules].[stateName]
+	// $store.state.shopCartStore.list[i]
 	state: {
 		list: Array.from(
 			{
@@ -24,6 +27,8 @@ const store = {
 		),
 	},
 	// 获取器:用于从状态中派生计算值
+	// ...mapGetters('shopCartStore', ['allPrice', 'checkNum', 'allNum']),
+	// this.$store.getters['[?modules]/goods'](参数)
 	getters: {
 		goods: (state) => (index) => {
 			return state.list[index];
@@ -45,16 +50,20 @@ const store = {
 		},
 	},
 	// 变更:用于修改状态的同步操作
+	// ...mapMutations('shopCartStore', ['setList']),
+	// $store.commit('[?modules]/del', params)
 	mutations: {
 		setList(state, str) {
 			console.log(str);
 		},
 	},
 	// 动作:用于处理异步操作，并触发 mutations
+	// ...mapActions('shopCartStore', ['numChange', 'add', 'del']),
+	// this.$store.dispatch('[?modules]/del', params)
 	actions: {
 		add() {},
 		del({ commit }) {
-			commit('setList', 'actions/commit');
+			commit('setList', 'actions触发mutations');
 		},
 		numChange({ state }, [index, type]) {
 			if (type === '+') {

@@ -80,6 +80,18 @@
 			"style": {
 				"navigationBarTitleText": "condition-query"
 			}
+		},
+		{
+			"path": "pages/nav-bar",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/nav-trans",
+			"style": {
+				"navigationBarTitleText": "nav-trans"
+			}
 		}
 	],
 	"subPackages": [{

@@ -120,10 +120,13 @@ const systemStore = {
 		getSysHead({ state }) {
 			uni.getSystemInfo({
 				success: function (res) {
+					// #ifdef MP-WEIXIN
 					state.statusBarHeight = res.statusBarHeight;
 					const capsule = uni.getMenuButtonBoundingClientRect();
+					console.log(capsule);
 					state.capsuleWidth = capsule.width;
 					state.capsuleHeight = capsule.height;
+					// #endif
 				},
 			});
 		},

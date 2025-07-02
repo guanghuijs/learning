@@ -1,5 +1,6 @@
 <template>
 	<view class="page flex-star">
+		<NavBar title="顶部tabs 锚点(横向)"></NavBar>
 		<view class="nav">
 			<u-tabs :list="tabs" @click="tabChange"></u-tabs>
 		</view>
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+	import NavBar from '@/components/NavBar/index.vue';
 	export default {
 		data() {
 			return {
@@ -33,7 +35,9 @@
 				],
 			};
 		},
-		components: {},
+		components: {
+			NavBar,
+		},
 		computed: {},
 		watch: {},
 		onLoad() {},
@@ -67,6 +71,7 @@
 			flex: 1;
 			width: 100%;
 			position: relative;
+			background: white;
 
 			.item {
 				width: 100%;
@@ -74,11 +79,9 @@
 				position: absolute;
 				left: 0;
 				top: 0;
-				padding: 40upx;
 				.content {
 					width: 100%;
 					height: 100%;
-					background: white;
 				}
 			}
 		}

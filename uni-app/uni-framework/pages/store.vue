@@ -19,11 +19,10 @@
 						<view @tap="$store.dispatch('shopCartStore/del')">删除</view>
 						<!-- mutations 触发 -->
 						<!-- $store.commit('[?modules]/del', params) -->
-						<view
+						<!-- <view
 							@tap="$store.commit('shopCartStore/setList', 'commit/setList')"
-						>
-							删除
-						</view>
+						> -->
+						<view @tap="setList('mutations自己触发')"> 删除666 </view>
 						<!-- getters 使用 -->
 						<!-- $store.getters['[?modules]/goods'](参数) -->
 						<pre>{{ $store.getters['shopCartStore/goods'](i) }}</pre>
@@ -40,7 +39,7 @@
 </template>
 
 <script>
-	import { mapState, mapGetters, mapActions } from 'vuex';
+	import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 	import GhCheckBox from '@/components/GhCheckBox/index.vue';
 	export default {
 		data() {
@@ -58,6 +57,7 @@
 		onShow() {},
 		methods: {
 			...mapActions('shopCartStore', ['numChange', 'add', 'del']),
+			...mapMutations('shopCartStore', ['setList']),
 		},
 		onReachBottom() {},
 		onPageScroll() {},

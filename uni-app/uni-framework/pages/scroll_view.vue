@@ -8,6 +8,7 @@
 -->
 <template>
 	<view class="page flex-star">
+		<NavBar title="scroll_view"></NavBar>
 		<view class="top">列表查询条件</view>
 		<view class="list">
 			<scroll-view
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+	import NavBar from '@/components/NavBar/index.vue';
 	export default {
 		data() {
 			return {
@@ -43,7 +45,9 @@
 				),
 			};
 		},
-		components: {},
+		components: {
+			NavBar,
+		},
 		computed: {},
 		watch: {},
 		onLoad() {},

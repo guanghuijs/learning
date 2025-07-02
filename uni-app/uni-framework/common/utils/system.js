@@ -3,11 +3,11 @@
  * @Author: @晏长刚
  * @Date: 2024-09-09 18:29:23
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-05-12 11:09:36
+ * @LastEditTime: 2025-07-01 14:12:06
  * @FilePath: /uni-framework/common/utils/system.js
  */
 
-import store from "../../store/index.js"
+import store from '../../store/index.js';
 
 const sys = {
 	//头部提示
@@ -32,7 +32,6 @@ const sys = {
 			});
 		},
 
-
 		/**
 		 * @description: 头部弹窗失败样式
 		 * @param {string} title 标题
@@ -52,7 +51,6 @@ const sys = {
 				second: second ? second : 3000,
 			});
 		},
-
 
 		/**
 		 * @description: 头部弹窗警告样式
@@ -92,7 +90,7 @@ const sys = {
 				url: url ? url : '',
 				second: second ? second : 3000,
 			});
-		}
+		},
 	},
 	//自定义Toast
 	Toast: {
@@ -122,7 +120,7 @@ const sys = {
 				icon: 'error',
 				second: second ? second : 2000,
 			});
-		}
+		},
 	},
 
 	//加载效果
@@ -149,7 +147,7 @@ const sys = {
 		 */
 		close() {
 			store.commit('systemStore/closeLoading');
-		}
+		},
 	},
 
 	/**
@@ -164,7 +162,6 @@ const sys = {
 		return false;
 	},
 
-
 	/**
 	 * @description: 检测数组的长度是否等于0或者1 用于与<u-loadmore :status="status" /> 组件使用
 	 * @param {Number} value 传入的参数
@@ -174,12 +171,12 @@ const sys = {
 		const numValue = Number(value);
 		if (!isNaN(numValue)) {
 			if (numValue === 0 || numValue === 1) {
-				return "nomore";
+				return 'nomore';
 			} else {
-				return "loading";
+				return 'loading';
 			}
 		}
-		return "nomore";
+		return 'nomore';
 	},
 
 	/**
@@ -200,16 +197,16 @@ const sys = {
 		if (value != '' && value != null && value != undefined) {
 			uni.setClipboardData({
 				data: value,
-				success: function() {
+				success: function () {
 					uni.showToast({
 						title: '复制成功',
-						icon: 'none'
-					})
+						icon: 'none',
+					});
 				},
 				fail(err) {
-					console.log('这是失败原因', err)
-				}
-			})
+					console.log('这是失败原因', err);
+				},
+			});
 		}
 	},
 
@@ -223,7 +220,7 @@ const sys = {
 		if (this.isArrayZero(arr)) {
 			uni.previewImage({
 				current: index,
-				urls: arr
+				urls: arr,
 			});
 		}
 	},
@@ -235,8 +232,8 @@ const sys = {
 	 */
 	toPage(url) {
 		uni.navigateTo({
-			url
-		})
+			url,
+		});
 	},
 
 	/**
@@ -244,9 +241,9 @@ const sys = {
 	 * @return viod
 	 */
 	toBack() {
-		uni.navigateBack()
-	}
-
-}
+		console.log(66666666);
+		uni.navigateBack();
+	},
+};
 
 export default sys;
