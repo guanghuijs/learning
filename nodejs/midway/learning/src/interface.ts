@@ -1,3 +1,9 @@
+export interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
 /**
  * @description User-Service parameters
  */

@@ -1,5 +1,5 @@
 import { Provide, makeHttpRequest } from '@midwayjs/core';
-import { WeatherInfo } from '../interface';
+import { WeatherInfo } from '~/interface';
 
 @Provide()
 export class WeatherService {

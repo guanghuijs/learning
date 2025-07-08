@@ -1,6 +1,6 @@
 import { Provide } from '@midwayjs/core';
 import { existsSync, readFile } from 'fs';
-import { UserDTO } from '@/dto/user.dto';
+import { UserDTO } from '~dto/user.dto';
 
 @Provide()
 export class UserService {

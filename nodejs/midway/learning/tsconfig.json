@@ -19,7 +19,7 @@
     "rootDir": "src",
     "baseUrl": ".", // 设置基础目录
     "paths": {
-      "@*": ["src/*"] // 创建别名，@ 指向 src/ 目录
+      "~*": ["src/*"] // 创建别名，@/ 指向 src/ 目录
     }
   },
   "exclude": ["*.js", "*.ts", "dist", "node_modules", "test"]
