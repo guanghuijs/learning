@@ -3,7 +3,7 @@
  * @Author: @吴光辉
  * @Date: 2025-04-07 16:06:26
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-06-28 16:34:09
+ * @LastEditTime: 2025-07-09 17:36:15
  * @FilePath: /uni-framework/components/Stepper/index.vue
 -->
 
@@ -17,7 +17,10 @@
 		}"
 	>
 		<template v-if="!disable">
-			<view class="flex-star" v-if="zeroOnlyPlus ? value !== 0 : true">
+			<view
+				class="flex-star"
+				v-if="zeroOnlyPlus || zeroWithTextBtn ? value !== 0 : true"
+			>
 				<view
 					class="_stepper-btn minus"
 					@tap="minusHandle"
@@ -48,10 +51,23 @@
 				/>
 			</view>
 			<view
+				v-if="zeroWithTextBtn && value === 0"
+				class="textBtn"
+				@tap="plusHandle"
+				:style="{ background: color }"
+			>
+				加入购物车
+			</view>
+			<view
+				v-else
 				class="_stepper-btn plus"
 				:class="maxNum && value >= maxNum ? 'disable' : ''"
 				@tap="plusHandle"
-				:style="{ height: size, width: size, background: primary ? color : '' }"
+				:style="{
+					height: size,
+					width: size,
+					background: primary ? color : '',
+				}"
 			>
 				<text class="iconfont icon-plus"></text>
 			</view>
@@ -103,6 +119,11 @@
 			},
 			// 值为0时,不显示减按钮跟输入框
 			zeroOnlyPlus: {
+				type: Boolean,
+				default: false,
+			},
+			// 值为0时,显示加入购物车文字按钮
+			zeroWithTextBtn: {
 				type: Boolean,
 				default: false,
 			},
@@ -179,6 +200,13 @@
 		.input {
 			text-align: center;
 			font-size: 28upx;
+		}
+
+		.textBtn {
+			color: white;
+			font-size: 24upx;
+			padding: 8upx 12upx;
+			border-radius: 12upx;
 		}
 
 		.plus {

@@ -15,48 +15,36 @@
 		</view>
 		<view class="item">
 			<view class="title">阴影</view>
-			<Stepper v-model="data" color="red" isShadow></Stepper>
+			<Stepper v-model="data" isShadow />
 		</view>
 		<view class="item">
 			<view class="title">数量为1时替换为删除图标</view>
-			<Stepper v-model="data" color="red" isShadow oneWithDel></Stepper>
+			<Stepper v-model="data" oneWithDel />
 		</view>
 
 		<view class="item">
 			<view class="title">输入框宽度</view>
-			<Stepper
-				v-model="data"
-				color="red"
-				isShadow
-				oneWithDel
-				inputWidth="50px"
-			></Stepper>
+			<Stepper v-model="data" inputWidth="50px" />
 		</view>
-
 		<view class="item">
 			<view class="title">值为0时,不显示减按钮跟输入框</view>
-			<Stepper v-model="data" color="red" isShadow zeroOnlyPlus></Stepper>
+			<Stepper v-model="data" zeroOnlyPlus />
 		</view>
 		<view class="item">
 			<view class="title">不可编辑</view>
-			<Stepper v-model="data" color="red" isShadow disable></Stepper>
+			<Stepper v-model="data" disable></Stepper>
 		</view>
 		<view class="item">
 			<view class="title">最大输入</view>
-			<Stepper v-model="data" color="red" isShadow :maxNum="15"></Stepper>
+			<Stepper v-model="data" isShadow :maxNum="15" />
 		</view>
 		<view class="item">
 			<view class="title">圆形模式</view>
-			<Stepper
-				v-model="data"
-				color="red"
-				isShadow
-				:maxNum="15"
-				round
-				oneWithDel
-				zeroOnlyPlus
-			>
-			</Stepper>
+			<Stepper v-model="data" round />
+		</view>
+		<view class="item">
+			<view class="title">数量为0时显示加入购物车按钮</view>
+			<Stepper v-model="data" zero-with-text-btn />
 		</view>
 	</view>
 </template>
