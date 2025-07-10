@@ -3,18 +3,21 @@
  * @Author: @吴光辉
  * @Date: 2025-07-01 11:37:47
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-07-01 14:24:18
+ * @LastEditTime: 2025-07-10 16:16:30
  * @FilePath: /uni-framework/components/NavBar/index.vue
 -->
 
 <template>
-	<view class="nav-bar" :style="__style">
-		<slot>
-			<view class="content flex-between">
-				<view class="title">{{ title }}</view>
-				<text class="iconfont icon-left" @tap="$sys.toBack"></text>
-			</view>
-		</slot>
+	<view class="nav-content">
+		<view class="nav-bar" :style="__style">
+			<slot>
+				<view class="content flex-between">
+					<view class="title">{{ title }}</view>
+					<text class="iconfont icon-left" @tap="$sys.toBack"></text>
+				</view>
+			</slot>
+		</view>
+		<slot name="bottom"></slot>
 	</view>
 </template>
 

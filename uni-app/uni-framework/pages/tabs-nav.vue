@@ -1,27 +1,39 @@
 <template>
 	<view class="page flex-star">
-		<NavBar title="tabs 锚点导航(纵向)"></NavBar>
-		<view class="nav">
-			<u-tabs :list="tabs" @click="tabChange"></u-tabs>
-		</view>
+		<NavBar title="tabs 锚点导航(纵向)">
+			<template #bottom>
+				<view class="nav">
+					<u-tabs
+						:list="tabs"
+						@click="tabChange"
+						:current="activeIndex"
+					></u-tabs>
+				</view>
+			</template>
+		</NavBar>
 		<view class="main">
 			<scroll-view
+				class="scroll-view"
 				scroll-y="true"
 				:scroll-into-view="scrollToId"
+				@scroll="scroll"
 				scroll-with-animation
 			>
 				<view class="item" v-for="item in tabs" :key="item.id" :id="item.id">
 					<view class="content">
-						<view class="title">{{ item.name }}</view>
+						<view class="title">
+							{{ item.name }} - {{ navToggleStatus }} - {{ scrollToId }}
+						</view>
+						{{ JSON.stringify(contentRects) }}
 					</view>
 				</view>
 			</scroll-view>
 		</view>
 	</view>
 </template>
-
 <script>
 	import NavBar from '@/components/NavBar/index.vue';
+
 	export default {
 		data() {
 			return {
@@ -32,6 +44,9 @@
 					{ name: '发货', id: 'shipments' },
 				],
 				scrollToId: '',
+				activeIndex: 0,
+				contentRects: [],
+				scrollTimeout: null,
 			};
 		},
 		components: {
@@ -40,11 +55,48 @@
 		computed: {},
 		watch: {},
 		onLoad() {},
+		mounted() {
+			this.getRects();
+		},
 		onShow() {},
 		methods: {
-			tabChange({ id }) {
+			tabChange({ index, id }) {
 				this.$nextTick(() => {
 					this.scrollToId = id;
+					this.activeIndex = index;
+				});
+			},
+			scroll(e) {
+				const scrollTop = e.detail.scrollTop;
+				this.updateActiveTabs(scrollTop);
+			},
+			getRects() {
+				const query = uni.createSelectorQuery().in(this);
+				let pTop = 0;
+				query
+					.select('.scroll-view')
+					.boundingClientRect(({ top }) => {
+						pTop = top;
+					})
+					.exec();
+				query
+					.selectAll('.item')
+					.boundingClientRect((rects) => {
+						this.contentRects = rects.map((rect, index) => ({
+							top: rect.top - pTop,
+							bottom: rect.bottom - pTop,
+						}));
+					})
+					.exec();
+			},
+			updateActiveTabs(scrollTop) {
+				this.contentRects.forEach((rect, index) => {
+					if (scrollTop >= rect.top && scrollTop < rect.bottom) {
+						if (this.activeIndex !== index) {
+							this.activeIndex = index;
+							this.scrollToId = this.tabs[index].id;
+						}
+					}
 				});
 			},
 		},
@@ -71,10 +123,8 @@
 
 			scroll-view {
 				height: 100%;
-				padding-top: 40upx;
-
 				.item {
-					padding: 0 40upx;
+					padding: 0 36upx;
 					margin-bottom: 40upx;
 					.content {
 						height: 50vh;
