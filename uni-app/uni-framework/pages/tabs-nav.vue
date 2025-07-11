@@ -15,14 +15,14 @@
 			<scroll-view
 				class="scroll-view"
 				scroll-y="true"
-				:scroll-into-view="scrollToId"
+				:scroll-into-view="isScroll ? '' : scrollToId"
 				@scroll="scroll"
 				scroll-with-animation
 			>
 				<view class="item" v-for="item in tabs" :key="item.id" :id="item.id">
 					<view class="content">
 						<view class="title">
-							{{ item.name }} - {{ navToggleStatus }} - {{ scrollToId }}
+							{{ item.name }} - {{ isScroll }} - {{ scrollToId }}
 						</view>
 						{{ JSON.stringify(contentRects) }}
 					</view>
@@ -46,7 +46,10 @@
 				scrollToId: '',
 				activeIndex: 0,
 				contentRects: [],
-				scrollTimeout: null,
+				timer: null,
+				isScroll: false, // 是否是滚动事件
+				isTabsToggle: false,
+				timer: null,
 			};
 		},
 		components: {
@@ -61,12 +64,21 @@
 		onShow() {},
 		methods: {
 			tabChange({ index, id }) {
+				this.isScroll = false;
+				this.isTabsToggle = true;
 				this.$nextTick(() => {
 					this.scrollToId = id;
-					this.activeIndex = index;
+					if (!this.timer) {
+						this.timer = setTimeout(() => {
+							this.isTabsToggle = false;
+							this.timer = null;
+						}, 500);
+					}
 				});
 			},
 			scroll(e) {
+				if (this.isTabsToggle) return;
+				this.isScroll = true;
 				const scrollTop = e.detail.scrollTop;
 				this.updateActiveTabs(scrollTop);
 			},
