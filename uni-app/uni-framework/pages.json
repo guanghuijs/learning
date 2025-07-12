@@ -92,6 +92,12 @@
 			"style": {
 				"navigationBarTitleText": "nav-trans"
 			}
+		},
+		{
+			"path": "pages/dom-opt",
+			"style": {
+				"navigationBarTitleText": "dom-opt"
+			}
 		}
 	],
 	"subPackages": [{

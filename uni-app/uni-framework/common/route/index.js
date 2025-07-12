@@ -51,4 +51,8 @@ export default [
 		key: 'nav-trans',
 		title: 'nav 过渡',
 	},
+	{
+		key: 'dom-opt',
+		title: 'dom操作',
+	},
 ];
