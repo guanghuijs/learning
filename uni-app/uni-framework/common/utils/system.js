@@ -3,7 +3,7 @@
  * @Author: @晏长刚
  * @Date: 2024-09-09 18:29:23
  * @LastEditors: @吴光辉
- * @LastEditTime: 2025-07-01 14:12:06
+ * @LastEditTime: 2025-07-14 15:50:55
  * @FilePath: /uni-framework/common/utils/system.js
  */
 
@@ -241,7 +241,6 @@ const sys = {
 	 * @return viod
 	 */
 	toBack() {
-		console.log(66666666);
 		uni.navigateBack();
 	},
 };

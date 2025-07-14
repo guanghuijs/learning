@@ -98,6 +98,12 @@
 			"style": {
 				"navigationBarTitleText": "dom-opt"
 			}
+		},
+		{
+			"path": "pages/tran",
+			"style": {
+				"navigationBarTitleText": "过渡动画"
+			}
 		}
 	],
 	"subPackages": [{

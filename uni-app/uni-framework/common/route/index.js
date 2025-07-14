@@ -52,7 +52,7 @@ export default [
 		title: 'nav 过渡',
 	},
 	{
-		key: 'dom-opt',
-		title: 'dom操作',
+		key: 'tran',
+		title: '过渡动画',
 	},
 ];
