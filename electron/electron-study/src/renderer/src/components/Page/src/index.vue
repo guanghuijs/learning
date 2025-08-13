@@ -18,7 +18,7 @@
         <p class="describe">{{ describe }}</p>
       </div>
       <div class="lan flex-star">
-        <span>语言切换</span>
+        <span>语言切换：</span>
         <el-select style="width: 120px" v-model="locale">
           <el-option
             v-for="[key, name] in [
