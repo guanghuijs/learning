@@ -20,6 +20,7 @@ const router = createRouter({
     getModuleRouter('amap', '1.init'),
     getModuleRouter('echarts', '1.basics'),
     getModuleRouter('swiper', '1.init'),
+    getModuleRouter('motion', 'a.eg'),
   ],
 });
 
