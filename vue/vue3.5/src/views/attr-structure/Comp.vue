@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { watch } from 'vue';
 
+  defineModel();
+
   // 自定义属性结构解析,可在结构解析时赋默认值
   const { count = 0, name = '张三' } = defineProps<{
     count: number;
@@ -12,7 +14,7 @@
     () => count,
     (value) => {
       console.log('count', value);
-    }
+    },
   );
 </script>
 
