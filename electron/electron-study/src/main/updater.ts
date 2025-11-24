@@ -6,6 +6,7 @@ import axios from 'axios';
 
 export function initUpdater(callBack?: () => void) {
   const { DEV } = import.meta.env;
+  console.log(import.meta.env);
 
   const loadingWindow = new BrowserWindow({
     width: 600,
@@ -35,7 +36,7 @@ export function initUpdater(callBack?: () => void) {
         // todo 执行增量跟新逻辑
         // 2. 下载
         // http://localhost:9989/win-unpacked/resources/app.asar
-        downloadFile('http://localhost:9989/download/app.asar', 'app.asar')
+        downloadFile('http://localhost:9989/download/app.asar', 'app66.asar')
           .then(() => {})
           .catch((err) => {
             console.log(err);

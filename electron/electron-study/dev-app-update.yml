@@ -1,4 +1,4 @@
 provider: generic
-#url: https://thailand-mall-preview-admin-th.huayitongkeji.com/update/
-url: http://localhost:9989/static
+url: https://thailand-mall-preview-admin-th.huayitongkeji.com/update/
+# url: http://localhost:9989/static
 updaterCacheDirName: releases
