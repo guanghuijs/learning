@@ -3,6 +3,8 @@
   import { ref } from 'vue';
   const count = ref(5);
   const name = ref('王麻子');
+
+  defineProps();
 </script>
 
 <template>

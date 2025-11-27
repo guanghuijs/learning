@@ -1,17 +1,21 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
-import icon from '../../resources/icon.png?asset';
+import icon from '../../resources/logo.png?asset';
+import { initUpdater } from './updater';
 
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
+    title: 'Electron',
+    // info 应用图标跟标题栏更改
+    icon,
     show: false,
     autoHideMenuBar: true,
-    titleBarStyle: 'hiddenInset',
-    ...(process.platform === 'linux' ? { icon } : {}),
+    // 标题栏样式
+    titleBarStyle: 'default',
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
@@ -32,7 +36,6 @@ function createWindow(): void {
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']);
   } else {
-    console.log(__dirname);
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
   }
 }
@@ -41,6 +44,7 @@ function createWindow(): void {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  console.log('Ready!');
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron');
 
@@ -54,7 +58,9 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on('ping', () => console.log('pong'));
 
-  createWindow();
+  initUpdater(() => {
+    createWindow();
+  });
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

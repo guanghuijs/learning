@@ -5,3 +5,8 @@ out
 .eslintcache
 *.log*
 __build_**
+
+
+**.lock
+**.asar
+

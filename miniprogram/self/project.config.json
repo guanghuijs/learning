@@ -22,14 +22,15 @@
         "packageJsonPath": "./miniprogram/package.json",
         "miniprogramNpmDistDir": "./miniprogram/"
       }
-    ]
+    ],
+    "condition": false
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
   "appid": "wxf01bf3c3aa7497ea",
-  "libVersion": "3.1.4",
+  "libVersion": "3.10.2",
   "editorSetting": {
     "tabIndent": "auto",
     "tabSize": 2

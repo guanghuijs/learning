@@ -1,3 +1,4 @@
 provider: generic
-url: https://example.com/auto-updates
-updaterCacheDirName: electron-study-updater
+url: https://thailand-mall-preview-admin-th.huayitongkeji.com/update/
+# url: http://localhost:9989/static
+updaterCacheDirName: releases
