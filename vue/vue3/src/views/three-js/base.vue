@@ -245,3 +245,9 @@
     }
   }
 </style>
+
+<route lang="yaml">
+meta:
+  title: 基础
+  sort: 1
+</route>

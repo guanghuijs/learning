@@ -3,12 +3,14 @@ cd dist
 git init
 
 @REM 关联远程仓库
-git remote add origin git@github.com:guanghuijs/learning.git
+@REM git remote add origin git@github.com:guanghuijs/learning.git
+git remote add origin https://gitee.com/guanghuijs/learning.git
 
 git pull
 
 @REM 删除远程pages分支
-git push git@github.com:guanghuijs/learning.git --delete pages
+@REM git push git@github.com:guanghuijs/learning.git --delete pages
+git push https://gitee.com/guanghuijs/learning.git --delete pages
 
 @REM 创建新的pages分支并切换
 git checkout -b pages

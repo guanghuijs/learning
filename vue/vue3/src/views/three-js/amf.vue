@@ -12,7 +12,7 @@
 <script setup>
   import * as THREE from 'three';
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-  import { AMFLoader } from 'three/examples/jsm/loaders/AMFLoader.js';
+  import { AMFLoader } from 'three/examples/jsm/loaders/AMFLoader';
   import { onMounted } from 'vue';
 
   let scene, camera, renderer, container, controls;
@@ -140,3 +140,9 @@
     }
   }
 </style>
+
+<route lang="yaml">
+meta:
+  title: amf
+  sort: 1
+</route>

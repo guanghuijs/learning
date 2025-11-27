@@ -39,8 +39,9 @@
 </script>
 
 <template>
-  <page title="根据经纬度获取位置信息"></page>
-  <div class="map" ref="mapEle"></div>
+  <page title="根据经纬度获取位置信息">
+    <div class="map" ref="mapEle"></div>
+  </page>
 </template>
 
 <style lang="less" scoped>
@@ -48,3 +49,9 @@
     height: 500px;
   }
 </style>
+
+<route lang="yaml">
+meta:
+  title: 根据经纬度获取位置信息
+  sort: 7
+</route>

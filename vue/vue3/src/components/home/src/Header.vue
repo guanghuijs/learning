@@ -29,7 +29,6 @@
 
   const toggleMode = (event: MouseEvent) => {
     const isAppearanceTransition =
-      // @ts-expect-error
       document.startViewTransition &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!isAppearanceTransition || !event) {
@@ -42,7 +41,6 @@
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y)
     );
-    // @ts-expect-error: Transition API
     const transition = document.startViewTransition(async () => {
       mode.value = unref(isDark) ? 'light' : 'dark';
       await nextTick();
@@ -74,13 +72,13 @@
     <div class="logo">Learning</div>
     <div class="nav flex-star">
       <div
-        v-for="{ redirect, name, path } in router.options.routes.slice(1)"
+        v-for="{ redirect, path, meta } in router.options.routes.slice(1)"
         :key="path"
         class="menu-item"
         :class="_route.path.startsWith(path) ? 'act' : ''"
         @click="_router.replace(redirect as string)"
       >
-        {{ name }}
+        {{ meta?.title }}
       </div>
     </div>
     <div class="right flex-star">

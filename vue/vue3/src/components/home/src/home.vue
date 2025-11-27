@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, unref, watch } from 'vue';
+  import { computed, ref, unref, watch } from 'vue';
   import { MdCopy } from '@vicons/ionicons4';
   import type { RouteRecordRaw } from 'vue-router';
   import { useRoute, useRouter } from 'vue-router';
@@ -28,19 +28,28 @@
     eager: true,
   });
 
-  defineProps<{
+  const { routes } = defineProps<{
     routes: RouteRecordRaw[];
   }>();
 
+  const menus = computed(() => {
+    return [...routes]
+      .sort((a, b) => (a.meta?.sort as number) - (b.meta?.sort as number))
+      .map(({ meta, name }) => ({
+        label: meta?.title || '<未设置标题>',
+        name,
+      }));
+  });
+
   const activeKey = ref(_route.path);
-  const code = ref(allCode[`../../../views${unref(activeKey)}.vue`]);
+  const code = ref<string>(allCode[`../../../views${unref(activeKey)}.vue`] as string);
 
   // 代码复制功能
   import { useClipboard } from '@vueuse/core';
   const { copy } = useClipboard({ source: code });
 
   watch(activeKey, (key) => {
-    code.value = allCode[`../../../views${key}.vue`];
+    code.value = allCode[`../../../views${key}.vue`] as string;
     _router.push({
       path: key,
     });
@@ -96,13 +105,7 @@
             :native-scrollbar="false"
           >
             <div class="left">
-              <n-menu
-                key-field="path"
-                v-model:value="activeKey"
-                label-field="name"
-                :options="routes as any"
-              >
-              </n-menu>
+              <n-menu key-field="name" v-model:value="activeKey" :options="menus" />
             </div>
           </n-layout-sider>
           <n-layout has-sider sider-placement="right">

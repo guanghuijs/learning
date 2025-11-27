@@ -63,9 +63,17 @@
     init();
   });
 </script>
+
 <style scoped lang="less">
   .box {
     width: 100%;
     height: 100%;
   }
 </style>
+
+
+<route lang="yaml">
+meta:
+  title: 坐标系
+  sort: 2
+</route>

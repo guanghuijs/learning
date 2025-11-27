@@ -3,46 +3,28 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-// 自动生成路由
-import Pages from 'vite-plugin-pages';
-// 强制https
-import basicSsl from '@vitejs/plugin-basic-ssl';
-// devtools
-import VueDevTools from 'vite-plugin-vue-devtools';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  const { GLOBAL_PORT, DEV_HTTPS } = loadEnv(mode, '', ['GLOBAL', 'DEV']);
-  return {
-    base: './',
-    plugins: [
-      vue(),
-      vueJsx(),
-      Pages({
-        //指定生成路由的目录
-        dirs: './src/views',
-        //文件后缀
-        extensions: ['vue'],
-        //可以排除指定目录
-        exclude: ['**/components/*.vue'],
-      }),
-      VueDevTools(),
-      DEV_HTTPS === 'true'
-        ? basicSsl({
-            name: 'test',
-            domains: ['*.custom.com'],
-            certDir: '/Users/.../.devServer/cert',
-          })
-        : null,
-    ],
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-      },
+import VueRouter from 'unplugin-vue-router/vite';
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    // ⚠️ VueRouter 必须放在 vue() 之前
+    VueRouter({
+      // 配置选项
+      routesFolder: 'src/views', // 默认为 src/pages
+      extensions: ['.vue'], // 支持的文件扩展名
+      exclude: ['**/components/*.vue'],
+    }),
+    vue(),
+    vueJsx(),
+    vueDevTools(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
-    server: {
-      port: Number(GLOBAL_PORT),
-    },
-    envPrefix: ['GLOBAL', 'DEV'],
-  };
+  },
+  envPrefix: ['GLOBAL', 'DEV'],
 });

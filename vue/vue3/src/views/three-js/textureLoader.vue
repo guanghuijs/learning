@@ -86,3 +86,10 @@
     height: 100%;
   }
 </style>
+
+
+<route lang="yaml">
+meta:
+  title: 纹理加载器
+  sort: 1
+</route>

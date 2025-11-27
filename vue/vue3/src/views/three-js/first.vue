@@ -63,3 +63,9 @@
     height: 100%;
   }
 </style>
+
+<route lang="yaml">
+meta:
+  title: 第一个案例
+  sort: 1
+</route>

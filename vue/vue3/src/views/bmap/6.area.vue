@@ -100,3 +100,10 @@
     height: 500px;
   }
 </style>
+
+
+<route lang="yaml">
+meta:
+  title: 区域模式
+  sort: 6
+</route>

@@ -61,3 +61,10 @@
     height: 100%;
   }
 </style>
+
+
+<route lang="yaml">
+meta:
+  title: 高动态范围成像
+  sort: 1
+</route>

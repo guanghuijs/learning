@@ -129,3 +129,10 @@
     }
   }
 </style>
+
+
+<route lang="yaml">
+meta:
+  title: 对象
+  sort: 1
+</route>
