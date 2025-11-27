@@ -9,6 +9,7 @@ import VueRouter from 'unplugin-vue-router/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     // ⚠️ VueRouter 必须放在 vue() 之前
     VueRouter({
