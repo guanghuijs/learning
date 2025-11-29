@@ -1,0 +1,1 @@
+import{d as a,r as e,o as i,t as r}from"./index-BtQ9Oy6z.js";import{b as n}from"./route-block-B_A1xBdJ.js";const s=a({__name:"geolocation",setup(c){const o=e();return i(()=>{"geolocation"in navigator&&navigator.geolocation.getCurrentPosition(t=>{o.value=t})}),(t,f)=>r(o.value)}});typeof n=="function"&&n(s);export{s as default};

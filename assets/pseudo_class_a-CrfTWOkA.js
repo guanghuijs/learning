@@ -1,0 +1,1 @@
+import{b as t}from"./route-block-B_A1xBdJ.js";import{_ as e,n as o,b as a}from"./index-BtQ9Oy6z.js";const c={},s={class:"link",href:"https://www.baidu.com",target:"_blank"};function n(_,r){return a(),o("a",s,"百度一下,你就知道")}typeof t=="function"&&t(c);const l=e(c,[["render",n],["__scopeId","data-v-3c8b3a5b"]]);export{l as default};

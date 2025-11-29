@@ -1,0 +1,1 @@
+import{b as o}from"./route-block-B_A1xBdJ.js";import{_ as c,n as e,b as n}from"./index-BtQ9Oy6z.js";const t={},s={class:"font"};function a(r,_){return n(),e("div",s,"我系追追追")}typeof o=="function"&&o(t);const i=c(t,[["render",a],["__scopeId","data-v-a47b69dd"]]);export{i as default};

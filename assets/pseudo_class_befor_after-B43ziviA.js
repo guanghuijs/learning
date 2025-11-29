@@ -1,0 +1,1 @@
+import{b as e}from"./route-block-B_A1xBdJ.js";import{_ as t,n as a,b as c}from"./index-BtQ9Oy6z.js";const o={},s={class:"before-after"};function r(_,f){return c(),a("div",s,"内容")}typeof e=="function"&&e(o);const i=t(o,[["render",r],["__scopeId","data-v-5ae67a3a"]]);export{i as default};

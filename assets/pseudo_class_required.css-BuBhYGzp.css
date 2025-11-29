@@ -1,0 +1,1 @@
+.item[data-v-ff2d360d]{display:flex;align-items:center}.item span[data-v-ff2d360d]{color:red}.item input[data-v-ff2d360d]{border:1px solid #aaa}.item span[data-v-ff2d360d]:has(+input:required){color:red}.item span[data-v-ff2d360d]:has(+input:optional){display:block;color:green}

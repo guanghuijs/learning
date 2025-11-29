@@ -1,0 +1,1 @@
+import{_ as e}from"./Children.vue_vue_type_script_setup_true_lang-DRu3J0NL.js";import{d as t,c as n,b as a}from"./index-BtQ9Oy6z.js";import{b as o}from"./route-block-B_A1xBdJ.js";const c=t({__name:"component_base",setup(r){return(s,_)=>(a(),n(e))}});typeof o=="function"&&o(c);export{c as default};

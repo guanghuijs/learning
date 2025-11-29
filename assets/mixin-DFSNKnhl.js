@@ -1,0 +1,1 @@
+import{b as e}from"./route-block-B_A1xBdJ.js";import{_ as o,n as c,b as s}from"./index-BtQ9Oy6z.js";const t={},n={class:"test"};function r(_,a){return s(),c("div",n,"测试")}typeof e=="function"&&e(t);const d=o(t,[["render",r],["__scopeId","data-v-9e068539"]]);export{d as default};

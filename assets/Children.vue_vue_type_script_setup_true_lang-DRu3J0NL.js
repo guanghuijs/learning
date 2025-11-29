@@ -1,0 +1,1 @@
+import{d as n,o,n as s,e as t,b as r}from"./index-BtQ9Oy6z.js";const p=n({__name:"Children",setup(a){return o(()=>{console.log("子组件挂载完成")}),(l,e)=>(r(),s("div",null,[...e[0]||(e[0]=[t("div",null,"子组件",-1)])]))}});export{p as _};

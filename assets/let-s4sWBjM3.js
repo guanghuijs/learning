@@ -1,0 +1,1 @@
+import{d as e}from"./index-BtQ9Oy6z.js";import{b as t}from"./route-block-B_A1xBdJ.js";const n=e({__name:"let",setup(p){return console.log(void 0),(o,r)=>null}});typeof t=="function"&&t(n);export{n as default};

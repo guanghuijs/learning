@@ -1,0 +1,1 @@
+import{b as e}from"./route-block-B_A1xBdJ.js";import{_ as o,n as c,b as r}from"./index-BtQ9Oy6z.js";const t={},s={class:"target"};function _(a,n){return r(),c("div",s)}typeof e=="function"&&e(t);const d=o(t,[["render",_],["__scopeId","data-v-63162fea"]]);export{d as default};

@@ -1,0 +1,1 @@
+import{b as e}from"./route-block-B_A1xBdJ.js";import{_ as t,n as c,b as s}from"./index-BtQ9Oy6z.js";const o={},n={placeholder:"请输入",type:"text"};function _(a,r){return s(),c("input",n)}typeof e=="function"&&e(o);const d=t(o,[["render",_],["__scopeId","data-v-a69635e9"]]);export{d as default};

@@ -1,0 +1,1 @@
+import{b as e}from"./route-block-B_A1xBdJ.js";import{_ as c,n as o,b as s}from"./index-BtQ9Oy6z.js";const t={},a={class:"test"};function n(r,_){return s(),o("div",a,"我系渣渣辉")}typeof e=="function"&&e(t);const d=c(t,[["render",n],["__scopeId","data-v-a3acebf3"]]);export{d as default};

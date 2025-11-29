@@ -1,0 +1,1 @@
+import{d as r}from"./index-BtQ9Oy6z.js";import{b as e}from"./route-block-B_A1xBdJ.js";const n=r({__name:"array-buffer",setup(f){const o=new ArrayBuffer(36);return console.log(o),console.log(o.slice(0,5)),(t,c)=>null}});typeof e=="function"&&e(n);export{n as default};

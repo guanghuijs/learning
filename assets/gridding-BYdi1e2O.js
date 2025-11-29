@@ -1,0 +1,1 @@
+import{d as a,h as n,n as r,b as c,i as _,u as i,_ as d}from"./index-BtQ9Oy6z.js";import{b as s}from"./route-block-B_A1xBdJ.js";const p={class:"container"},e=a({__name:"gridding",setup(f){_(t=>({v2ec0278d:i(o)}));const{primaryColor:o}=n();return(t,m)=>(c(),r("div",p))}});typeof s=="function"&&s(e);const g=d(e,[["__scopeId","data-v-01aa1d13"]]);export{g as default};
