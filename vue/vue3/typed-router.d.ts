@@ -79,16 +79,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/bmap/6.area': RouteRecordInfo<
-      '/bmap/6.area',
-      '/bmap/6/area',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/bmap/7.get_address(lon_lat)': RouteRecordInfo<
-      '/bmap/7.get_address(lon_lat)',
-      '/bmap/7/get_address(lon_lat)',
+    '/bmap/area': RouteRecordInfo<
+      '/bmap/area',
+      '/bmap/area',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -96,6 +89,13 @@ declare module 'vue-router/auto-routes' {
     '/bmap/control': RouteRecordInfo<
       '/bmap/control',
       '/bmap/control',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/bmap/get_address(lon_lat)': RouteRecordInfo<
+      '/bmap/get_address(lon_lat)',
+      '/bmap/get_address(lon_lat)',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1064,21 +1064,21 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/views/bmap/6.area.vue': {
+    'src/views/bmap/area.vue': {
       routes:
-        | '/bmap/6.area'
-      views:
-        | never
-    }
-    'src/views/bmap/7.get_address(lon_lat).vue': {
-      routes:
-        | '/bmap/7.get_address(lon_lat)'
+        | '/bmap/area'
       views:
         | never
     }
     'src/views/bmap/control.vue': {
       routes:
         | '/bmap/control'
+      views:
+        | never
+    }
+    'src/views/bmap/get_address(lon_lat).vue': {
+      routes:
+        | '/bmap/get_address(lon_lat)'
       views:
         | never
     }

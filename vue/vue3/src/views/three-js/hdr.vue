@@ -8,6 +8,10 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import { onMounted } from 'vue';
   import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+  const path = new URL(
+    '@/assets/threejs/hdrls/hdr/venice_sunset_1k.hdr',
+    import.meta.url
+  );
 
   let scene, camera, renderer;
 
@@ -29,7 +33,7 @@
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(container.clientWidth, container.clientHeight);
 
-    new RGBELoader().load('/hdrls/hdr/venice_sunset_1k.hdr', (hdr) => {
+    new RGBELoader().load(path, (hdr) => {
       hdr.mapping = THREE.EquirectangularReflectionMapping;
       scene.background = hdr;
       scene.environment = hdr;
@@ -61,7 +65,6 @@
     height: 100%;
   }
 </style>
-
 
 <route lang="yaml">
 meta:

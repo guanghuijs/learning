@@ -14,6 +14,7 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
   import { onMounted } from 'vue';
+  const path = new URL('@/assets/threejs/models/obj/maya2.obj', import.meta.url).href;
 
   let scene, camera, renderer, container, controls;
 
@@ -49,7 +50,7 @@
     renderer.setClearColor('#f2f2f2');
     container.appendChild(renderer.domElement);
 
-    new OBJLoader().load('/models/obj/maya2.obj', (mayaObject) => {
+    new OBJLoader().load(path, (mayaObject) => {
       mayaObject.name = 'objTest';
       mayaObject.position.set(0, 0, 2);
       mayaObject.rotation.y = Math.PI / 4;
@@ -129,7 +130,6 @@
     }
   }
 </style>
-
 
 <route lang="yaml">
 meta:

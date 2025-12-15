@@ -5,7 +5,7 @@
 
   import { useAMap } from '@/utils';
   import { useSysStoreRefs } from '@/stores/sys';
-  import local from '@/assets/_yy-location.png';
+  import local from '@/assets/yy-location.png';
   import { NButton } from 'naive-ui';
 
   const { primaryColor } = useSysStoreRefs();

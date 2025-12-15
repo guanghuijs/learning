@@ -7,6 +7,7 @@
   import * as THREE from 'three';
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import { onMounted } from 'vue';
+  const path = new URL('@/assets/threejs/hdrls/png/earth.png', import.meta.url);
 
   let scene, camera, renderer;
 
@@ -46,7 +47,7 @@
 
     const textureLoader = new THREE.TextureLoader();
 
-    textureLoader.load('/hdrls/png/earth.png', function (texture) {
+    textureLoader.load(path, function (texture) {
       texture.wrapS = THREE.RepeatWrapping; //质地.包裹
       texture.wrapT = THREE.RepeatWrapping;
       const material = new THREE.MeshBasicMaterial({
@@ -86,7 +87,6 @@
     height: 100%;
   }
 </style>
-
 
 <route lang="yaml">
 meta:

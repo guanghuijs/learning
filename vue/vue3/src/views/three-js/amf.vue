@@ -14,6 +14,7 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import { AMFLoader } from 'three/examples/jsm/loaders/AMFLoader';
   import { onMounted } from 'vue';
+  const path = new URL('@/assets/threejs/models/amf/rook.amf', import.meta.url).href;
 
   let scene, camera, renderer, container, controls;
 
@@ -50,7 +51,8 @@
     if (renderer.domElement) {
       container.appendChild(renderer.domElement);
     }
-    new AMFLoader().load('/models/amf/rook.amf', (amfObject) => {
+
+    new AMFLoader().load(path, (amfObject) => {
       amfObject.name = 'amfTest';
       scene.add(amfObject);
       render();
