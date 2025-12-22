@@ -401,6 +401,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/demo/xlsx': RouteRecordInfo<
+      '/demo/xlsx',
+      '/demo/xlsx',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/echarts/basics': RouteRecordInfo<
       '/echarts/basics',
       '/echarts/basics',
@@ -1337,6 +1344,12 @@ declare module 'vue-router/auto-routes' {
     'src/views/demo/viewport-transition.vue': {
       routes:
         | '/demo/viewport-transition'
+      views:
+        | never
+    }
+    'src/views/demo/xlsx.vue': {
+      routes:
+        | '/demo/xlsx'
       views:
         | never
     }

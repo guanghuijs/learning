@@ -64,3 +64,5 @@ catalog:
   vue-codemirror: ^6.1.1
   vue-router: ^4.6.3
   vue-tsc: ^3.1.1
+  xlsx: ^0.18.5
+  xlsx-style: ^0.8.13

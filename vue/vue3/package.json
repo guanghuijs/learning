@@ -32,7 +32,9 @@
     "swiper": "catalog:",
     "three": "catalog:",
     "vue": "^3.5.22",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "xlsx": "catalog:",
+    "xlsx-style": "catalog:"
   },
   "devDependencies": {
     "@codemirror/lang-html": "catalog:",

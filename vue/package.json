@@ -28,8 +28,11 @@
     "lodash-es": "catalog:",
     "swiper": "catalog:",
     "three": "catalog:",
+    "xlsx": "catalog:",
+    "xlsx-style": "catalog:",
     "vue": "^3.5.22",
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.3",
+    "pinia": "catalog:"
   },
   "devDependencies": {
     "@codemirror/lang-html": "catalog:",
