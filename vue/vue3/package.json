@@ -33,8 +33,11 @@
     "three": "catalog:",
     "vue": "^3.5.22",
     "vue-router": "catalog:",
+    "vxe-pc-ui": "catalog:",
+    "vxe-table": "catalog:",
+    "xe-utils": "catalog:",
     "xlsx": "catalog:",
-    "xlsx-style": "catalog:"
+    "xlsx-style-vite": "catalog:"
   },
   "devDependencies": {
     "@codemirror/lang-html": "catalog:",
@@ -68,6 +71,7 @@
     "typescript": "catalog:",
     "unplugin-vue-router": "catalog:",
     "vite": "catalog:",
+    "vite-plugin-lazy-import": "^1.0.7",
     "vite-plugin-pages": "catalog:",
     "vite-plugin-vue-devtools": "catalog:",
     "vitest": "catalog:",

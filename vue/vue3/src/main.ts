@@ -1,4 +1,5 @@
 import './assets/base.less';
+import 'vxe-table/es/style.css';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';

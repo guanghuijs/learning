@@ -39,6 +39,7 @@ catalog:
   eslint: ^9.37.0
   eslint-plugin-vue: ~10.5.0
   highcharts: ^11.4.8
+  #  HTML dom转画布
   html2canvas: ^1.4.1
   html5-qrcode: ^2.3.8
   jiti: ^2.6.1
@@ -61,8 +62,16 @@ catalog:
   vite-plugin-pages: ^0.32.3
   vite-plugin-vue-devtools: ^8.0.3
   vitest: ^1.0.4
+  # 代码展示
   vue-codemirror: ^6.1.1
   vue-router: ^4.6.3
   vue-tsc: ^3.1.1
+  # 前端导出电子表格
   xlsx: ^0.18.5
-  xlsx-style: ^0.8.13
+  xlsx-style-vite: ^0.0.2
+  # vxe table
+  vxe-pc-ui: 4.11.21
+  vxe-table: 4.17.35
+  xe-utils: 3.8.2
+  # vite 按需加载组件
+  vite-plugin-lazy-import: ^1.0.7
