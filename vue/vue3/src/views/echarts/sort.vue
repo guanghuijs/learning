@@ -1,5 +1,6 @@
 <template>
   <div>原数组:{{ arr }}</div>
+  <div>排序完成数组:{{ resultArr }}</div>
   <div class="flex-between">
     <n-button @click="resetArr">数据重置</n-button>
     <n-button @click="resetChart">图表重置</n-button>
@@ -24,22 +25,36 @@
   <div ref="helloChartRef" class="chart"></div>
 </template>
 <script setup lang="ts">
-  import { onMounted, ref, unref, watch } from 'vue';
+  import {
+    onMounted,
+    type Ref,
+    ref,
+    unref,
+    watch,
+  } from 'vue';
   import { Random } from 'mockjs';
   import { NButton, NSelect } from 'naive-ui';
   import { useSysStoreRefs } from '@/stores/sys';
-  import { useECharts, sortHelper, hexToRgba } from '@/utils';
+  import {
+    useECharts,
+    sortHelper,
+    hexToRgba,
+  } from '@/utils';
 
   const { primaryColor } = useSysStoreRefs();
   const way = ref<keyof typeof sortHelper>('bubble');
 
-  watch(primaryColor, (value) => {
+  watch(primaryColor, () => {
     chart.setOption(series(unref(arr)));
   });
 
   const arr = ref<Array<number>>(
-    Array.from({ length: 20 }, () => Random.integer(0, 100))
+    Array.from({ length: 20 }, () =>
+      Random.integer(0, 100),
+    ),
   );
+
+  const resultArr = ref<number[]>([]);
 
   let chart: echarts.ECharts;
   const helloChartRef = ref();
@@ -71,8 +86,13 @@
           show: true,
         },
         itemStyle: {
-          color: function (params: any) {
-            return hexToRgba(primaryColor.value, params.value);
+          color: function (
+            params: echarts.CallbackDataParams,
+          ) {
+            return hexToRgba(
+              primaryColor.value,
+              params.value,
+            );
           },
         },
       },
@@ -80,7 +100,9 @@
   });
 
   const resetArr = () => {
-    arr.value = Array.from({ length: 20 }, () => Random.integer(0, 100));
+    arr.value = Array.from({ length: 20 }, () =>
+      Random.integer(0, 100),
+    );
     chart.setOption(series(unref(arr)));
   };
 
@@ -88,10 +110,19 @@
     chart.setOption(series(unref(arr)));
   };
 
+  import { useMessage } from 'naive-ui';
+  const message = useMessage();
+
   const startSort = () => {
-    sortHelper[way.value](chart, [...arr.value], primaryColor.value, () => {
-      console.log('排序完成');
-    });
+    sortHelper[unref(way)](
+      chart,
+      [...arr.value],
+      primaryColor.value,
+      (arr: number[]) => {
+        resultArr.value = arr;
+        message.success('排序完成');
+      },
+    );
   };
 
   const series = (arr: Array<number>) => {
@@ -101,8 +132,11 @@
         type: 'bar',
         data: [...arr],
         itemStyle: {
-          color: function (params: any) {
-            return hexToRgba(primaryColor.value, params.value);
+          color: function (params: Ref<number>) {
+            return hexToRgba(
+              primaryColor.value,
+              params.value,
+            );
           },
         },
       },

@@ -282,6 +282,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/demo/a': RouteRecordInfo<
+      '/demo/a',
+      '/demo/a',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/demo/address_resolution': RouteRecordInfo<
       '/demo/address_resolution',
       '/demo/address_resolution',
@@ -1242,6 +1249,12 @@ declare module 'vue-router/auto-routes' {
     'src/views/css_/vis-a-vis.vue': {
       routes:
         | '/css_/vis-a-vis'
+      views:
+        | never
+    }
+    'src/views/demo/a.vue': {
+      routes:
+        | '/demo/a'
       views:
         | never
     }

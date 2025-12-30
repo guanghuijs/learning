@@ -1,0 +1,15 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 60,
+  "vueIndentScriptAndStyle": true,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.wxml",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}

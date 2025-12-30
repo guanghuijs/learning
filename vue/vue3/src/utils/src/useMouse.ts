@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 export const useEventListener = (
   target: Window | HTMLElement,
   event: string,
-  callback: any
+  callback: (event: Event) => void,
 ) => {
   onMounted(() => {
     target.addEventListener(event, callback);
@@ -16,9 +16,10 @@ export const useEventListener = (
 export const useMouse = () => {
   const x = ref(0);
   const y = ref(0);
-  useEventListener(window, 'mousemove', (e: MouseEvent) => {
-    x.value = e.clientX;
-    y.value = e.clientY;
+  useEventListener(window, 'mousemove', (e: Event) => {
+    const { clientX, clientY } = e as MouseEvent;
+    x.value = clientX;
+    y.value = clientY;
   });
   return { x, y };
 };

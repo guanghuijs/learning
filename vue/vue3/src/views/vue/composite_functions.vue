@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useMouse } from '@/common/sueMouse';
+  import { useMouse } from '@/utils';
   const { x, y } = useMouse();
 </script>
 
