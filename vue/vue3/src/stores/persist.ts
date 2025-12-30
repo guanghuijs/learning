@@ -6,7 +6,9 @@ import { type PiniaPluginContext } from 'pinia';
  *
  * @param context pinia上下文实例
  */
-export default function (context: PiniaPluginContext) {
+export default function persist(
+  context: PiniaPluginContext,
+) {
   const { store } = context;
   const key = KEY_PREFIX + store.$id;
   console.log(store.$state);
@@ -15,5 +17,7 @@ export default function (context: PiniaPluginContext) {
     localStorage.setItem(key, JSON.stringify(store.$state));
   });
   // 页面加载是取
-  store.$patch(JSON.parse(localStorage.getItem(key) || '{}'));
+  store.$patch(
+    JSON.parse(localStorage.getItem(key) || '{}'),
+  );
 }
