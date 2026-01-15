@@ -43,7 +43,7 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'scss',
-    redirect:'/scss/annotation',
+    redirect: '/scss/annotation',
     meta: {
       title: 'scss',
       sort: 6,
@@ -51,9 +51,8 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'demo',
-    redirect:'/demo/grape',
+    redirect: '/demo/grape',
     meta: {
-
       title: 'demo',
       sort: 7,
     },
@@ -68,7 +67,7 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'bmap',
-    redirect:'/bmap/init',
+    redirect: '/bmap/init',
     meta: {
       title: 'bmap',
       sort: 9,
@@ -76,7 +75,7 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'amap',
-    redirect:'/amap/init',
+    redirect: '/amap/init',
     meta: {
       title: 'amap',
       sort: 10,
@@ -84,7 +83,7 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'echarts',
-    redirect:'/echarts/basics',
+    redirect: '/echarts/basics',
     meta: {
       title: 'echarts',
       sort: 11,
@@ -92,7 +91,7 @@ export const map: Partial<RouteRecordRaw>[] = [
   },
   {
     name: 'swiper',
-    redirect:'/swiper/base',
+    redirect: '/swiper/base',
     meta: {
       title: 'swiper',
       sort: 12,
@@ -104,6 +103,14 @@ export const map: Partial<RouteRecordRaw>[] = [
     meta: {
       title: 'motion',
       sort: 13,
+    },
+  },
+  {
+    name: 'ai',
+    redirect: '/ai/spark-ai-lite',
+    meta: {
+      title: 'ai',
+      sort: 14,
     },
   },
 ];

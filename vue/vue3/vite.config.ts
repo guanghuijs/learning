@@ -28,6 +28,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  server: {
+    proxy: {
+      '/spark-api': {
+        target: 'https://spark-api-open.xf-yun.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/spark-api/, ''),
+      },
+    },
+  },
   envPrefix: ['GLOBAL', 'DEV'],
   build: {
     emptyOutDir: true,
