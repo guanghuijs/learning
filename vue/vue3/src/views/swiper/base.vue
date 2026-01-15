@@ -6,7 +6,15 @@
       :speed="500"
       :grabCursor="true"
       v-bind="config"
-      :modules="modules"
+      :modules="[
+        Pagination,
+        EffectCube,
+        EffectFade,
+        EffectCoverflow,
+        EffectFlip,
+        EffectCards,
+        Autoplay,
+      ]"
       :cubeEffect="{
         shadow: true,
         slideShadows: true,
@@ -14,14 +22,20 @@
         shadowScale: 0.94,
       }"
     >
-      <swiper-slide v-for="img in swiperList" :key="img">
-        <div class="item">
-          <img :src="img" alt="" />
+      <swiper-slide
+        v-for="(color, i) in swiperList"
+        :key="color"
+      >
+        <div class="item" :style="{ background: color }">
+          {{ i + 1 }}
         </div>
       </swiper-slide>
     </swiper>
     <h2>swiper基础配置</h2>
     <configurationForm v-model:value="config" />
+    <pre>
+      {{ config }}
+    </pre>
   </page>
 </template>
 <script setup lang="ts">
@@ -44,15 +58,8 @@
     EffectFlip,
     EffectCards,
     Pagination,
+    Autoplay,
   } from 'swiper/modules';
-  const modules = ref([
-    Pagination,
-    EffectCube,
-    EffectFade,
-    EffectCoverflow,
-    EffectFlip,
-    EffectCards,
-  ]);
 
   import { ref, unref } from 'vue';
   import configurationForm from './components/BaseForm.vue';
@@ -60,6 +67,7 @@
   const { effect } = useSysStoreRefs();
 
   const config = ref<{
+    autoplay: boolean;
     navigation: boolean;
     loop: boolean;
     pagination: boolean;
@@ -71,6 +79,7 @@
       | 'flip'
       | 'cards';
   }>({
+    autoplay: true,
     navigation: true,
     loop: true,
     pagination: true,
@@ -85,11 +94,12 @@
     .item {
       overflow: hidden;
       border-radius: 20px;
-      img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-      }
+      width: 100%;
+      line-height: 300px;
+      font-size: 100px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
     }
   }
 </style>

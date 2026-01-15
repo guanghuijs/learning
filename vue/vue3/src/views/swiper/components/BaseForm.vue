@@ -8,6 +8,7 @@
   } from 'naive-ui';
 
   const form = defineModel<{
+    autoplay: boolean;
     navigation: boolean;
     loop: boolean;
     pagination: boolean;
@@ -20,6 +21,7 @@
       | 'cards';
   }>('value', {
     default: {
+      autoplay: true,
       navigation: true,
       loop: true,
       pagination: false,
@@ -45,6 +47,12 @@
     size="small"
   >
     <n-grid :cols="4" :x-gap="20" item-responsive>
+      <n-form-item-gi
+        span="0:2 900:2 900:1"
+        label="自动播放"
+      >
+        <n-switch v-model:value="form.autoplay" />
+      </n-form-item-gi>
       <n-form-item-gi
         span="0:2 900:2 900:1"
         label="navigation(导航)"
