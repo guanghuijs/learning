@@ -1,4 +1,5 @@
 /// <reference types="@tarojs/taro" />
+/// <reference types="vite/client" />
 
 declare module '*.png';
 declare module '*.gif';
