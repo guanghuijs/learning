@@ -1,5 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: '网络请求668888',
+  navigationBarTitleText: '首页',
   enablePullDownRefresh: true,
   backgroundTextStyle: 'dark'
 });

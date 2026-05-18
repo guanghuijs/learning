@@ -1,5 +1,6 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli';
 import path from 'path';
+import { createStyleImportPlugin } from "vite-plugin-style-import";
 
 import devConfig from './dev';
 import prodConfig from './prod';
@@ -27,6 +28,22 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
     },
     framework: 'react',
     compiler: 'vite',
+    vitePlugins: [
+      createStyleImportPlugin({
+        libs: [
+          {
+            libraryName: "@taroify/core",
+            esModule: true,
+            resolveStyle: (name: string) => `@taroify/core/${name}/index.css`,
+          },
+          {
+            libraryName: "@taroify/icons",
+            esModule: true,
+            resolveStyle: () => "@taroify/icons/style",
+          },
+        ],
+      }),
+    ],
     mini: {
       postcss: {
         pxtransform: {
@@ -74,7 +91,7 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       }
     },
     alias: {
-      '@/utils': path.resolve(__dirname, '..', 'src/utils')
+      '@': path.resolve(__dirname, '..', 'src'),
     }
   };
 
