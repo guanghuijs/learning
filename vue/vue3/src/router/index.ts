@@ -1,11 +1,16 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import {
+  createRouter,
+  createWebHashHistory,
+} from 'vue-router';
 import { routes } from 'vue-router/auto-routes';
 import { map } from './map';
 import { defineComponent, h } from 'vue';
 import { Home } from '@/components/home';
 
 routes.forEach((route) => {
-  const options = map.find((option) => route.path.endsWith(option.name));
+  const options = map.find((option) =>
+    route.path.endsWith(option.name)
+  );
   Object.assign(route, {
     ...options,
     component: defineComponent(() => {
@@ -18,7 +23,9 @@ routes.forEach((route) => {
 });
 
 // 排序
-routes.sort((routeA, routeB) => routeA.meta.sort - routeB.meta.sort);
+routes.sort(
+  (routeA, routeB) => routeA.meta.sort - routeB.meta.sort
+);
 
 // 根路由
 routes.unshift({
@@ -26,16 +33,14 @@ routes.unshift({
   redirect: '/js_',
 });
 
-console.log(routes);
-
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
 });
 
 router.afterEach((route) => {
-  document.title = route.meta.title + ' - vue3 demo'
-})
+  document.title = route.meta.title + ' - vue3 demo';
+});
 
 console.log(router.getRoutes());
 
