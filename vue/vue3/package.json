@@ -6,6 +6,10 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "dev": "vite --host --mode lock",
     "_build": "run-p type-check \"build-only {@}\" --",
