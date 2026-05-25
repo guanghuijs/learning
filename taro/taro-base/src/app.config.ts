@@ -23,7 +23,8 @@ export default defineAppConfig({
         text: '接口',
         iconPath: '',
         selectedIconPath: ''
-      }, {
+      },
+      {
         pagePath: 'pages/components/index',
         text: '组件',
         iconPath: '',

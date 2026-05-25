@@ -1,8 +1,10 @@
-import { View } from '@tarojs/components';
 import Taro, { useLoad, usePullDownRefresh } from '@tarojs/taro';
+import './index.scss';
+
+import { View } from '@tarojs/components';
+
 import { request } from '@/utils/request';
 import { useState } from 'react';
-import './index.scss';
 
 
 export default function Index() {
