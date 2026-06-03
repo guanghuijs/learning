@@ -1,13 +1,26 @@
 /**
  *  基础
  */
-import { Controller, Get, Query } from '@midwayjs/core';
+import {
+  Controller,
+  Get,
+  Query,
+  Inject,
+  Post,
+  Body,
+  Param,
+  Headers,
+} from '@midwayjs/core';
+import { Context } from '@midwayjs/koa';
 import { User } from '~interface';
 import { ReportMiddleware } from '~middleware/report.middleware';
 
 // 控制器
 @Controller('/')
 export class BaseController {
+  @Inject()
+  ctx: Context;
+
   @Get('/')
   async home(): Promise<string> {
     return '学习midway!';
@@ -21,16 +34,39 @@ export class BaseController {
     return '路由!';
   }
 
-  @Get('/getUser')
-  async getUser(@Query('id') id: string): Promise<User> {
-    console.log(id);
-    return { id: 123, name: '张三', age: 18 };
+  @Get('/user')
+  async getUser(
+    @Query() query: User,
+    @Query('name') name: string
+  ): Promise<User> {
+    console.log(query, name);
+    return query;
   }
 
-  @Get('/getUser2')
-  async getUserQData(@Query() queryData: User): Promise<User> {
-    console.log(queryData);
-    return { id: 123, name: '张三', age: 18 };
+  @Post('/user')
+  async postUser(
+    @Body() data: User,
+    @Body('name') name: string
+  ): Promise<User> {
+    console.log(data, name);
+    return data;
+  }
+
+  @Get('/user/:id')
+  async getUserById(@Param('id') id: string): Promise<string> {
+    return `你是第${id}个用户`;
+  }
+
+  @Get('/headers')
+  async getHeaders(@Headers() headers: ParameterDecorator): Promise<string> {
+    console.log(headers);
+    return '获取headers';
+  }
+
+  @Get('/cookie')
+  async cookie(@Query('name') name: string): Promise<string> {
+    this.ctx.cookies.set('name', name);
+    return '设置了cookie';
   }
 
   @Get('/text-middleware', { middleware: [ReportMiddleware] })
