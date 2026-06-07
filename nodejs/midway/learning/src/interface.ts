@@ -4,6 +4,8 @@ export interface User {
   age: number;
 }
 
+export interface User {}
+
 /**
  * @description User-Service parameters
  */

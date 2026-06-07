@@ -13,7 +13,7 @@ import {
 } from '@midwayjs/core';
 import { Context } from '@midwayjs/koa';
 import { User } from '~interface';
-import { ReportMiddleware } from '~middleware/report.middleware';
+import { ReportMiddleware } from '~middleware/report';
 
 // 控制器
 @Controller('/')

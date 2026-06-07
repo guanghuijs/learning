@@ -1,5 +1,5 @@
 /**
- *  基础
+ *  todoList
  */
 import {
   Body,
@@ -13,16 +13,16 @@ import {
 } from '@midwayjs/core';
 import { Context } from '@midwayjs/koa';
 
-import { TodolistService } from '~/service/todoList.service';
+import { TodoListService } from '~service/todoList';
 
 // 控制器
 @Controller('/todo')
-export class BaseController {
+export class TodoListController {
   @Inject()
   ctx: Context;
 
   @Inject('TodolistService')
-  todo: TodolistService;
+  todo: TodoListService;
 
   @Get('/list')
   async list(): Promise<any[]> {

@@ -9,7 +9,7 @@ export interface ITodo {
 
 @Scope(ScopeEnum.Singleton)
 @Provide('TodolistService')
-export class TodolistService {
+export class TodoListService {
   private todoList: ITodo[] = [];
 
   async list() {
@@ -38,6 +38,7 @@ export class TodolistService {
   }
 
   async edit(todo: any) {
+    console.log(todo);
     const list = await this.list();
     const i = list.findIndex(item => item.id === todo.id);
     list[i] = todo;

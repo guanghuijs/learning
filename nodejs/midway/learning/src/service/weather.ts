@@ -2,7 +2,7 @@ import { Provide, makeHttpRequest } from '@midwayjs/core';
 import { WeatherInfo } from '~/interface';
 
 @Provide()
-export class WeatherService {
+export class Weather {
   async getWeather(cityId: string): Promise<WeatherInfo> {
     const result = await makeHttpRequest<WeatherInfo>(
       `https://midwayjs.org/resource/${cityId}.json`,
